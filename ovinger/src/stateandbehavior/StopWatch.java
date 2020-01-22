@@ -28,7 +28,7 @@ public class StopWatch {
 		s.lap();
 		System.out.println(s.getLastLapTime());
 		System.out.println(s.getTime());
-		
+
 	}
 	public boolean isStarted() {
 		return started;
@@ -70,7 +70,7 @@ public class StopWatch {
 			return getTime() - laps.get(laps.size() -1);
 		}
 	}
-	
+
 	public int getLastLapTime() {
 		if (laps.size() == 0) {
 			return -1;
@@ -80,7 +80,7 @@ public class StopWatch {
 			return laps.get(laps.size()-1) - laps.get(laps.size()-2);
 		}
 	}
-	
+
 	public void lap() {
 		int t = getTime();
 		laps.add(t);
