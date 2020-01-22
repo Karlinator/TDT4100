@@ -18,7 +18,18 @@ public class StopWatch {
 		stopped = false;
 		System.out.println(laps);
 	}
-
+	public static void main(String[] args) {
+		StopWatch s = new StopWatch();
+		s.start();
+		s.tick(5);
+		s.lap();
+		System.out.println(s.getTime());
+		s.tick(3);
+		s.lap();
+		System.out.println(s.getLastLapTime());
+		System.out.println(s.getTime());
+		
+	}
 	public boolean isStarted() {
 		return started;
 	}
