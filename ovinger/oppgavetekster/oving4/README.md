@@ -34,6 +34,8 @@ Her stilles det også krav til at det må være noe kalkulasjoner av et eller an
 
 <br>
 
+<br>
+
 Eksempler på apper man kan lage:
 * Spill (f.eks. bondesjakk, sokoban, minesweeper, yatzy)
 * Standard mobilapper som kalender, klokke, påminnelser, etc.
