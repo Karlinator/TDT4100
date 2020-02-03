@@ -13,8 +13,8 @@ public class Bok {
 		this.sideantall = sideantall;
 	}
 
-	
-	
+
+
 	public String getTittel() {
 		return tittel;
 	}
