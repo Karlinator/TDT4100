@@ -33,6 +33,19 @@ public class Bok {
 
 
 
+	public static void main(String[] args) {
+		Bok bok = new Bok("Das Kapital","Karl Marx",500);
+		System.out.println(bok);
+	}
+
+
+
+	public int getSideantall() {
+		return sideantall;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Bok [tittel=" + tittel + ", forfatter=" + forfatter + ", sideantall=" + sideantall + "]";
