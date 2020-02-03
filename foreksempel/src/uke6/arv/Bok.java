@@ -33,11 +33,19 @@ public class Bok {
 
 
 
+	@Override
+	public String toString() {
+		return "Bok [tittel=" + tittel + ", forfatter=" + forfatter + ", sideantall=" + sideantall + "]";
+	}
+
+
+
 	public static void main(String[] args) {
 		Bok bok = new Bok("Das Kapital","Karl Marx",500);
 		System.out.println(bok);
 	}
 
+<<<<<<< HEAD
 
 
 	public int getSideantall() {
@@ -50,6 +58,8 @@ public class Bok {
 	public String toString() {
 		return "Bok [tittel=" + tittel + ", forfatter=" + forfatter + ", sideantall=" + sideantall + "]";
 	}
+=======
+>>>>>>> Nå skal ting fungere.
 
 
 
