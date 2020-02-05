@@ -41,7 +41,7 @@ public class CoffeeCupProgram {
 		cup.fillCoffee(Math.floor(r.nextDouble()*30));
 		cup.drinkCoffee(Math.ceil(r.nextDouble()*38.9));
 		cup.drinkCoffee(Math.ceil(r.nextDouble()*42));
-		cup.increaseCupSize(Math.floor(r.nextDouble()*26));
+		cup.increaseCupSize(Math.floor(r.nextDouble()*26)); 
 		cup.fillCoffee(Math.ceil(r.nextDouble()*59));
 		cup.drinkCoffee(Math.ceil(r.nextDouble()*42));
 		cup.increaseCupSize(Math.floor(r.nextDouble()*35));
