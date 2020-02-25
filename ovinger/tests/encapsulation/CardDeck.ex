@@ -311,6 +311,68 @@ CardDeck.shufflePerfectly()&#xD;
           <consoleOutput>D1&#xD;
 </consoleOutput>
         </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1580823254275" mode="run" className="encapsulation.CardDeck">
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>encapsulation.CardDeck</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <consoleOutput>32&#xD;
+Exception in thread &quot;main&quot; java.lang.IndexOutOfBoundsException: toIndex = 33&#xD;
+	at java.base/java.util.AbstractList.subListRangeCheck(AbstractList.java:507)&#xD;
+	at java.base/java.util.ArrayList.subList(ArrayList.java:1104)&#xD;
+	at ovinger/encapsulation.CardDeck.shufflePerfectly(CardDeck.java:31)&#xD;
+	at ovinger/encapsulation.CardDeck.main(CardDeck.java:45)&#xD;
+</consoleOutput>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1580823297456" mode="run" className="encapsulation.CardDeck">
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>encapsulation.CardDeck</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <consoleOutput>32&#xD;
+30&#xD;
+S1&#xD;
+H8&#xD;
+</consoleOutput>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1580823537905" mode="run" className="encapsulation.CardDeck">
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>encapsulation.CardDeck</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <consoleOutput>32&#xD;
+30&#xD;
+S1&#xD;
+D1&#xD;
+</consoleOutput>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1580823691947" mode="run" className="encapsulation.CardDeck">
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>encapsulation.CardDeck</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <consoleOutput>32&#xD;
+32&#xD;
+S1&#xD;
+D1&#xD;
+</consoleOutput>
+        </attempts>
       </proposals>
       <proposals xsi:type="junit:JunitTestProposal" question="/0/@parts.0/@tasks.2/@q" answer="/0/@parts.0/@tasks.2/@a">
         <attempts xsi:type="junit:JunitTestEvent" timestamp="1580822336305" completion="0.5" testRunName="encapsulation.CardDeckTest" successCount="1" failureCount="1">
