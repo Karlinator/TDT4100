@@ -616,6 +616,70 @@ CardDeck.shufflePerfectly()&#xD;
           <launchAttrValues>ovinger</launchAttrValues>
           <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
         </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1582662361264" mode="run" className="objectstructures.CoffeCupTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit5</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>objectstructures.CoffeCupTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1582662378761" mode="run" className="objectstructures.CoffeCupTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit5</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>objectstructures.CoffeCupTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1582662501858" mode="run" className="objectstructures.CoffeCupTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit5</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>objectstructures.CoffeCupTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1582662734849" mode="run" className="objectstructures.CoffeCupTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit5</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>objectstructures.CoffeCupTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
       </proposals>
       <proposals xsi:type="junit:JunitTestProposal" question="/0/@parts.0/@tasks.2/@q" answer="/0/@parts.0/@tasks.2/@a">
         <attempts xsi:type="junit:JunitTestEvent" timestamp="1580822336305" completion="0.5" testRunName="encapsulation.CardDeckTest" successCount="1" failureCount="1">
@@ -641,6 +705,36 @@ CardDeck.shufflePerfectly()&#xD;
         <attempts xsi:type="junit:JunitTestEvent" timestamp="1580838397705" completion="1.0" testRunName="encapsulation.CardDeckTest" successCount="2">
           <successTests>testShufflePerfectly</successTests>
           <successTests>testConstructor</successTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1582662363256" completion="0.8" testRunName="objectstructures.CoffeCupTest" successCount="4" failureCount="1">
+          <successTests>getCurrentVolumeTest</successTests>
+          <successTests>ConstructorTest</successTests>
+          <successTests>drinkCoffeeTest</successTests>
+          <successTests>getCapacityTest</successTests>
+          <failureTests>increaseCupSizeTest</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1582662380545" completion="1.0" testRunName="objectstructures.CoffeCupTest" successCount="5">
+          <successTests>getCurrentVolumeTest</successTests>
+          <successTests>ConstructorTest</successTests>
+          <successTests>increaseCupSizeTest</successTests>
+          <successTests>drinkCoffeeTest</successTests>
+          <successTests>getCapacityTest</successTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1582662503698" completion="0.8333333333333334" testRunName="objectstructures.CoffeCupTest" successCount="5" failureCount="1">
+          <successTests>getCurrentVolumeTest</successTests>
+          <successTests>ConstructorTest</successTests>
+          <successTests>increaseCupSizeTest</successTests>
+          <successTests>drinkCoffeeTest</successTests>
+          <successTests>getCapacityTest</successTests>
+          <failureTests>fillCoffeeTest</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1582662736496" completion="1.0" testRunName="objectstructures.CoffeCupTest" successCount="6">
+          <successTests>getCurrentVolumeTest</successTests>
+          <successTests>fillCoffeeTest</successTests>
+          <successTests>ConstructorTest</successTests>
+          <successTests>increaseCupSizeTest</successTests>
+          <successTests>drinkCoffeeTest</successTests>
+          <successTests>getCapacityTest</successTests>
         </attempts>
       </proposals>
     </proposals>
@@ -1175,6 +1269,26 @@ CardDeck.shufflePerfectly()&#xD;
         <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1580839536043" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
         <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1580839555804" elementId="no.hal.learning.exercise.ui.commands.OpenExerciseView" action="executeSuccess"/>
         <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1580839754865" elementId="org.eclipse.ui.ide.showInSystemExplorer" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662073144" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662109034" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662109720" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662112690" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662287655" elementId="org.eclipse.ui.edit.cut" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662289062" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662345314" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662361253" elementId="org.eclipse.jdt.junit.junitShortcut.run" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662376352" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662378760" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662411748" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662413013" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662500145" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662501857" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662723120" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662724559" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662733756" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662734849" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662758364" elementId="org.eclipse.ui.edit.findNext" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662782389" elementId="org.eclipse.ui.ide.showInSystemExplorer" action="executeSuccess"/>
       </proposals>
       <proposals xsi:type="workbench:PartTaskProposal" question="/0/@parts.1/@tasks.2/@q" answer="/0/@parts.1/@tasks.2/@a">
         <attempts xsi:type="workbench:PartTaskEvent" timestamp="1580822269048" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
@@ -1735,6 +1849,59 @@ CardDeck.shufflePerfectly()&#xD;
         <attempts xsi:type="workbench:PartTaskEvent" timestamp="1580856685330" elementId="org.eclipse.jdt.junit.ResultView" action="closed"/>
         <attempts xsi:type="workbench:PartTaskEvent" timestamp="1580856685346" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
         <attempts xsi:type="workbench:PartTaskEvent" timestamp="1580856685348" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582660127347" elementId="no.hal.learning.exercise.views.ExerciseView" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582660127788" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582661823250" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582661823330" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582661978936" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582661978954" elementId="no.hal.learning.exercise.views.ExerciseView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582661990209" elementId="no.hal.learning.exercise.views.ExerciseView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582661990226" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662124206" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/src/objectstructures/CoffeeCup.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662124217" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/objectstructures/CoffeeCup.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662124221" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662124240" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/objectstructures/CoffeeCup.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662148578" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/objectstructures/CoffeeCup.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662148582" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662148597" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662348259" elementId="org.eclipse.jdt.junit.ResultView" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662348262" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662348403" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662348444" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662350482" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662350485" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662350519" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662363212" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662363214" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662363248" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662363394" elementId="org.eclipse.ui.console.ConsoleView" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662374152" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662374171" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662378674" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662378711" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662387585" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662387607" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662501761" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662501798" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662653678" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662653753" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662734745" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662734785" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662742131" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662742150" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662767545" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662767571" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582662767605" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582663456273" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582663456339" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582663468172" elementId="org.eclipse.jdt.junit.ResultView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582663468195" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582663468210" elementId="org.eclipse.ui.console.ConsoleView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582663468229" elementId="no.hal.learning.exercise.views.ExerciseView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582663468257" elementId="org.eclipse.debug.ui.VariableView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582663468274" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/objectstructures/CoffeeCup.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582663468290" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582663468291" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
       </proposals>
     </proposals>
   </exercise:ExerciseProposals>
