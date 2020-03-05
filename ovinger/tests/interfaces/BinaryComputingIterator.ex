@@ -64,6 +64,9 @@
         <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583440501460" resourcePath="/ovinger/src/interfaces/BinaryComputingIterator.java" sizeMeasure="43" className="interfaces.BinaryComputingIterator">
           <edit xsi:type="exercise:ReplaceSubstringEdit" edit="/1/@proposals.0/@proposals.0/@attempts.6/@edit" start="1335"/>
         </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583442236729" resourcePath="/ovinger/src/interfaces/BinaryComputingIterator.java" sizeMeasure="43" className="interfaces.BinaryComputingIterator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" edit="/1/@proposals.0/@proposals.0/@attempts.7/@edit" start="1335"/>
+        </attempts>
       </proposals>
       <proposals xsi:type="jdt:JdtLaunchProposal" question="/0/@parts.0/@tasks.1/@q" answer="/0/@parts.0/@tasks.1/@a"/>
       <proposals xsi:type="junit:JunitTestProposal" question="/0/@parts.0/@tasks.2/@q" answer="/0/@parts.0/@tasks.2/@a">
