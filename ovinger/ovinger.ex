@@ -92,6 +92,90 @@
           <edit xsi:type="exercise:ReplaceSubstringEdit" storedString=" " edit="/1/@proposals.0/@proposals.0/@attempts.17/@edit" start="1155" end="-399"/>
           <markers xsi:type="jdt:JdtMarkerInfo" lineNumber="20" charStart="287" charEnd="294" severity="1" problemCategory="120" problemType="603979894"/>
         </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583366785529" resourcePath="/ovinger/src/objectstructures/TwitterAccount.java" sizeMeasure="66" warningCount="1" className="objectstructures.TwitterAccount">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="objectstructures;&#xA;&#xA;import java.util.ArrayList;&#xA;import java.util.List;&#xA;&#xA;public class TwitterAccount {&#xA;&#x9;private String username;&#xA;&#x9;private List&lt;Tweet> tweets = new ArrayList&lt;Tweet>();&#xA;&#x9;private List&lt;TwitterAccount> followedAccounts = new ArrayList&lt;TwitterAccount>();&#xA;&#x9;private List&lt;TwitterAccount> followers = new ArrayList&lt;TwitterAccount>();&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;public TwitterAccount(String name) {&#xA;&#x9;&#x9;username = name;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public String getUserName() {&#xA;&#x9;&#x9;return username;&#xA;&#x9;}&#xA;&#x9;public void follow(TwitterAccount account) {&#xA;&#x9;&#x9;if (!followedAccounts.contains(account)) {&#xA;&#x9;&#x9;&#x9;followedAccounts.add(account);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;public void unfollow(TwitterAccount account) {&#xA;&#x9;&#x9;followedAccounts.remove(account);&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public boolean isFollowing(TwitterAccount account) {&#xA;&#x9;&#x9;return followedAccounts.contains(account);&#xA;&#x9;}&#xA;&#x9;public boolean isFollowedBy(TwitterAccount account) {&#xA;&#x9;&#x9;return account.isFollowing(this);&#xA;&#x9;}&#xA;&#x9;public void tweet(String text) {&#xA;&#x9;&#x9;tweets.add(new Tweet(this, text));&#xA;&#x9;}&#xA;&#x9;public void retweet(Tweet tweet) {&#xA;&#x9;&#x9;if (tweet.getOriginalTweet() == null) {&#xA;&#x9;&#x9;&#x9;tweets.add(new Tweet(this, tweet));&#xA;&#x9;&#x9;} else {&#xA;&#x9;&#x9;&#x9;tweets.add(new Tweet(this, tweet.getOriginalTweet()));&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;Tweet getTweet(int i) {&#xA;&#x9;&#x9;return tweets.get(tweets.size()-i);&#xA;&#x9;}&#xA;&#x9;public int getTweetCount() {&#xA;&#x9;&#x9;return tweets.size();&#xA;&#x9;}&#xA;&#x9;public int getRetweetCount() {&#xA;&#x9;&#x9;return tweets.stream().mapToInt(t -> t.getRetweetCount()).sum();&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;public static void main(String[] args) {&#xA;&#x9;&#x9;TwitterAccount karl = new TwitterAccount(&quot;karl&quot;);&#xA;&#x9;&#x9;TwitterAccount per = new TwitterAccount(&quot;per&quot;);&#xA;&#x9;&#x9;TwitterAccount ola = new TwitterAccount(&quot;ola&quot;);&#xA;&#x9;&#x9;karl.follow(ola);&#xA;&#x9;&#x9;karl.tweet(&quot;Jeg har en ny ting!&quot;);&#xA;&#x9;&#x9;per.retweet(karl.getTweet(1));&#xA;&#x9;&#x9;ola.retweet(per.getTweet(1));&#xA;&#x9;&#x9;System.out.println(ola.getTweet(1).getText());&#xA;&#x9;}" edit="/1/@proposals.0/@proposals.0/@attempts.18/@edit" start="8" end="-4"/>
+          <markers xsi:type="jdt:JdtMarkerInfo" lineNumber="10" charStart="310" charEnd="319" severity="1" problemCategory="120" problemType="570425421"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583366830913" resourcePath="/ovinger/src/interfaces/twitter/UserNameComparator.java" sizeMeasure="5" className="interfaces.twitter.UserNameComparator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="interfaces.twitter;&#xA;&#xA;public class UserNameComparator {&#xA;" edit="/1/@proposals.0/@proposals.0/@attempts.19/@edit" start="8" end="-4"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583367380223" resourcePath="/ovinger/src/interfaces/twitter/UserNameComparator.java" sizeMeasure="11" className="interfaces.twitter.UserNameComparator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="import java.util.Comparator;&#xA;&#xA;import objectstructures.TwitterAccount;&#xA;&#xA;public class UserNameComparator implements Comparator&lt;TwitterAccount> {&#xA;&#x9;public int compare(TwitterAccount acc1, TwitterAccount acc2) {&#xA;&#x9;&#x9;return acc1.getUserName().compareTo(acc2.getUserName());&#xA;&#x9;}" edit="/1/@proposals.0/@proposals.0/@attempts.20/@edit" start="29" end="-4"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583367426578" resourcePath="/ovinger/src/interfaces/twitter/Tweet.java" sizeMeasure="41" className="interfaces.twitter.Tweet">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="&#xA;public class Tweet {&#xA;&#x9;&#xA;&#x9;private String text;&#xA;&#x9;private Tweet originalTweet;&#xA;&#x9;private TwitterAccount owner;&#xA;&#x9;private int retweetCount = 0;&#xA;&#x9;&#xA;&#x9;public Tweet(TwitterAccount account, String text) {&#xA;&#x9;&#x9;originalTweet = null;&#xA;&#x9;&#x9;owner = account;&#xA;&#x9;&#x9;this.text = text;&#xA;&#x9;}&#xA;&#x9;public Tweet(TwitterAccount account, Tweet tweet) {&#xA;&#x9;&#x9;if (account == tweet.getOwner()) {&#xA;&#x9;&#x9;&#x9;throw new RuntimeException();&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;text = tweet.getText();&#xA;&#x9;&#x9;owner = account;&#xA;&#x9;&#x9;originalTweet = tweet;&#xA;&#x9;&#x9;tweet.addRetweet();&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public String getText() {&#xA;&#x9;&#x9;return text;&#xA;&#x9;}&#xA;&#x9;public TwitterAccount getOwner() {&#xA;&#x9;&#x9;return owner;&#xA;&#x9;}&#xA;&#x9;public Tweet getOriginalTweet() {&#xA;&#x9;&#x9;return originalTweet;&#xA;&#x9;}&#xA;&#x9;public int getRetweetCount() {&#xA;&#x9;&#x9;return retweetCount;&#xA;&#x9;}&#xA;&#x9;public void addRetweet() {&#xA;&#x9;&#x9;retweetCount++" edit="/1/@proposals.0/@proposals.0/@attempts.21/@edit" start="29" end="-8"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583367443048" resourcePath="/ovinger/src/interfaces/twitter/UserNameComparator.java" sizeMeasure="9" className="interfaces.twitter.UserNameComparator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="import java.util.Comparator;&#xA;&#xA;public class UserNameComparator implements Comparator&lt;TwitterAccount> {&#xA;&#x9;public int compare(TwitterAccount acc1, TwitterAccount acc2) {&#xA;&#x9;&#x9;return acc1.getUserName().compareTo(acc2.getUserName())" edit="/1/@proposals.0/@proposals.0/@attempts.22/@edit" start="29" end="-8"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583367762296" resourcePath="/ovinger/src/interfaces/twitter/FollowerCountComparator.java" sizeMeasure="5" className="interfaces.twitter.FollowerCountComparator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="public class FollowerCountComparator {&#xA;" edit="/1/@proposals.0/@proposals.0/@attempts.23/@edit" start="29" end="-4"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583367793199" resourcePath="/ovinger/src/interfaces/twitter/TweetsCountComparator.java" sizeMeasure="5" className="interfaces.twitter.TweetsCountComparator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="Tweets" edit="/1/@proposals.0/@proposals.0/@attempts.24/@edit" start="42" end="-22"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583367904078" resourcePath="/ovinger/src/interfaces/twitter/TweetsCountComparator.java" sizeMeasure="9" errorCount="2" className="interfaces.twitter.TweetsCountComparator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="import java.util.Comparator;&#xA;&#xA;public class TweetsCountComparator implements Comparator&lt;TwitterAccount> {&#xA;&#x9;public int compare(TwitterAccount acc1, TwitterAccount acc2) {&#xA;&#x9;&#x9;return &#xA;&#x9;}" edit="/1/@proposals.0/@proposals.0/@attempts.25/@edit" start="29" end="-4"/>
+          <markers xsi:type="jdt:JdtMarkerInfo" lineNumber="7" charStart="206" charEnd="212" severity="2" problemCategory="50" problemType="603979884"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583367954816" resourcePath="/ovinger/src/interfaces/twitter/TweetsCountComparator.java" sizeMeasure="9" className="interfaces.twitter.TweetsCountComparator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="acc1.getTweetCount()-acc2.getTweetCount();" edit="/1/@proposals.0/@proposals.0/@attempts.26/@edit" start="207" end="-7"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583367997768" resourcePath="/ovinger/src/interfaces/twitter/TweetsCountComparator.java" sizeMeasure="9" className="interfaces.twitter.TweetsCountComparator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="2.getTweetCount()-acc1" edit="/1/@proposals.0/@proposals.0/@attempts.27/@edit" start="210" end="-24"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583368112018" resourcePath="/ovinger/src/objectstructures/TwitterAccount.java" sizeMeasure="68" errorCount="2" warningCount="1" className="objectstructures.TwitterAccount">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="objectstructures;&#xA;&#xA;import java.util.ArrayList;&#xA;import java.util.List;&#xA;&#xA;public class TwitterAccount {&#xA;&#x9;private String username;&#xA;&#x9;private List&lt;Tweet> tweets = new ArrayList&lt;Tweet>();&#xA;&#x9;private List&lt;TwitterAccount> followedAccounts = new ArrayList&lt;TwitterAccount>();&#xA;&#x9;private List&lt;TwitterAccount> followers = new ArrayList&lt;TwitterAccount>();&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;public TwitterAccount(String name) {&#xA;&#x9;&#x9;username = name;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public String getUserName() {&#xA;&#x9;&#x9;return username;&#xA;&#x9;}&#xA;&#x9;public void follow(TwitterAccount account) {&#xA;&#x9;&#x9;if (!followedAccounts.contains(account)) {&#xA;&#x9;&#x9;&#x9;followedAccounts.add(account);&#xA;&#x9;&#x9;&#x9;account.addFollower(this);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;public void unfollow(TwitterAccount account) {&#xA;&#x9;&#x9;followedAccounts.remove(account);&#xA;&#x9;&#x9;account.removeFollower(this);&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public boolean isFollowing(TwitterAccount account) {&#xA;&#x9;&#x9;return followedAccounts.contains(account);&#xA;&#x9;}&#xA;&#x9;public boolean isFollowedBy(TwitterAccount account) {&#xA;&#x9;&#x9;return account.isFollowing(this);&#xA;&#x9;}&#xA;&#x9;public void tweet(String text) {&#xA;&#x9;&#x9;tweets.add(new Tweet(this, text));&#xA;&#x9;}&#xA;&#x9;public void retweet(Tweet tweet) {&#xA;&#x9;&#x9;if (tweet.getOriginalTweet() == null) {&#xA;&#x9;&#x9;&#x9;tweets.add(new Tweet(this, tweet));&#xA;&#x9;&#x9;} else {&#xA;&#x9;&#x9;&#x9;tweets.add(new Tweet(this, tweet.getOriginalTweet()));&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;Tweet getTweet(int i) {&#xA;&#x9;&#x9;return tweets.get(tweets.size()-i);&#xA;&#x9;}&#xA;&#x9;public int getTweetCount() {&#xA;&#x9;&#x9;return tweets.size();&#xA;&#x9;}&#xA;&#x9;public int getRetweetCount() {&#xA;&#x9;&#x9;return tweets.stream().mapToInt(t -> t.getRetweetCount()).sum();&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;public static void main(String[] args) {&#xA;&#x9;&#x9;TwitterAccount karl = new TwitterAccount(&quot;karl&quot;);&#xA;&#x9;&#x9;TwitterAccount per = new TwitterAccount(&quot;per&quot;);&#xA;&#x9;&#x9;TwitterAccount ola = new TwitterAccount(&quot;ola&quot;);&#xA;&#x9;&#x9;karl.follow(ola);&#xA;&#x9;&#x9;karl.tweet(&quot;Jeg har en ny ting!&quot;);&#xA;&#x9;&#x9;per.retweet(karl.getTweet(1));&#xA;&#x9;&#x9;ola.retweet(per.getTweet(1));&#xA;&#x9;&#x9;System.out.println(ola.getTweet(1).getText()" edit="/1/@proposals.0/@proposals.0/@attempts.28/@edit" start="8" end="-9"/>
+          <markers xsi:type="jdt:JdtMarkerInfo" lineNumber="28" charStart="748" charEnd="762" severity="2" problemCategory="50" problemType="67108964"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583368189658" resourcePath="/ovinger/src/objectstructures/TwitterAccount.java" sizeMeasure="77" className="objectstructures.TwitterAccount">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="rivate void addFollower(TwitterAccount account) {&#xA;&#x9;&#x9;followers.add(account);&#xA;&#x9;}&#xA;&#xA;&#x9;public void unfollow(TwitterAccount account) {&#xA;&#x9;&#x9;followedAccounts.remove(account);&#xA;&#x9;&#x9;account.removeFollower(this);&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;private void removeFollower(TwitterAccount account) {&#xA;&#x9;&#x9;followers.remove(account);&#xA;&#x9;&#x9;&#xA;&#x9;}&#xA;" edit="/1/@proposals.0/@proposals.0/@attempts.29/@edit" start="629" end="-1064"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583368193278" resourcePath="/ovinger/src/objectstructures/TwitterAccount.java" sizeMeasure="76" className="objectstructures.TwitterAccount">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="}" edit="/1/@proposals.0/@proposals.0/@attempts.30/@edit" start="915" end="-1065"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583368262652" resourcePath="/ovinger/src/objectstructures/TwitterAccount.java" sizeMeasure="79" className="objectstructures.TwitterAccount">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="public int getFollowerCount() {&#xA;&#x9;&#x9;return followers.size();&#xA;&#x9;}&#xA;&#x9;" edit="/1/@proposals.0/@proposals.0/@attempts.31/@edit" start="1607" end="-374"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583368278376" resourcePath="/ovinger/src/interfaces/twitter/FollowerCountComparator.java" sizeMeasure="9" errorCount="2" className="interfaces.twitter.FollowerCountComparator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="interfaces.twitter;&#xA;&#xA;import java.util.Comparator;&#xA;&#xA;public class FollowerCountComparator implements Comparator&lt;TwitterAccount> {&#xA;&#x9;public int compare(TwitterAccount acc1, TwitterAccount acc2) {&#xA;&#x9;&#x9;return acc2.getFollowerCount()-acc1.getFollowerCount(" edit="/1/@proposals.0/@proposals.0/@attempts.32/@edit" start="8" end="-9"/>
+          <markers xsi:type="jdt:JdtMarkerInfo" lineNumber="7" charStart="244" charEnd="260" severity="2" problemCategory="50" problemType="67108964"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583368323629" resourcePath="/ovinger/src/interfaces/twitter/TwitterAccount.java" sizeMeasure="79" errorCount="1" className="interfaces.twitter.TwitterAccount">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="objectstructures;&#xA;&#xA;import java.util.ArrayList;&#xA;import java.util.List;&#xA;&#xA;public class TwitterAccount {&#xA;&#x9;private String username;&#xA;&#x9;private List&lt;Tweet> tweets = new ArrayList&lt;Tweet>();&#xA;&#x9;private List&lt;TwitterAccount> followedAccounts = new ArrayList&lt;TwitterAccount>();&#xA;&#x9;private List&lt;TwitterAccount> followers = new ArrayList&lt;TwitterAccount>();&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;public TwitterAccount(String name) {&#xA;&#x9;&#x9;username = name;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public String getUserName() {&#xA;&#x9;&#x9;return username;&#xA;&#x9;}&#xA;&#x9;public void follow(TwitterAccount account) {&#xA;&#x9;&#x9;if (!followedAccounts.contains(account)) {&#xA;&#x9;&#x9;&#x9;followedAccounts.add(account);&#xA;&#x9;&#x9;&#x9;account.addFollower(this);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;private void addFollower(TwitterAccount account) {&#xA;&#x9;&#x9;followers.add(account);&#xA;&#x9;}&#xA;&#xA;&#x9;public void unfollow(TwitterAccount account) {&#xA;&#x9;&#x9;followedAccounts.remove(account);&#xA;&#x9;&#x9;account.removeFollower(this);&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;private void removeFollower(TwitterAccount account) {&#xA;&#x9;&#x9;followers.remove(account);&#xA;&#x9;}&#xA;&#xA;&#x9;public boolean isFollowing(TwitterAccount account) {&#xA;&#x9;&#x9;return followedAccounts.contains(account);&#xA;&#x9;}&#xA;&#x9;public boolean isFollowedBy(TwitterAccount account) {&#xA;&#x9;&#x9;return account.isFollowing(this);&#xA;&#x9;}&#xA;&#x9;public void tweet(String text) {&#xA;&#x9;&#x9;tweets.add(new Tweet(this, text));&#xA;&#x9;}&#xA;&#x9;public void retweet(Tweet tweet) {&#xA;&#x9;&#x9;if (tweet.getOriginalTweet() == null) {&#xA;&#x9;&#x9;&#x9;tweets.add(new Tweet(this, tweet));&#xA;&#x9;&#x9;} else {&#xA;&#x9;&#x9;&#x9;tweets.add(new Tweet(this, tweet.getOriginalTweet()));&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;Tweet getTweet(int i) {&#xA;&#x9;&#x9;return tweets.get(tweets.size()-i);&#xA;&#x9;}&#xA;&#x9;public int getTweetCount() {&#xA;&#x9;&#x9;return tweets.size();&#xA;&#x9;}&#xA;&#x9;public int getRetweetCount() {&#xA;&#x9;&#x9;return tweets.stream().mapToInt(t -> t.getRetweetCount()).sum();&#xA;&#x9;}&#xA;&#x9;public int getFollowerCount() {&#xA;&#x9;&#x9;return followers.size();&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;public static void main(String[] args) {&#xA;&#x9;&#x9;TwitterAccount karl = new TwitterAccount(&quot;karl&quot;);&#xA;&#x9;&#x9;TwitterAccount per = new TwitterAccount(&quot;per&quot;);&#xA;&#x9;&#x9;TwitterAccount ola = new TwitterAccount(&quot;ola&quot;);&#xA;&#x9;&#x9;karl.follow(ola);&#xA;&#x9;&#x9;karl.tweet(&quot;Jeg har en ny ting!&quot;);&#xA;&#x9;&#x9;per.retweet(karl.getTweet(1));&#xA;&#x9;&#x9;ola.retweet(per.getTweet(1));&#xA;&#x9;&#x9;System.out.println(ola.getTweet(1).getText()" edit="/1/@proposals.0/@proposals.0/@attempts.33/@edit" start="8" end="-9"/>
+          <markers xsi:type="jdt:JdtMarkerInfo" lineNumber="1" charStart="8" charEnd="24" severity="2" problemCategory="60" problemType="536871240"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583368350311" resourcePath="/ovinger/src/interfaces/twitter/FollowerCountComparator.java" sizeMeasure="9" errorCount="1" className="interfaces.twitter.FollowerCountComparator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="interfaces.twitter;&#xA;&#xA;import java.util.Comparator;&#xA;&#xA;public class FollowersCountComparator implements Comparator&lt;TwitterAccount> {&#xA;&#x9;public int compare(TwitterAccount acc1, TwitterAccount acc2) {&#xA;&#x9;&#x9;return acc2.getFollowerCount()-acc1.getFollowerCount(" edit="/1/@proposals.0/@proposals.0/@attempts.34/@edit" start="8" end="-9"/>
+          <markers xsi:type="jdt:JdtMarkerInfo" lineNumber="5" charStart="76" charEnd="100" severity="2" problemCategory="40" problemType="16777541"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583368375484" resourcePath="/ovinger/src/interfaces/twitter/FollowersCountComparator.java" sizeMeasure="9" className="interfaces.twitter.FollowersCountComparator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" edit="/1/@proposals.0/@proposals.0/@attempts.35/@edit" start="264"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583368398133" resourcePath="/ovinger/src/interfaces/twitter/TwitterAccount.java" sizeMeasure="79" className="interfaces.twitter.TwitterAccount">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="ArrayList;&#xA;import java.util.List;&#xA;&#xA;public class TwitterAccount {&#xA;&#x9;private String username;&#xA;&#x9;private List&lt;Tweet> tweets = new ArrayList&lt;Tweet>();&#xA;&#x9;private List&lt;TwitterAccount> followedAccounts = new ArrayList&lt;TwitterAccount>();&#xA;&#x9;private List&lt;TwitterAccount> followers = new ArrayList&lt;TwitterAccount>();&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;public TwitterAccount(String name) {&#xA;&#x9;&#x9;username = name;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public String getUserName() {&#xA;&#x9;&#x9;return username;&#xA;&#x9;}&#xA;&#x9;public void follow(TwitterAccount account) {&#xA;&#x9;&#x9;if (!followedAccounts.contains(account)) {&#xA;&#x9;&#x9;&#x9;followedAccounts.add(account);&#xA;&#x9;&#x9;&#x9;account.addFollower(this);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;private void addFollower(TwitterAccount account) {&#xA;&#x9;&#x9;followers.add(account);&#xA;&#x9;}&#xA;&#xA;&#x9;public void unfollow(TwitterAccount account) {&#xA;&#x9;&#x9;followedAccounts.remove(account);&#xA;&#x9;&#x9;account.removeFollower(this);&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;private void removeFollower(TwitterAccount account) {&#xA;&#x9;&#x9;followers.remove(account);&#xA;&#x9;}&#xA;&#xA;&#x9;public boolean isFollowing(TwitterAccount account) {&#xA;&#x9;&#x9;return followedAccounts.contains(account);&#xA;&#x9;}&#xA;&#x9;public boolean isFollowedBy(TwitterAccount account) {&#xA;&#x9;&#x9;return account.isFollowing(this);&#xA;&#x9;}&#xA;&#x9;public void tweet(String text) {&#xA;&#x9;&#x9;tweets.add(new Tweet(this, text));&#xA;&#x9;}&#xA;&#x9;public void retweet(Tweet tweet) {&#xA;&#x9;&#x9;if (tweet.getOriginalTweet() == null) {&#xA;&#x9;&#x9;&#x9;tweets.add(new Tweet(this, tweet));&#xA;&#x9;&#x9;} else {&#xA;&#x9;&#x9;&#x9;tweets.add(new Tweet(this, tweet.getOriginalTweet()));&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;Tweet getTweet(int i) {&#xA;&#x9;&#x9;return tweets.get(tweets.size()-i);&#xA;&#x9;}&#xA;&#x9;public int getTweetCount() {&#xA;&#x9;&#x9;return tweets.size();&#xA;&#x9;}&#xA;&#x9;public int getRetweetCount() {&#xA;&#x9;&#x9;return tweets.stream().mapToInt(t -> t.getRetweetCount()).sum();&#xA;&#x9;}&#xA;&#x9;public int getFollowerCount() {&#xA;&#x9;&#x9;return followers.size();&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;public static void main(String[] args) {&#xA;&#x9;&#x9;TwitterAccount karl = new TwitterAccount(&quot;karl&quot;);&#xA;&#x9;&#x9;TwitterAccount per = new TwitterAccount(&quot;per&quot;);&#xA;&#x9;&#x9;TwitterAccount ola = new TwitterAccount(&quot;ola&quot;);&#xA;&#x9;&#x9;karl.follow(ola);&#xA;&#x9;&#x9;karl.tweet(&quot;Jeg har en ny ting!&quot;);&#xA;&#x9;&#x9;per.retweet(karl.getTweet(1));&#xA;&#x9;&#x9;ola.retweet(per.getTweet(1));&#xA;&#x9;&#x9;System.out.println(ola.getTweet(1).getText()" edit="/1/@proposals.0/@proposals.0/@attempts.36/@edit" start="46" end="-9"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583369002731" resourcePath="/ovinger/src/interfaces/twitter/TwitterAccount.java" sizeMeasure="88" warningCount="1" className="interfaces.twitter.TwitterAccount">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="Collections;&#xA;import java.util.Comparator;&#xA;import java.util.List;&#xA;import java.util.stream.Collectors;&#xA;&#xA;public class TwitterAccount {&#xA;&#x9;private String username;&#xA;&#x9;private List&lt;Tweet> tweets = new ArrayList&lt;Tweet>();&#xA;&#x9;private List&lt;TwitterAccount> followedAccounts = new ArrayList&lt;TwitterAccount>();&#xA;&#x9;private List&lt;TwitterAccount> followers = new ArrayList&lt;TwitterAccount>();&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;public TwitterAccount(String name) {&#xA;&#x9;&#x9;username = name;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public String getUserName() {&#xA;&#x9;&#x9;return username;&#xA;&#x9;}&#xA;&#x9;public void follow(TwitterAccount account) {&#xA;&#x9;&#x9;if (!followedAccounts.contains(account)) {&#xA;&#x9;&#x9;&#x9;followedAccounts.add(account);&#xA;&#x9;&#x9;&#x9;account.addFollower(this);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;private void addFollower(TwitterAccount account) {&#xA;&#x9;&#x9;followers.add(account);&#xA;&#x9;}&#xA;&#xA;&#x9;public void unfollow(TwitterAccount account) {&#xA;&#x9;&#x9;followedAccounts.remove(account);&#xA;&#x9;&#x9;account.removeFollower(this);&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;private void removeFollower(TwitterAccount account) {&#xA;&#x9;&#x9;followers.remove(account);&#xA;&#x9;}&#xA;&#xA;&#x9;public boolean isFollowing(TwitterAccount account) {&#xA;&#x9;&#x9;return followedAccounts.contains(account);&#xA;&#x9;}&#xA;&#x9;public boolean isFollowedBy(TwitterAccount account) {&#xA;&#x9;&#x9;return account.isFollowing(this);&#xA;&#x9;}&#xA;&#x9;public void tweet(String text) {&#xA;&#x9;&#x9;tweets.add(new Tweet(this, text));&#xA;&#x9;}&#xA;&#x9;public void retweet(Tweet tweet) {&#xA;&#x9;&#x9;if (tweet.getOriginalTweet() == null) {&#xA;&#x9;&#x9;&#x9;tweets.add(new Tweet(this, tweet));&#xA;&#x9;&#x9;} else {&#xA;&#x9;&#x9;&#x9;tweets.add(new Tweet(this, tweet.getOriginalTweet()));&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;Tweet getTweet(int i) {&#xA;&#x9;&#x9;return tweets.get(tweets.size()-i);&#xA;&#x9;}&#xA;&#x9;public int getTweetCount() {&#xA;&#x9;&#x9;return tweets.size();&#xA;&#x9;}&#xA;&#x9;public int getRetweetCount() {&#xA;&#x9;&#x9;return tweets.stream().mapToInt(t -> t.getRetweetCount()).sum();&#xA;&#x9;}&#xA;&#x9;public int getFollowerCount() {&#xA;&#x9;&#x9;return followers.size();&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public List&lt;TwitterAccount> getFollowers(Comparator&lt;TwitterAccount> comparator) {&#xA;&#x9;&#x9;List&lt;TwitterAccount> sorted = List.copyOf(followers);&#xA;&#x9;&#x9;Collections.sort(sorted, comparator);&#xA;&#x9;&#x9;return sorted" edit="/1/@proposals.0/@proposals.0/@attempts.37/@edit" start="74" end="-380"/>
+          <markers xsi:type="jdt:JdtMarkerInfo" lineNumber="7" charStart="152" charEnd="179" severity="1" problemCategory="120" problemType="268435844"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583369053044" resourcePath="/ovinger/src/interfaces/twitter/TwitterAccountComparator.java" sizeMeasure="5" className="interfaces.twitter.TwitterAccountComparator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="public class TwitterAccountComparator {&#xA;" edit="/1/@proposals.0/@proposals.0/@attempts.38/@edit" start="29" end="-4"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583369282059" resourcePath="/ovinger/src/interfaces/twitter/FollowersCountComparator.java" sizeMeasure="9" errorCount="1" className="interfaces.twitter.FollowersCountComparator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="import java.util.Comparator;&#xA;&#xA;public class FollowersCountComparator implements Comparator&lt;TwitterAccount> {&#xA;&#x9;public static int compare(TwitterAccount acc1, TwitterAccount acc2) {&#xA;&#x9;&#x9;return acc2.getFollowerCount()-acc1.getFollowerCount();&#xA;&#x9;}" edit="/1/@proposals.0/@proposals.0/@attempts.39/@edit" start="29" end="-4"/>
+          <markers xsi:type="jdt:JdtMarkerInfo" lineNumber="6" charStart="161" charEnd="210" severity="2" problemCategory="50" problemType="67109271"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583369291270" resourcePath="/ovinger/src/interfaces/twitter/FollowersCountComparator.java" sizeMeasure="9" className="interfaces.twitter.FollowersCountComparator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="i" edit="/1/@proposals.0/@proposals.0/@attempts.40/@edit" start="145" end="-119"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583369293569" resourcePath="/ovinger/src/interfaces/twitter/TwitterAccountComparator.java" sizeMeasure="13" errorCount="3" className="interfaces.twitter.TwitterAccountComparator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="TwitterAccountComparator  implements Comparator&lt;TwitterAccount> {&#xA;&#x9;public int compare(TwitterAccount acc1, TwitterAccount acc2) {&#xA;&#x9;&#x9;if (FollowersCountComparator.compare(acc1, acc2) == 0) {&#xA;&#x9;&#x9;&#x9;if&#xA;&#x9;&#x9;} else {&#xA;&#x9;&#x9;&#x9;return acc2.getFollowerCount()-acc1.getFollowerCount()&#xA;&#x9;&#x9;}" edit="/1/@proposals.0/@proposals.0/@attempts.41/@edit" start="72" end="-7"/>
+          <markers xsi:type="jdt:JdtMarkerInfo" lineNumber="10" charStart="343" charEnd="344" severity="2" problemCategory="20" problemType="1610612976"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583369393262" resourcePath="/ovinger/src/interfaces/twitter/TwitterAccountComparator.java" sizeMeasure="17" className="interfaces.twitter.TwitterAccountComparator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="acc2.getFollowerCount()-acc1.getFollowerCount() == 0) {&#xA;&#x9;&#x9;&#x9;if (acc2.getTweetCount()-acc1.getTweetCount() == 0) {&#xA;&#x9;&#x9;&#x9;&#x9;return acc1.getUserName().compareTo(acc2.getUserName());&#xA;&#x9;&#x9;&#x9;} else {&#xA;&#x9;&#x9;&#x9;&#x9;return acc2.getTweetCount()-acc1.getTweetCount();&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;} else {&#xA;&#x9;&#x9;&#x9;return acc2.getFollowerCount()-acc1.getFollowerCount();" edit="/1/@proposals.0/@proposals.0/@attempts.42/@edit" start="208" end="-11"/>
+        </attempts>
       </proposals>
       <proposals xsi:type="jdt:JdtLaunchProposal" question="/0/@parts.0/@tasks.1/@q" answer="/0/@parts.0/@tasks.1/@a">
         <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1580822302279" mode="run" className="encapsulation.CardDeck">
@@ -680,6 +764,134 @@ CardDeck.shufflePerfectly()&#xD;
           <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
           <launchAttrValues>-ea</launchAttrValues>
         </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583367675574" mode="run" className="interfaces.twitter.UserNameComparatorTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.twitter.UserNameComparatorTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583367965773" mode="run" className="interfaces.twitter.TwitterAccountTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.twitter.TwitterAccountTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583367987905" mode="run" className="interfaces.twitter.TweetsCountComparatorTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.twitter.TweetsCountComparatorTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583367999591" mode="run" className="interfaces.twitter.TweetsCountComparatorTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.twitter.TweetsCountComparatorTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583368337525" mode="run" className="interfaces.twitter.FollowersCountComparatorTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.twitter.FollowersCountComparatorTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583368379179" mode="run" className="interfaces.twitter.FollowersCountComparatorTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.twitter.FollowersCountComparatorTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583368398953" mode="run" className="interfaces.twitter.FollowersCountComparatorTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.twitter.FollowersCountComparatorTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583369012120" mode="run" className="interfaces.twitter.TwitterAccountTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.twitter.TwitterAccountTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
       </proposals>
       <proposals xsi:type="junit:JunitTestProposal" question="/0/@parts.0/@tasks.2/@q" answer="/0/@parts.0/@tasks.2/@a">
         <attempts xsi:type="junit:JunitTestEvent" timestamp="1580822336305" completion="0.5" testRunName="encapsulation.CardDeckTest" successCount="1" failureCount="1">
@@ -735,6 +947,40 @@ CardDeck.shufflePerfectly()&#xD;
           <successTests>increaseCupSizeTest</successTests>
           <successTests>drinkCoffeeTest</successTests>
           <successTests>getCapacityTest</successTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1583367677417" completion="1.0" testRunName="interfaces.twitter.UserNameComparatorTest" successCount="1">
+          <successTests>testCompare</successTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1583367967570" completion="0.6666666666666666" testRunName="interfaces.twitter.TwitterAccountTest" successCount="4" errorCount="2">
+          <successTests>testGetTweetIllegal</successTests>
+          <successTests>testRetweet</successTests>
+          <successTests>testConstructor</successTests>
+          <successTests>testNewTweet</successTests>
+          <errorTests>testUnfollow</errorTests>
+          <errorTests>testFollow</errorTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1583367989439" completion="0.0" testRunName="interfaces.twitter.TweetsCountComparatorTest" failureCount="1">
+          <failureTests>testCompare</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1583368001115" completion="1.0" testRunName="interfaces.twitter.TweetsCountComparatorTest" successCount="1">
+          <successTests>testCompare</successTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1583368339239" completion="0.0" testRunName="interfaces.twitter.FollowersCountComparatorTest" errorCount="1">
+          <errorTests>initializationError</errorTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1583368380598" completion="0.0" testRunName="interfaces.twitter.FollowersCountComparatorTest" errorCount="1">
+          <errorTests>testCompare</errorTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1583368400085" completion="1.0" testRunName="interfaces.twitter.FollowersCountComparatorTest" successCount="1">
+          <successTests>testCompare</successTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1583369013823" completion="1.0" testRunName="interfaces.twitter.TwitterAccountTest" successCount="6">
+          <successTests>testGetTweetIllegal</successTests>
+          <successTests>testUnfollow</successTests>
+          <successTests>testRetweet</successTests>
+          <successTests>testFollow</successTests>
+          <successTests>testConstructor</successTests>
+          <successTests>testNewTweet</successTests>
         </attempts>
       </proposals>
     </proposals>
@@ -1289,6 +1535,103 @@ CardDeck.shufflePerfectly()&#xD;
         <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662734849" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
         <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662758364" elementId="org.eclipse.ui.edit.findNext" action="executeSuccess"/>
         <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1582662782389" elementId="org.eclipse.ui.ide.showInSystemExplorer" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583366391371" elementId="org.eclipse.ui.ide.showInSystemExplorer" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583366518103" elementId="no.hal.learning.exercise.ui.commands.OpenExerciseView" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583366785562" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583367122504" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583367243505" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583367244533" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583367380234" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583367422517" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583367426592" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583367443061" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583367470818" elementId="org.eclipse.m2e.core.ui.command.updateProject" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583367515709" elementId="org.eclipse.ui.edit.text.showInformation" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583367657442" elementId="org.eclipse.ui.file.properties" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583367675567" elementId="org.eclipse.jdt.junit.junitShortcut.run" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583367804705" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583367807167" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583367831973" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583367839145" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583367904090" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583367954828" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583367965771" elementId="org.eclipse.jdt.junit.junitShortcut.run" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583367987904" elementId="org.eclipse.jdt.junit.junitShortcut.run" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583367997782" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583367999590" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368040961" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368045175" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368045989" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368084729" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368085176" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368085610" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368112049" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368189688" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368193308" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368210619" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368213964" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368262687" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368278391" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368303268" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368320193" elementId="org.eclipse.ui.edit.selectAll" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368320589" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368322325" elementId="org.eclipse.ui.edit.selectAll" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368322873" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368323660" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368337524" elementId="org.eclipse.jdt.junit.junitShortcut.run" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368350323" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368375557" elementId="org.eclipse.jdt.ui.edit.text.java.rename.element" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368379179" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368398163" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368398952" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368747966" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368755737" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368756055" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368851221" elementId="org.eclipse.ui.edit.delete" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368851785" elementId="org.eclipse.ui.edit.delete" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368852567" elementId="org.eclipse.ui.edit.delete" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368890020" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368890397" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368890715" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368891047" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368891376" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368891875" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368892259" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368892711" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368893214" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583368893651" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369002765" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369012119" elementId="org.eclipse.jdt.junit.junitShortcut.run" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369059062" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369062236" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369141600" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369143128" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369148612" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369282072" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369291283" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369293585" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369295882" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369296068" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369296390" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369296652" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369296940" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369297316" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369297983" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369298448" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369299265" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369299820" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369300327" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369300923" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369301360" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369302099" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369302505" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369345632" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369347909" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369368439" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369370279" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369384531" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369393281" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369500715" elementId="org.eclipse.ui.file.refresh" action="executeSuccess"/>
       </proposals>
       <proposals xsi:type="workbench:PartTaskProposal" question="/0/@parts.1/@tasks.2/@q" answer="/0/@parts.1/@tasks.2/@a">
         <attempts xsi:type="workbench:PartTaskEvent" timestamp="1580822269048" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
@@ -1902,6 +2245,327 @@ CardDeck.shufflePerfectly()&#xD;
         <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582663468274" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/objectstructures/CoffeeCup.java"/>
         <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582663468290" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
         <attempts xsi:type="workbench:PartTaskEvent" timestamp="1582663468291" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583358292632" elementId="no.hal.learning.exercise.views.ExerciseView" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583358293222" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583358407557" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583358407579" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583361833764" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583361833840" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583361953855" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583361953932" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366503414" elementId="no.hal.learning.exercise.presentation.ExerciseEditorID" action="opened" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/TwitterComparison.ex"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366503426" elementId="no.hal.learning.exercise.presentation.ExerciseEditorID" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/TwitterComparison.ex"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366503433" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366503457" elementId="no.hal.learning.exercise.presentation.ExerciseEditorID" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/TwitterComparison.ex"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366506447" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366506449" elementId="no.hal.learning.exercise.presentation.ExerciseEditorID" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/TwitterComparison.ex"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366506459" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366506540" elementId="no.hal.learning.exercise.presentation.ExerciseEditorID" action="closed" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/TwitterComparison.ex"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366507269" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366507276" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366517904" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366517948" elementId="no.hal.learning.exercise.views.ExerciseView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366568067" elementId="no.hal.learning.exercise.views.ExerciseView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366568170" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366568327" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/src/objectstructures/Tweet.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366568346" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/objectstructures/Tweet.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366568349" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366568358" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/objectstructures/Tweet.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366568384" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/tests/objectstructures/CoffeCupTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366601521" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366601539" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366601543" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/objectstructures/Tweet.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366601557" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366808360" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366808367" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366830966" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366830968" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366830978" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583366831027" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367057200" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367057203" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367057215" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367061431" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367061433" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367061445" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367062482" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367062484" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367062494" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367063893" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367063895" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367063906" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367065581" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367065583" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367065594" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367066757" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367066759" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367066769" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367386100" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367386106" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367395648" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/UserNameComparatorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367395649" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/UserNameComparatorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367395658" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367395704" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/UserNameComparatorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367407131" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/UserNameComparatorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367407137" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367438787" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367438792" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367438845" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367447895" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367447897" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/UserNameComparatorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367447907" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/UserNameComparatorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367451280" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/UserNameComparatorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367451286" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367482956" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367482998" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/UserNameComparatorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367484014" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/UserNameComparatorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367484021" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367502570" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/tests/objectstructures/TwitterAccountTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367502571" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/objectstructures/TwitterAccountTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367502581" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367502634" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/objectstructures/TwitterAccountTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367520443" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/objectstructures/TwitterAccountTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367527778" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/objectstructures/TwitterAccountTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367527784" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367658174" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367658190" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/objectstructures/TwitterAccountTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367666324" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/objectstructures/TwitterAccountTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367666330" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367677165" elementId="org.eclipse.jdt.junit.ResultView" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367677326" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367677328" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367677411" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367677520" elementId="org.eclipse.ui.console.ConsoleView" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367677906" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367677964" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/objectstructures/TwitterAccountTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367678035" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/UserNameComparatorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367678037" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/objectstructures/TwitterAccountTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367678047" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/UserNameComparatorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367678109" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/tests/objectstructures/TwitterAccountTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367680101" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/UserNameComparatorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367680111" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367682719" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367682724" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367682757" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367685681" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367685683" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/UserNameComparatorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367685693" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/UserNameComparatorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367711227" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/UserNameComparatorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367711229" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367711239" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367715950" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367715957" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367719167" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367719168" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367719204" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367762546" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367762547" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367762556" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367762607" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367765590" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367765596" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367793447" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367793448" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367793457" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367793508" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367798012" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367798014" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367798026" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367799922" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367799924" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367799934" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367800947" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367800948" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367800959" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367805331" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367805342" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367805354" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367828831" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367828833" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367828846" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367832841" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367832844" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367832854" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367833849" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367833851" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/UserNameComparatorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367833861" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/UserNameComparatorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367834694" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/UserNameComparatorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367834696" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367834707" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367836072" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/tests/interfaces/twitter/UserNameComparatorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367905830" elementId="org.eclipse.ui.views.ProblemView" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367963250" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367963256" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367967522" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367967524" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367967563" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367982296" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367982298" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367982333" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367989391" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367989394" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367989433" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367993318" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367993337" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367999501" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583367999521" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368005212" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368005217" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368005245" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368006501" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368006503" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368006512" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368200229" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368200231" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368200242" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368202964" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368202965" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368202975" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368211283" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368211285" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368211295" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368229661" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368229663" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368229674" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368264154" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368264157" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368264170" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368285492" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368285494" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368285504" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368288511" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368288513" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368288525" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368298559" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368298560" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368298564" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368298572" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368312988" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368312990" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368313001" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368316803" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368316805" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368316815" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368319194" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368319196" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368319206" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368321542" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368321544" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368321554" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368325704" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368325707" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368325719" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368331268" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368331289" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368331373" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368331377" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368331384" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368331426" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368331478" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368331493" elementId="org.eclipse.jdt.junit.ResultView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368333916" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368333921" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368338958" elementId="org.eclipse.jdt.junit.ResultView" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368339148" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368339149" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368339231" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368348948" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368348966" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368358536" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368358568" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowerCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368358584" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368378419" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368378421" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368378453" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368389423" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368389429" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368389478" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368390732" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368390735" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368390747" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368398853" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368398889" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368402577" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368402582" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368402615" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368404083" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368404085" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowersCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368404096" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowersCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368405784" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowersCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368405787" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368405797" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368418264" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368418266" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368418276" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368421210" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368421213" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368421220" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368421248" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/objectstructures/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368422571" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/objectstructures/Tweet.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368423510" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368423512" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583368423523" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369004533" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369004573" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369005092" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369005092" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369005127" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369013760" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369013765" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369013817" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369016396" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369016413" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369035970" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369036007" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369036048" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369053293" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369053294" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369053303" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369053352" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369056334" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369056336" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369056346" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369059371" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369059373" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369059384" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369115166" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369115168" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowersCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369115179" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowersCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369116236" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowersCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369116238" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369116250" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369230957" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369230959" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369230970" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369236449" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369236451" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369236462" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369277278" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369277280" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowersCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369277290" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowersCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369292230" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowersCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369292232" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369292243" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369362922" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369362924" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369362935" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369369078" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369369081" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369369092" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369498600" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369498648" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369505520" elementId="org.eclipse.ui.console.ConsoleView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369505527" elementId="org.eclipse.ui.views.ProblemView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369505544" elementId="no.hal.learning.exercise.views.ExerciseView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369505572" elementId="org.eclipse.debug.ui.VariableView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369505582" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/interfaces/twitter/UserNameComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369505619" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/interfaces/twitter/FollowersCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369505635" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369505645" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369505662" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369505695" elementId="org.eclipse.jdt.junit.ResultView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369505714" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369505716" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="closed"/>
       </proposals>
     </proposals>
   </exercise:ExerciseProposals>
