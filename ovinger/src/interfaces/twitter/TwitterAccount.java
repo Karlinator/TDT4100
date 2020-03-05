@@ -1,7 +1,10 @@
-package objectstructures;
+package interfaces.twitter;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TwitterAccount {
 	private String username;
@@ -63,6 +66,12 @@ public class TwitterAccount {
 	}
 	public int getFollowerCount() {
 		return followers.size();
+	}
+	
+	public List<TwitterAccount> getFollowers(Comparator<TwitterAccount> comparator) {
+		List<TwitterAccount> sorted = List.copyOf(followers);
+		Collections.sort(sorted, comparator);
+		return sorted;
 	}
 	
 	

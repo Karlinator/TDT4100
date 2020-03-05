@@ -136,6 +136,23 @@
         <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1582588621939" resourcePath="/ovinger/src/objectstructures/TwitterAccount.java" sizeMeasure="65" className="objectstructures.TwitterAccount">
           <edit xsi:type="exercise:ReplaceSubstringEdit" storedString=".getText()" edit="/1/@proposals.0/@proposals.1/@attempts.14/@edit" start="1655" end="-9"/>
         </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583366785529" resourcePath="/ovinger/src/objectstructures/TwitterAccount.java" sizeMeasure="66" warningCount="1" className="objectstructures.TwitterAccount">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="private List&lt;TwitterAccount> followers = new ArrayList&lt;TwitterAccount>();&#xA;&#x9;" edit="/1/@proposals.0/@proposals.1/@attempts.15/@edit" start="272" end="-1402"/>
+          <markers xsi:type="jdt:JdtMarkerInfo" lineNumber="10" charStart="310" charEnd="319" severity="1" problemCategory="120" problemType="570425421"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583368112018" resourcePath="/ovinger/src/objectstructures/TwitterAccount.java" sizeMeasure="68" errorCount="2" warningCount="1" className="objectstructures.TwitterAccount">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="&#x9;account.addFollower(this);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;public void unfollow(TwitterAccount account) {&#xA;&#x9;&#x9;followedAccounts.remove(account);&#xA;&#x9;&#x9;account.removeFollower(this" edit="/1/@proposals.0/@proposals.1/@attempts.16/@edit" start="592" end="-1071"/>
+          <markers xsi:type="jdt:JdtMarkerInfo" lineNumber="28" charStart="748" charEnd="762" severity="2" problemCategory="50" problemType="67108964"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583368189658" resourcePath="/ovinger/src/objectstructures/TwitterAccount.java" sizeMeasure="77" className="objectstructures.TwitterAccount">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="rivate void addFollower(TwitterAccount account) {&#xA;&#x9;&#x9;followers.add(account);&#xA;&#x9;}&#xA;&#xA;&#x9;public void unfollow(TwitterAccount account) {&#xA;&#x9;&#x9;followedAccounts.remove(account);&#xA;&#x9;&#x9;account.removeFollower(this);&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;private void removeFollower(TwitterAccount account) {&#xA;&#x9;&#x9;followers.remove(account);&#xA;&#x9;&#x9;&#xA;&#x9;}&#xA;" edit="/1/@proposals.0/@proposals.1/@attempts.17/@edit" start="629" end="-1064"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583368193278" resourcePath="/ovinger/src/objectstructures/TwitterAccount.java" sizeMeasure="76" className="objectstructures.TwitterAccount">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="}" edit="/1/@proposals.0/@proposals.1/@attempts.18/@edit" start="915" end="-1065"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583368262652" resourcePath="/ovinger/src/objectstructures/TwitterAccount.java" sizeMeasure="79" className="objectstructures.TwitterAccount">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="public int getFollowerCount() {&#xA;&#x9;&#x9;return followers.size();&#xA;&#x9;}&#xA;&#x9;" edit="/1/@proposals.0/@proposals.1/@attempts.19/@edit" start="1607" end="-374"/>
+        </attempts>
       </proposals>
       <proposals xsi:type="jdt:JdtLaunchProposal" question="/0/@parts.0/@tasks.2/@q" answer="/0/@parts.0/@tasks.2/@a"/>
       <proposals xsi:type="jdt:JdtLaunchProposal" question="/0/@parts.0/@tasks.3/@q" answer="/0/@parts.0/@tasks.3/@a">
