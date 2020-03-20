@@ -13,3 +13,4 @@ Denne mappen inneholder øvingstekster for TDT4100 - Objektorientert programmeri
 | [Øving 7](oving7) | 20.03.2020                               | 25.03.2020                               |
 | [Øving 8](oving8) | 25.03.2020                               | 01.04.2020                               |
 | [Øving 9](oving9) | 01.04.2020                               | 03.04.2020                               |
+| [Øving 10](oving10) | 29.04.2020                               | 30.04.2020                               |
