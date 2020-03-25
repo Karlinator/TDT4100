@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
+            prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sokoban.Controller">
+   <Pane prefHeight="144.0" prefWidth="800.0" style="-fx-background-color: green;">
+      <Label layoutX="14.0" layoutY="14.0" text="Sokoban by PKE" textFill="WHITE">
+         <font>
+            <Font name="Agency FB Bold" size="55.0"/>
+         </font>
+      </Label>
+   </Pane>
+   <AnchorPane fx:id="pane" layoutX="100.0" layoutY="105.0" prefHeight="450.0" prefWidth="600.0"
+               style="-fx-background-color: white;">
+      <effect>
+         <DropShadow/>
+      </effect>
+   </AnchorPane>
+</AnchorPane>

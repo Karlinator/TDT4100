@@ -176,6 +176,56 @@
         <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583369393262" resourcePath="/ovinger/src/interfaces/twitter/TwitterAccountComparator.java" sizeMeasure="17" className="interfaces.twitter.TwitterAccountComparator">
           <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="acc2.getFollowerCount()-acc1.getFollowerCount() == 0) {&#xA;&#x9;&#x9;&#x9;if (acc2.getTweetCount()-acc1.getTweetCount() == 0) {&#xA;&#x9;&#x9;&#x9;&#x9;return acc1.getUserName().compareTo(acc2.getUserName());&#xA;&#x9;&#x9;&#x9;} else {&#xA;&#x9;&#x9;&#x9;&#x9;return acc2.getTweetCount()-acc1.getTweetCount();&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;} else {&#xA;&#x9;&#x9;&#x9;return acc2.getFollowerCount()-acc1.getFollowerCount();" edit="/1/@proposals.0/@proposals.0/@attempts.42/@edit" start="208" end="-11"/>
         </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583429408145" resourcePath="/ovinger/src/interfaces/BinaryComputingIterator.java" sizeMeasure="5" className="interfaces.BinaryComputingIterator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString=";&#xA;&#xA;public class BinaryComputingIterator {&#xA;" edit="/1/@proposals.0/@proposals.0/@attempts.43/@edit" start="18" end="-4"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583437446541" resourcePath="/ovinger/src/interfaces/BinaryComputingIterator.java" sizeMeasure="41" errorCount="1" className="interfaces.BinaryComputingIterator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="import java.util.Iterator;&#xA;import java.util.function.BinaryOperator;&#xA;&#xA;import sun.tools.jstat.Operator;&#xA;&#xA;public class BinaryComputingIterator implements Iterator&lt;Double> {&#xA;&#x9;Iterator&lt;Double> iterator1;&#xA;&#x9;Iterator&lt;Double> iterator2;&#xA;&#x9;BinaryOperator&lt;Double> operator;&#xA;&#x9;Double default1;&#xA;&#x9;Double default2;&#xA;&#x9;&#xA;&#x9;public BinaryComputingIterator(Iterator&lt;Double> iterator1, Iterator&lt;Double> iterator2, BinaryOperator&lt;Double> operator) {&#xA;&#x9;&#x9;this.iterator1 = iterator1;&#xA;&#x9;&#x9;this.iterator2 = iterator2;&#xA;&#x9;&#x9;this.operator = operator;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public BinaryComputingIterator(Iterator&lt;Double> iterator1, Iterator&lt;Double> iterator2, Double default1, Double default2, BinaryOperator&lt;Double> operator) {&#xA;&#x9;&#x9;this.iterator1 = iterator1;&#xA;&#x9;&#x9;this.iterator2 = iterator2;&#xA;&#x9;&#x9;this.operator = operator;&#xA;&#x9;&#x9;this.default1 = default1;&#xA;&#x9;&#x9;this.default2 = default2;&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public boolean hasNext() {&#xA;&#x9;&#x9;// TODO Auto-generated method stub&#xA;&#x9;&#x9;return false;&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public Double next() {&#xA;&#x9;&#x9;// TODO Auto-generated method stub&#xA;&#x9;&#x9;return operator.apply(iterator1.next(), iterator2.next());&#xA;&#x9;}" edit="/1/@proposals.0/@proposals.0/@attempts.44/@edit" start="21" end="-5"/>
+          <markers xsi:type="jdt:JdtMarkerInfo" lineNumber="6" charStart="103" charEnd="118" severity="2" problemCategory="30" problemType="268436910"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583437450891" resourcePath="/ovinger/src/interfaces/BinaryComputingIterator.java" sizeMeasure="39" errorCount="1" className="interfaces.BinaryComputingIterator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="return false;&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public Double next() {" edit="/1/@proposals.0/@proposals.0/@attempts.45/@edit" start="884" end="-69"/>
+          <markers xsi:type="jdt:JdtMarkerInfo" lineNumber="6" charStart="103" charEnd="118" severity="2" problemCategory="30" problemType="268436910"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583438626399" resourcePath="/ovinger/src/interfaces/BinaryComputingIterator.java" sizeMeasure="43" errorCount="1" className="interfaces.BinaryComputingIterator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="Double next1 = (iterator1.hasNext()) ? iterator1.next() : default1;&#xA;&#x9;&#x9;Double next2 = (iterator2.hasNext()) ? iterator2.next() : default1;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;return operator.apply(next1, next2);&#xA;&#x9;&#x9;" edit="/1/@proposals.0/@proposals.0/@attempts.46/@edit" start="939" end="-8"/>
+          <markers xsi:type="jdt:JdtMarkerInfo" lineNumber="6" charStart="103" charEnd="118" severity="2" problemCategory="30" problemType="268436910"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583439034830" resourcePath="/ovinger/src/interfaces/BinaryComputingIterator.java" sizeMeasure="43" className="interfaces.BinaryComputingIterator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="NoSuchElementException;&#xA;import java.util.function.BinaryOperator;&#xA;&#xA;public class BinaryComputingIterator implements Iterator&lt;Double> {&#xA;&#x9;Iterator&lt;Double> iterator1;&#xA;&#x9;Iterator&lt;Double> iterator2;&#xA;&#x9;BinaryOperator&lt;Double> operator;&#xA;&#x9;Double default1;&#xA;&#x9;Double default2;&#xA;&#x9;&#xA;&#x9;public BinaryComputingIterator(Iterator&lt;Double> iterator1, Iterator&lt;Double> iterator2, BinaryOperator&lt;Double> operator) {&#xA;&#x9;&#x9;this.iterator1 = iterator1;&#xA;&#x9;&#x9;this.iterator2 = iterator2;&#xA;&#x9;&#x9;this.operator = operator;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public BinaryComputingIterator(Iterator&lt;Double> iterator1, Iterator&lt;Double> iterator2, Double default1, Double default2, BinaryOperator&lt;Double> operator) {&#xA;&#x9;&#x9;this.iterator1 = iterator1;&#xA;&#x9;&#x9;this.iterator2 = iterator2;&#xA;&#x9;&#x9;this.operator = operator;&#xA;&#x9;&#x9;this.default1 = default1;&#xA;&#x9;&#x9;this.default2 = default2;&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public boolean hasNext() {&#xA;&#x9;&#x9;return (iterator1.hasNext() || default1 != null) &amp;&amp; (iterator2.hasNext() || default2 != null) &amp;&amp; (iterator1.hasNext() || iterator2.hasNext());&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public Double next() {&#xA;&#x9;&#x9;if (!hasNext()) {throw new NoSuchElementException();};" edit="/1/@proposals.0/@proposals.0/@attempts.47/@edit" start="65" end="-193"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583439102762" resourcePath="/ovinger/src/interfaces/BinaryComputingIterator.java" sizeMeasure="43" className="interfaces.BinaryComputingIterator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString=" = null;&#xA;&#x9;Double default2 = null" edit="/1/@proposals.0/@proposals.0/@attempts.48/@edit" start="307" end="-997"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583440418974" resourcePath="/ovinger/src/interfaces/BinaryComputingIterator.java" sizeMeasure="43" className="interfaces.BinaryComputingIterator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="2" edit="/1/@proposals.0/@proposals.0/@attempts.49/@edit" start="1281" end="-54"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583440501460" resourcePath="/ovinger/src/interfaces/BinaryComputingIterator.java" sizeMeasure="43" className="interfaces.BinaryComputingIterator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" edit="/1/@proposals.0/@proposals.0/@attempts.50/@edit" start="1335"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583440758294" resourcePath="/ovinger/src/debugging/StringMergingIterator.java" sizeMeasure="52" className="debugging.StringMergingIterator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="debugging;&#xA;&#xA;import java.util.Iterator;&#xA;import java.util.NoSuchElementException;&#xA;&#xA;public class StringMergingIterator implements Iterator&lt;String> {&#xA;&#xA;&#x9;private Iterator&lt;String> first;&#xA;&#x9;private Iterator&lt;String> second;&#xA;&#x9;private boolean turnSwitch;&#xA;&#xA;&#x9;public StringMergingIterator(Iterator&lt;String> first, Iterator&lt;String> second){&#xA;&#x9;&#x9;this.first = first;&#xA;&#x9;&#x9;this.second = second;&#xA;&#x9;&#x9;this.turnSwitch = true;&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public boolean hasNext() {&#xA;&#x9;&#x9;return first.hasNext() || second.hasNext();&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public String next() {&#xA;&#xA;&#x9;&#x9;if(! hasNext()){ throw new NoSuchElementException(); }&#xA;&#xA;&#x9;&#x9;String result = null;&#xA;&#xA;&#x9;&#x9;if(! first.hasNext()){&#xA;&#x9;&#x9;&#x9;result = second.next();&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;else if(! second.hasNext()){&#xA;&#x9;&#x9;&#x9;result = first.next();&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;else {&#xA;&#x9;&#x9;&#x9;if(turnSwitch){&#xA;&#x9;&#x9;&#x9;&#x9;result = first.next();&#xA;&#x9;&#x9;&#x9;&#x9;turnSwitch = false;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;if(!turnSwitch){&#xA;&#x9;&#x9;&#x9;&#x9;result = second.next();&#xA;&#x9;&#x9;&#x9;&#x9;turnSwitch = true;&#xA;&#x9;&#x9;&#x9;}&#xA;&#xA;&#x9;&#x9;}&#xA;&#xA;&#x9;&#x9;return result;&#xA;&#x9;}&#xA;" edit="/1/@proposals.0/@proposals.0/@attempts.51/@edit" start="8" end="-5"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583440777503" resourcePath="/ovinger/src/debugging/StringMergingIterator.java" sizeMeasure="51" className="debugging.StringMergingIterator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="else " edit="/1/@proposals.0/@proposals.0/@attempts.52/@edit" start="816" end="-89"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583441782058" resourcePath="/ovinger/src/debugging/StringMergingIterator.java" sizeMeasure="52" className="debugging.StringMergingIterator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="first.next();&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;else if(! second.hasNext()){&#xA;&#x9;&#x9;&#x9;result = second.next();&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;else {&#xA;&#x9;&#x9;&#x9;if(turnSwitch){&#xA;&#x9;&#x9;&#x9;&#x9;result = first.next();&#xA;&#x9;&#x9;&#x9;&#x9;turnSwitch = false;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;if(!turnSwitch)" edit="/1/@proposals.0/@proposals.0/@attempts.53/@edit" start="653" end="-89"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583442017235" resourcePath="/ovinger/src/debugging/CoffeeCupProgram.java" sizeMeasure="59" warningCount="1" className="debugging.CoffeeCupProgram">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="Random;&#xA;&#xA;public class CoffeeCupProgram {&#xA;&#xA;&#x9;private CoffeeCup cup;&#xA;&#x9;private Random r;&#xA;&#x9;&#xA;&#x9;public void init(){&#xA;&#x9;&#x9;cup = new CoffeeCup();&#xA;&#x9;&#x9;r = new Random(123456789L);&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void run(){&#xA;&#x9;&#x9;part1();&#xA;&#x9;&#x9;part2();&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;private void part1(){&#xA;&#x9;&#x9;cup.increaseCupSize(40.0);&#xA;&#x9;&#x9;cup.fillCoffee(20.5);&#xA;&#x9;&#x9;cup.drinkCoffee(Math.floor(r.nextDouble()*20.5));&#xA;&#x9;&#x9;cup.fillCoffee(32.5);&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*38.9));&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*42));&#xA;&#x9;&#x9;cup.increaseCupSize(17);&#xA;&#x9;&#x9;cup.drinkCoffee(40);&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*42));&#xA;&#x9;&#x9;cup.drinkCoffee(Math.floor(r.nextDouble()*20.5));&#xA;&#x9;&#x9;cup.fillCoffee(32.5);&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*38.9));&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*42));&#xA;&#x9;&#x9;cup.increaseCupSize(17);&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;private void part2(){&#xA;&#x9;&#x9;cup = new CoffeeCup(40.0, 20.5);&#xA;&#x9;&#x9;r = new Random(987654321L);&#xA;&#x9;&#x9;cup.drinkCoffee(Math.floor(r.nextDouble()*20.5));&#xA;&#x9;&#x9;cup.fillCoffee(Math.floor(r.nextDouble()*30));&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*38.9));&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*42));&#xA;&#x9;&#x9;cup.increaseCupSize(Math.floor(r.nextDouble()*26));&#xA;&#x9;&#x9;cup.fillCoffee(Math.ceil(r.nextDouble()*59));&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*42));&#xA;&#x9;&#x9;cup.increaseCupSize(Math.floor(r.nextDouble()*35));&#xA;&#x9;&#x9;cup.fillCoffee(Math.floor(r.nextDouble()*30));&#xA;&#x9;&#x9;cup.increaseCupSize(Math.floor(r.nextDouble()*26));&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;public static void main(String[] args) {&#xA;&#x9;&#x9;CoffeeCupProgram program = new CoffeeCupProgram();&#xA;&#x9;&#x9;program.init();&#xA;&#x9;&#x9;program.run();&#xA;&#x9;}" edit="/1/@proposals.0/@proposals.0/@attempts.54/@edit" start="37" end="-5"/>
+          <markers xsi:type="jdt:JdtMarkerInfo" lineNumber="20" charStart="287" charEnd="294" severity="1" problemCategory="120" problemType="603979894"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583442236729" resourcePath="/ovinger/src/interfaces/BinaryComputingIterator.java" sizeMeasure="43" className="interfaces.BinaryComputingIterator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="interfaces;&#xA;&#xA;import java.util.Iterator;&#xA;import java.util.NoSuchElementException;&#xA;import java.util.function.BinaryOperator;&#xA;&#xA;public class BinaryComputingIterator implements Iterator&lt;Double> {&#xA;&#x9;Iterator&lt;Double> iterator1;&#xA;&#x9;Iterator&lt;Double> iterator2;&#xA;&#x9;BinaryOperator&lt;Double> operator;&#xA;&#x9;Double default1 = null;&#xA;&#x9;Double default2 = null;&#xA;&#x9;&#xA;&#x9;public BinaryComputingIterator(Iterator&lt;Double> iterator1, Iterator&lt;Double> iterator2, BinaryOperator&lt;Double> operator) {&#xA;&#x9;&#x9;this.iterator1 = iterator1;&#xA;&#x9;&#x9;this.iterator2 = iterator2;&#xA;&#x9;&#x9;this.operator = operator;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public BinaryComputingIterator(Iterator&lt;Double> iterator1, Iterator&lt;Double> iterator2, Double default1, Double default2, BinaryOperator&lt;Double> operator) {&#xA;&#x9;&#x9;this.iterator1 = iterator1;&#xA;&#x9;&#x9;this.iterator2 = iterator2;&#xA;&#x9;&#x9;this.operator = operator;&#xA;&#x9;&#x9;this.default1 = default1;&#xA;&#x9;&#x9;this.default2 = default2;&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public boolean hasNext() {&#xA;&#x9;&#x9;return (iterator1.hasNext() || default1 != null) &amp;&amp; (iterator2.hasNext() || default2 != null) &amp;&amp; (iterator1.hasNext() || iterator2.hasNext());&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public Double next() {&#xA;&#x9;&#x9;if (!hasNext()) {throw new NoSuchElementException();};&#xA;&#x9;&#x9;Double next1 = (iterator1.hasNext()) ? iterator1.next() : default1;&#xA;&#x9;&#x9;Double next2 = (iterator2.hasNext()) ? iterator2.next() : default2;&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;return operator.apply(next1, next2);&#xA;&#x9;&#x9;" edit="/1/@proposals.0/@proposals.0/@attempts.55/@edit" start="8" end="-8"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583442266964" resourcePath="/ovinger/src/debugging/StringMergingIterator.java" sizeMeasure="51" className="debugging.StringMergingIterator">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="debugging;&#xA;&#xA;import java.util.Iterator;&#xA;import java.util.NoSuchElementException;&#xA;&#xA;public class StringMergingIterator implements Iterator&lt;String> {&#xA;&#xA;&#x9;private Iterator&lt;String> first;&#xA;&#x9;private Iterator&lt;String> second;&#xA;&#x9;private boolean turnSwitch;&#xA;&#xA;&#x9;public StringMergingIterator(Iterator&lt;String> first, Iterator&lt;String> second){&#xA;&#x9;&#x9;this.first = first;&#xA;&#x9;&#x9;this.second = second;&#xA;&#x9;&#x9;this.turnSwitch = true;&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public boolean hasNext() {&#xA;&#x9;&#x9;return first.hasNext() || second.hasNext();&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public String next() {&#xA;&#xA;&#x9;&#x9;if(! hasNext()){ throw new NoSuchElementException(); }&#xA;&#xA;&#x9;&#x9;String result = null;&#xA;&#xA;&#x9;&#x9;if(! first.hasNext()){&#xA;&#x9;&#x9;&#x9;result = second.next();&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;else if(! second.hasNext()){&#xA;&#x9;&#x9;&#x9;result = first.next();&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;else {&#xA;&#x9;&#x9;&#x9;if(turnSwitch){&#xA;&#x9;&#x9;&#x9;&#x9;result = first.next();&#xA;&#x9;&#x9;&#x9;&#x9;turnSwitch = false;&#xA;&#x9;&#x9;&#x9;}else {&#xA;&#x9;&#x9;&#x9;&#x9;result = second.next();&#xA;&#x9;&#x9;&#x9;&#x9;turnSwitch = true;&#xA;&#x9;&#x9;&#x9;}&#xA;&#xA;&#x9;&#x9;}&#xA;&#xA;&#x9;&#x9;return result;&#xA;&#x9;}&#xA;" edit="/1/@proposals.0/@proposals.0/@attempts.56/@edit" start="8" end="-5"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1583442317296" resourcePath="/ovinger/src/debugging/CoffeeCupProgram.java" sizeMeasure="59" warningCount="1" className="debugging.CoffeeCupProgram">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="Random;&#xA;&#xA;public class CoffeeCupProgram {&#xA;&#xA;&#x9;private CoffeeCup cup;&#xA;&#x9;private Random r;&#xA;&#x9;&#xA;&#x9;public void init(){&#xA;&#x9;&#x9;cup = new CoffeeCup();&#xA;&#x9;&#x9;r = new Random(123456789L);&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void run(){&#xA;&#x9;&#x9;//part1();&#xA;&#x9;&#x9;part2();&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;private void part1(){&#xA;&#x9;&#x9;cup.increaseCupSize(40.0);&#xA;&#x9;&#x9;cup.fillCoffee(20.5);&#xA;&#x9;&#x9;cup.drinkCoffee(Math.floor(r.nextDouble()*20.5));&#xA;&#x9;&#x9;cup.fillCoffee(32.5);&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*38.9));&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*42));&#xA;&#x9;&#x9;cup.increaseCupSize(17);&#xA;&#x9;&#x9;cup.drinkCoffee(40);&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*42));&#xA;&#x9;&#x9;cup.drinkCoffee(Math.floor(r.nextDouble()*20.5));&#xA;&#x9;&#x9;cup.fillCoffee(32.5);&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*38.9));&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*42));&#xA;&#x9;&#x9;cup.increaseCupSize(17);&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;private void part2(){&#xA;&#x9;&#x9;cup = new CoffeeCup(40.0, 20.5);&#xA;&#x9;&#x9;r = new Random(987654321L);&#xA;&#x9;&#x9;cup.drinkCoffee(Math.floor(r.nextDouble()*20.5));&#xA;&#x9;&#x9;cup.fillCoffee(Math.floor(r.nextDouble()*30));&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*38.9));&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*42));&#xA;&#x9;&#x9;cup.increaseCupSize(Math.floor(r.nextDouble()*26)); &#xA;&#x9;&#x9;cup.fillCoffee(Math.ceil(r.nextDouble()*59));&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*42));&#xA;&#x9;&#x9;cup.increaseCupSize(Math.floor(r.nextDouble()*35));&#xA;&#x9;&#x9;cup.fillCoffee(Math.floor(r.nextDouble()*30));&#xA;&#x9;&#x9;cup.increaseCupSize(Math.floor(r.nextDouble()*26));&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;public static void main(String[] args) {&#xA;&#x9;&#x9;CoffeeCupProgram program = new CoffeeCupProgram();&#xA;&#x9;&#x9;program.init();&#xA;&#x9;&#x9;program.run();&#xA;&#x9;}" edit="/1/@proposals.0/@proposals.0/@attempts.57/@edit" start="37" end="-5"/>
+          <markers xsi:type="jdt:JdtMarkerInfo" lineNumber="20" charStart="287" charEnd="294" severity="1" problemCategory="120" problemType="603979894"/>
+        </attempts>
       </proposals>
       <proposals xsi:type="jdt:JdtLaunchProposal" question="/0/@parts.0/@tasks.1/@q" answer="/0/@parts.0/@tasks.1/@a">
         <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1580822302279" mode="run" className="encapsulation.CardDeck">
@@ -892,6 +942,292 @@ CardDeck.shufflePerfectly()&#xD;
           <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
           <launchAttrValues>-ea</launchAttrValues>
         </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583439045469" mode="run" className="interfaces.BinaryComputingIteratorTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.BinaryComputingIteratorTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583439105257" mode="run" className="interfaces.BinaryComputingIteratorTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.BinaryComputingIteratorTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583439258380" mode="debug" className="interfaces.BinaryComputingIteratorTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.BinaryComputingIteratorTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583439585193" mode="debug" className="interfaces.BinaryComputingIteratorTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.BinaryComputingIteratorTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583439625204" mode="debug" className="interfaces.BinaryComputingIteratorTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.BinaryComputingIteratorTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583439766718" mode="debug" className="interfaces.BinaryComputingIteratorTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.BinaryComputingIteratorTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583439992117" mode="debug" className="interfaces.BinaryComputingIteratorTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TESTNAME</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>testComputeResultsWithShortIteratorAndDefault</launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.BinaryComputingIteratorTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583440165505" mode="debug" className="interfaces.BinaryComputingIteratorTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TESTNAME</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>testComputeResultsWithShortIteratorAndDefault</launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.BinaryComputingIteratorTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583440250509" mode="debug" className="interfaces.BinaryComputingIteratorTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TESTNAME</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>testComputeResultsWithShortIteratorAndDefault</launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.BinaryComputingIteratorTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583440261723" mode="debug" className="interfaces.BinaryComputingIteratorTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TESTNAME</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>testComputeResultsWithShortIteratorAndDefault</launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.BinaryComputingIteratorTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583440279492" mode="debug" className="interfaces.BinaryComputingIteratorTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TESTNAME</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>testComputeResultsWithShortIteratorAndDefault</launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.BinaryComputingIteratorTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583440359299" mode="debug" className="interfaces.BinaryComputingIteratorTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TESTNAME</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>testComputeResultsWithShortIteratorAndDefault</launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.BinaryComputingIteratorTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583440372145" mode="debug" className="interfaces.BinaryComputingIteratorTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TESTNAME</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>testComputeResultsWithShortIteratorAndDefault</launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.BinaryComputingIteratorTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583440430206" mode="debug" className="interfaces.BinaryComputingIteratorTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TESTNAME</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>testComputeResultsWithShortIteratorAndDefault</launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.BinaryComputingIteratorTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583440444038" mode="debug" className="interfaces.BinaryComputingIteratorTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TESTNAME</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>testComputeResultsWithShortIteratorAndDefault</launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.BinaryComputingIteratorTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583440463930" mode="run" className="interfaces.BinaryComputingIteratorTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>interfaces.BinaryComputingIteratorTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1583440786291" mode="run" className="debugging.StringMergingIteratorProgram">
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>debugging.StringMergingIteratorProgram</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <consoleOutput>Success! StringMergingIterator correctly merged the output of the two lists.&#xD;
+</consoleOutput>
+        </attempts>
       </proposals>
       <proposals xsi:type="junit:JunitTestProposal" question="/0/@parts.0/@tasks.2/@q" answer="/0/@parts.0/@tasks.2/@a">
         <attempts xsi:type="junit:JunitTestEvent" timestamp="1580822336305" completion="0.5" testRunName="encapsulation.CardDeckTest" successCount="1" failureCount="1">
@@ -981,6 +1317,47 @@ CardDeck.shufflePerfectly()&#xD;
           <successTests>testFollow</successTests>
           <successTests>testConstructor</successTests>
           <successTests>testNewTweet</successTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1583439048008" completion="0.8333333333333334" testRunName="interfaces.BinaryComputingIteratorTest" successCount="5" errorCount="1">
+          <successTests>testComputeResultsMultiplication</successTests>
+          <successTests>testComputeResultsWithEmptyIteratorAndDefault</successTests>
+          <successTests>testComputeResultsAddition</successTests>
+          <successTests>testComputeResultsWithShortIterator</successTests>
+          <successTests>testComputeResultsWithEmptyIterator</successTests>
+          <errorTests>testComputeResultsWithShortIteratorAndDefault</errorTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1583439107244" completion="0.8333333333333334" testRunName="interfaces.BinaryComputingIteratorTest" successCount="5" errorCount="1">
+          <successTests>testComputeResultsMultiplication</successTests>
+          <successTests>testComputeResultsWithEmptyIteratorAndDefault</successTests>
+          <successTests>testComputeResultsAddition</successTests>
+          <successTests>testComputeResultsWithShortIterator</successTests>
+          <successTests>testComputeResultsWithEmptyIterator</successTests>
+          <errorTests>testComputeResultsWithShortIteratorAndDefault</errorTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1583439769285" completion="0.8333333333333334" testRunName="interfaces.BinaryComputingIteratorTest" successCount="5" errorCount="1">
+          <successTests>testComputeResultsMultiplication</successTests>
+          <successTests>testComputeResultsWithEmptyIteratorAndDefault</successTests>
+          <successTests>testComputeResultsAddition</successTests>
+          <successTests>testComputeResultsWithShortIterator</successTests>
+          <successTests>testComputeResultsWithEmptyIterator</successTests>
+          <errorTests>testComputeResultsWithShortIteratorAndDefault</errorTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1583439994512" completion="0.0" testRunName="interfaces.BinaryComputingIteratorTest" errorCount="1">
+          <errorTests>testComputeResultsWithShortIteratorAndDefault</errorTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1583440264100" completion="0.0" testRunName="interfaces.BinaryComputingIteratorTest" errorCount="1">
+          <errorTests>testComputeResultsWithShortIteratorAndDefault</errorTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1583440445958" completion="1.0" testRunName="interfaces.BinaryComputingIteratorTest" successCount="1">
+          <successTests>testComputeResultsWithShortIteratorAndDefault</successTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1583440465915" completion="1.0" testRunName="interfaces.BinaryComputingIteratorTest" successCount="6">
+          <successTests>testComputeResultsMultiplication</successTests>
+          <successTests>testComputeResultsWithEmptyIteratorAndDefault</successTests>
+          <successTests>testComputeResultsAddition</successTests>
+          <successTests>testComputeResultsWithShortIterator</successTests>
+          <successTests>testComputeResultsWithShortIteratorAndDefault</successTests>
+          <successTests>testComputeResultsWithEmptyIterator</successTests>
         </attempts>
       </proposals>
     </proposals>
@@ -1210,6 +1587,146 @@ CardDeck.shufflePerfectly()&#xD;
         <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1580839452119" elementId="debugging.CoffeeCup" action="suspend.stepEnd"/>
         <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1580839455201" elementId="debugging.CoffeeCup" action="suspend.stepEnd"/>
         <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1580839534530" elementId="debugging.CoffeeCup" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439261168" elementId="interfaces.BinaryComputingIterator" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439410375" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439418873" elementId="java.util.Collections$UnmodifiableCollection$1" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439421444" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439423834" elementId="java.util.Collections$UnmodifiableCollection$1" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439427001" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439428695" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439434100" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439436354" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439441785" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439446354" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439460826" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439464749" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439468922" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439470187" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439474181" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439474509" elementId="interfaces.BinaryComputingIterator" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439475374" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439476186" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439476488" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439476835" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439484077" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439487413" elementId="jdk.internal.reflect.NativeMethodAccessorImpl" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439492352" elementId="jdk.internal.reflect.DelegatingMethodAccessorImpl" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439493688" elementId="java.lang.reflect.Method" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439494818" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439497464" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439498168" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439500335" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439501176" elementId="junit.framework.TestResult$1" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439503456" elementId="junit.framework.TestResult" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439504299" elementId="junit.framework.TestResult" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439505076" elementId="junit.framework.TestResult" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439505639" elementId="junit.framework.TestResult" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439506219" elementId="junit.framework.TestResult" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439512534" elementId="junit.framework.TestResult" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439513684" elementId="junit.framework.TestResult" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439514534" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439515994" elementId="junit.framework.TestSuite" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439517047" elementId="junit.framework.TestSuite" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439518283" elementId="interfaces.BinaryComputingIterator" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439520539" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439523995" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439524414" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439524753" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439525259" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439527005" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439527220" elementId="interfaces.BinaryComputingIterator" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439527467" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439528293" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439528484" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439528676" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439530422" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439533052" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439533786" elementId="jdk.internal.reflect.NativeMethodAccessorImpl" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439587686" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439590490" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439592722" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439593292" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439593673" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439595551" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439596082" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439597018" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439597637" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439598015" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439598402" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439598721" elementId="junit.framework.TestResult" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439599325" elementId="junit.framework.TestResult" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439599780" elementId="junit.framework.TestResult" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439600162" elementId="junit.framework.TestResult" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439600643" elementId="junit.framework.TestResult" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439601010" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439601581" elementId="junit.framework.TestSuite" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439602065" elementId="junit.framework.TestSuite" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439602725" elementId="org.junit.internal.runners.JUnit38ClassRunner" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439603385" elementId="org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439605772" elementId="org.eclipse.jdt.internal.junit.runner.TestExecution" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439615096" elementId="org.eclipse.jdt.internal.junit.runner.TestExecution" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439617597" elementId="org.eclipse.jdt.internal.junit.runner.RemoteTestRunner" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439627540" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439628996" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439638791" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439649293" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439650523" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439653559" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439656163" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439662005" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439670769" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439682788" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439685684" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439691586" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439695730" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439698842" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439702335" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439706428" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439710935" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439712438" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439727990" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439729514" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439730516" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439733237" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439734640" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439736718" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439737309" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439737986" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439738913" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440167679" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440175083" elementId="org.eclipse.xtext.xbase.lib.DoubleExtensions" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440185645" elementId="java.lang.Double" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440188041" elementId="org.eclipse.xtext.xbase.lib.DoubleExtensions" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440189865" elementId="java.lang.Double" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440192193" elementId="org.eclipse.xtext.xbase.lib.DoubleExtensions" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440193017" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440199117" elementId="interfaces.BinaryComputingIteratorTest$$Lambda$99.178049969" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440207552" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440231448" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440237926" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440238493" elementId="java.lang.Double" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440252893" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440281633" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440302312" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440308917" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440314286" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440319362" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440330893" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440338908" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440361856" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440364479" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440366312" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440374367" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440375783" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440377922" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440379299" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440380853" elementId="java.util.Collections$UnmodifiableCollection$1" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440385749" elementId="java.util.ArrayList$Itr" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440387315" elementId="java.util.Collections$UnmodifiableCollection$1" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440388361" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440414924" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440419199" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440432307" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.breakpoint"/>
       </proposals>
       <proposals xsi:type="workbench:CommandExecutionProposal" question="/0/@parts.1/@tasks.1/@q" answer="/0/@parts.1/@tasks.1/@a">
         <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1580822269205" elementId="no.hal.learning.exercise.ui.commands.OpenExerciseView" action="executeSuccess"/>
@@ -1632,6 +2149,208 @@ CardDeck.shufflePerfectly()&#xD;
         <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369384531" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
         <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369393281" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
         <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583369500715" elementId="org.eclipse.ui.file.refresh" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583429329729" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583429375810" elementId="no.hal.learning.exercise.ui.commands.OpenExerciseView" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583429564150" elementId="org.eclipse.ui.edit.delete" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583429564309" elementId="org.eclipse.ui.edit.delete" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583429564743" elementId="org.eclipse.ui.edit.delete" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583429593840" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583429596479" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583436964847" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583436983425" elementId="org.eclipse.ui.edit.delete" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583437199954" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583437322066" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583437323813" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583437386160" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583437387556" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583437440289" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583437440651" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583437441012" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583437441393" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583437442818" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583437443233" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583437443624" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583437443988" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583437444731" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583437446580" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583437450930" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583437491487" elementId="org.eclipse.ui.edit.cut" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583437492887" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583438528983" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583438531036" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583438583315" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583438626442" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583438737258" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439034876" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439045456" elementId="org.eclipse.jdt.junit.junitShortcut.run" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439102811" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439105255" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439238475" elementId="AUTOGEN:::org.eclipse.jdt.internal.ui.CompilationUnitEditor.ruler.actions/org.eclipse.jdt.internal.ui.javaeditor.JavaSelectRulerAction" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439246305" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439258378" elementId="org.eclipse.jdt.junit.junitShortcut.debug" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439410370" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439418869" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439421439" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439423830" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439426997" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439428685" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439434096" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439436332" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439441768" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439446200" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439460822" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439464735" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439468901" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439470182" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439474174" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439474503" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439475365" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439476170" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439476473" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439476825" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439484073" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439487409" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439492348" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439493684" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439494812" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439497460" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439498164" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439500332" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439501172" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439503452" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439504296" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439505072" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439505636" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439506216" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439512531" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439513663" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439514531" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439515991" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439517043" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439518251" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439520535" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439523991" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439524399" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439524735" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439525255" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439526998" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439527214" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439527458" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439528278" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439528466" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439528666" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439530419" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439533046" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439533782" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439553475" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439570031" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439571806" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439573745" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439585192" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439590471" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439592715" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439593286" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439593666" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439595542" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439596074" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439597014" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439597634" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439598010" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439598398" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439598718" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439599322" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439599626" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439600158" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439600633" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439601006" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439601577" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439602062" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439602706" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439603382" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439605753" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439615093" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439617594" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439625203" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439628992" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439638528" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439649278" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439650519" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439653555" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439656159" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439662002" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439670766" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439682769" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439685680" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439691573" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439695716" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439698833" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439702332" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439706416" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439710920" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439712435" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439727987" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439729511" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439730513" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439733218" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439734634" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439736714" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439737306" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439737978" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439738903" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439763641" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583439766717" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440163099" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440174843" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440185642" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440188038" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440189862" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440192190" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440193014" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440199110" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440207549" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440231444" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440237923" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440238490" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440250507" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440256913" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440261722" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440277304" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440279491" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440302308" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440308915" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440314271" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440319359" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440330882" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440338901" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440359298" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440364472" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440366303" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440372145" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440375779" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440377915" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440379287" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440380851" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440385746" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440387311" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440388358" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440414921" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440419019" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440430202" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440436329" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440444036" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440463929" elementId="org.eclipse.jdt.junit.junitShortcut.run" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440477417" elementId="org.eclipse.ui.edit.selectAll" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440501505" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440508832" elementId="org.eclipse.ui.ide.showInSystemExplorer" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440563441" elementId="org.eclipse.ui.file.refresh" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440704408" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440704844" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440758330" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440777536" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583442230478" elementId="org.eclipse.ui.file.refresh" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583442235234" elementId="org.eclipse.ui.file.refresh" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583442236726" elementId="org.eclipse.ui.file.refresh" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583442238866" elementId="org.eclipse.ui.file.refresh" action="executeSuccess"/>
       </proposals>
       <proposals xsi:type="workbench:PartTaskProposal" question="/0/@parts.1/@tasks.2/@q" answer="/0/@parts.1/@tasks.2/@a">
         <attempts xsi:type="workbench:PartTaskEvent" timestamp="1580822269048" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
@@ -2566,6 +3285,436 @@ CardDeck.shufflePerfectly()&#xD;
         <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369505695" elementId="org.eclipse.jdt.junit.ResultView" action="closed"/>
         <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369505714" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
         <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583369505716" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583422784230" elementId="no.hal.learning.exercise.views.ExerciseView" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583422784626" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429106255" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429106302" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429260046" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429260079" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429260080" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429260110" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429261604" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429261635" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429261636" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429261663" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429344197" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429344242" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429353501" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429353539" elementId="no.hal.learning.exercise.views.ExerciseView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429360745" elementId="no.hal.learning.exercise.views.ExerciseView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429360785" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429375679" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429375696" elementId="no.hal.learning.exercise.views.ExerciseView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429381356" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429381370" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TweetsCountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429383254" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429383260" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccount.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429386073" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/interfaces/twitter/TwitterAccountComparator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429387510" elementId="no.hal.learning.exercise.views.ExerciseView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429387515" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429408280" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429408384" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429408386" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583429408468" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583438627753" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583438627763" elementId="no.hal.learning.exercise.views.ExerciseView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583438630656" elementId="no.hal.learning.exercise.views.ExerciseView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583438630674" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439041997" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439042009" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439047531" elementId="org.eclipse.jdt.junit.ResultView" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439047829" elementId="org.eclipse.ui.console.ConsoleView" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439047862" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439047989" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439047994" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439065611" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439065639" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439105150" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439105208" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439113105" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439113146" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439113156" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439117523" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439117535" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439117536" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439117608" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439147548" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439147556" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439147566" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439229454" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439229463" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439232788" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439232814" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439238351" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="opened" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Iterator.class11386783286625003280.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439238357" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439238380" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="activated" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Iterator.class11386783286625003280.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439238410" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Iterator.class11386783286625003280.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439241409" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="deactivated" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Iterator.class11386783286625003280.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439241427" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439241477" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439241521" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="closed" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Iterator.class11386783286625003280.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439255102" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439255111" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439261171" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439261223" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439261229" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439261425" elementId="org.eclipse.debug.ui.DebugView" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439261428" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439261539" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439261551" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439262393" elementId="org.eclipse.debug.ui.ExpressionView" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439262485" elementId="org.eclipse.debug.ui.BreakpointView" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439262738" elementId="org.eclipse.ui.console.ConsoleView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439262862" elementId="org.eclipse.jdt.debug.ui.DisplayView" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439268475" elementId="org.eclipse.ui.views.ProblemView" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439268561" elementId="org.eclipse.ui.views.ProblemView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439268563" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439268581" elementId="org.eclipse.ui.views.ProblemView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439270887" elementId="org.eclipse.ui.views.ProblemView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439270921" elementId="org.eclipse.ui.console.ConsoleView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439270925" elementId="org.eclipse.ui.console.ConsoleView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439276522" elementId="org.eclipse.ui.console.ConsoleView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439276633" elementId="org.eclipse.jdt.debug.ui.DisplayView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439276636" elementId="org.eclipse.jdt.debug.ui.DisplayView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439287348" elementId="org.eclipse.jdt.debug.ui.DisplayView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439287385" elementId="org.eclipse.ui.console.ConsoleView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439287389" elementId="org.eclipse.ui.console.ConsoleView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439299622" elementId="org.eclipse.ui.console.ConsoleView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439299668" elementId="org.eclipse.ui.views.ProblemView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439299672" elementId="org.eclipse.ui.views.ProblemView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439300709" elementId="org.eclipse.ui.views.ProblemView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439300740" elementId="org.eclipse.ui.console.ConsoleView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439300743" elementId="org.eclipse.ui.console.ConsoleView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439417695" elementId="org.eclipse.ui.console.ConsoleView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439417752" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439419405" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="opened" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Collections.class2734522642782060887.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439419435" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Collections.class2734522642782060887.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439421501" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439423971" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Collections.class2734522642782060887.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439427059" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439446478" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439474628" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439476959" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439487690" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/NativeMethodAccessorImpl.class17792373458613266133.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439499714" elementId="org.eclipse.debug.ui.VariableView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439499808" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="activated" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Method.class11822769098999510747.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439508142" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="deactivated" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Method.class11822769098999510747.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439508152" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439509604" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestResult.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439509631" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestResult.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439509640" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="closed" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Method.class11822769098999510747.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439511730" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439511753" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestResult.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439518419" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestSuite.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439518475" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439518488" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439520644" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439520724" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439520737" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439527329" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439527382" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439527393" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439528779" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439528862" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439528873" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439534034" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="opened" inputUri="file:C:/Users/kehof/AppData/Local/Temp/NativeMethodAccessorImpl.class18014863673801321387.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439534040" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439534057" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="activated" inputUri="file:C:/Users/kehof/AppData/Local/Temp/NativeMethodAccessorImpl.class18014863673801321387.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439534076" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/NativeMethodAccessorImpl.class18014863673801321387.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439534089" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestSuite.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439541487" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="deactivated" inputUri="file:C:/Users/kehof/AppData/Local/Temp/NativeMethodAccessorImpl.class18014863673801321387.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439541506" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439541584" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439541660" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="closed" inputUri="file:C:/Users/kehof/AppData/Local/Temp/NativeMethodAccessorImpl.class18014863673801321387.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439544563" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439544645" elementId="org.eclipse.ui.console.ConsoleView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439547734" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439547734" elementId="org.eclipse.ui.console.ConsoleView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439547800" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439554884" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439554892" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439554902" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439557928" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439557928" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439558025" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439568969" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439568996" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439585088" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439585168" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439587692" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439587742" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439587752" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439594224" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestCase.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439594238" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestCase.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439603508" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439603529" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439603540" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/org/junit/internal/runners/JUnit38ClassRunner.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439606786" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439606801" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439606895" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439606962" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439607042" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439607107" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439615121" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439615125" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439615137" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439615151" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439616833" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439616899" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439616976" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439617041" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439617702" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439617707" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439617720" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439617733" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439619390" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439619454" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439619534" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439619599" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439622914" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439622995" elementId="org.eclipse.ui.console.ConsoleView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439624069" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439624069" elementId="org.eclipse.ui.console.ConsoleView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439624103" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439627544" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439627596" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439627608" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439662123" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439668091" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439668149" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439698898" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439730626" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439733283" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439738663" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestCase.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439738675" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestCase.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439746389" elementId="org.eclipse.debug.ui.VariableView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439746492" elementId="org.eclipse.ui.console.ConsoleView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439747953" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439747953" elementId="org.eclipse.ui.console.ConsoleView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439748041" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439750082" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439750089" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439750101" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439752996" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439752996" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439753066" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439760658" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439760658" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439760751" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439765750" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439765824" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439988246" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439988567" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439989884" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583439989894" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440026321" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440026321" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440026397" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440058635" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440058635" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440058688" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440059298" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440059333" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440059338" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440064687" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440064714" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440074320" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440074328" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440074338" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440088629" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440088636" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440088646" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440158831" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440158839" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440158850" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440159102" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440159114" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440164334" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440164343" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440167683" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440167737" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440167747" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440169928" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440169987" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440176321" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="C:/Users/kehof/.m2/repository/org/eclipse/xtext/org.eclipse.xtext.xbase.lib/2.9.1/org.eclipse.xtext.xbase.lib-2.9.1-sources.jar/org/eclipse/xtext/xbase/lib/DoubleExtensions.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440185965" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="opened" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Double.class6258216793321383701.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440185980" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Double.class6258216793321383701.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440185989" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="C:/Users/kehof/.m2/repository/org/eclipse/xtext/org.eclipse.xtext.xbase.lib/2.9.1/org.eclipse.xtext.xbase.lib-2.9.1-sources.jar/org/eclipse/xtext/xbase/lib/DoubleExtensions.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440188284" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="C:/Users/kehof/.m2/repository/org/eclipse/xtext/org.eclipse.xtext.xbase.lib/2.9.1/org.eclipse.xtext.xbase.lib-2.9.1-sources.jar/org/eclipse/xtext/xbase/lib/DoubleExtensions.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440188301" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="C:/Users/kehof/.m2/repository/org/eclipse/xtext/org.eclipse.xtext.xbase.lib/2.9.1/org.eclipse.xtext.xbase.lib-2.9.1-sources.jar/org/eclipse/xtext/xbase/lib/DoubleExtensions.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440188309" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="closed" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Double.class6258216793321383701.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440190156" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="opened" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Double.class15248777957796768462.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440190173" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Double.class15248777957796768462.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440190182" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="C:/Users/kehof/.m2/repository/org/eclipse/xtext/org.eclipse.xtext.xbase.lib/2.9.1/org.eclipse.xtext.xbase.lib-2.9.1-sources.jar/org/eclipse/xtext/xbase/lib/DoubleExtensions.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440192435" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="C:/Users/kehof/.m2/repository/org/eclipse/xtext/org.eclipse.xtext.xbase.lib/2.9.1/org.eclipse.xtext.xbase.lib-2.9.1-sources.jar/org/eclipse/xtext/xbase/lib/DoubleExtensions.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440192451" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="C:/Users/kehof/.m2/repository/org/eclipse/xtext/org.eclipse.xtext.xbase.lib/2.9.1/org.eclipse.xtext.xbase.lib-2.9.1-sources.jar/org/eclipse/xtext/xbase/lib/DoubleExtensions.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440192460" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="closed" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Double.class15248777957796768462.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440193122" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440207659" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440226468" elementId="org.eclipse.debug.ui.VariableView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440226555" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440231552" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440231608" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440231618" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440238720" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="opened" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Double.class9490558145157233252.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440238727" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440238746" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="activated" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Double.class9490558145157233252.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440238764" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Double.class9490558145157233252.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440238779" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="C:/Users/kehof/.m2/repository/org/eclipse/xtext/org.eclipse.xtext.xbase.lib/2.9.1/org.eclipse.xtext.xbase.lib-2.9.1-sources.jar/org/eclipse/xtext/xbase/lib/DoubleExtensions.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440243407" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="deactivated" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Double.class9490558145157233252.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440243439" elementId="org.eclipse.ui.console.ConsoleView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440244994" elementId="org.eclipse.ui.console.ConsoleView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440245038" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="activated" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Double.class9490558145157233252.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440245114" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="deactivated" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Double.class9490558145157233252.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440245134" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440245190" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440245242" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="closed" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Double.class9490558145157233252.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440247926" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440247926" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440247989" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440252897" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440252967" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440252979" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440256032" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440256053" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440258080" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440258138" elementId="org.eclipse.ui.console.ConsoleView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440260032" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440260033" elementId="org.eclipse.ui.console.ConsoleView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440260058" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440271452" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440271524" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440279396" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440279458" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440281638" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440281692" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440281702" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440284803" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440284863" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440299818" elementId="org.eclipse.debug.ui.VariableView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440299901" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440302443" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440302498" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440302508" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440305344" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440305386" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440350559" elementId="org.eclipse.debug.ui.VariableView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440350644" elementId="org.eclipse.ui.console.ConsoleView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440356272" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440356272" elementId="org.eclipse.ui.console.ConsoleView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440356296" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440361861" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440361921" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440361931" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440362088" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440364965" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestCase.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440364977" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestCase.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440368826" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440368843" elementId="org.eclipse.ui.console.ConsoleView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440370646" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440370646" elementId="org.eclipse.ui.console.ConsoleView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440370672" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440374372" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440374426" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440374436" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440374607" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440375898" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440381082" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="opened" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Collections.class1179598282174252226.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440381100" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Collections.class1179598282174252226.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440381109" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestCase.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440388417" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440399016" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440399040" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440426608" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440426665" elementId="org.eclipse.ui.console.ConsoleView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440428634" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440428634" elementId="org.eclipse.ui.console.ConsoleView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440428658" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440432315" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440432370" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440432381" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440432562" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440435534" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440435555" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440438607" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440438666" elementId="org.eclipse.ui.console.ConsoleView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440440353" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440440354" elementId="org.eclipse.ui.console.ConsoleView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440440378" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440450967" elementId="no.hal.learning.exercise.views.ExerciseView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440450968" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440451002" elementId="no.hal.learning.exercise.views.ExerciseView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440455734" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440455735" elementId="no.hal.learning.exercise.views.ExerciseView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440455765" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440456705" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440456748" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440456751" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440465849" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440465901" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440465905" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440473480" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440473505" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440474722" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440474736" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440474785" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440474830" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/tests/interfaces/BinaryComputingIteratorTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440497212" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440497272" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440497328" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440497338" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440497402" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440497402" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440497520" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440497572" elementId="org.eclipse.jdt.junit.ResultView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440505384" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440505396" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440560615" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440560701" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440561502" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440561510" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440586420" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440586431" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440586432" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440586507" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440586946" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440586954" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440587239" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIteratorProgram.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440587251" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIteratorProgram.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440587252" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440587333" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIteratorProgram.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440588337" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="closed" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Collections.class1179598282174252226.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440589031" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/interfaces/BinaryComputingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440593096" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIteratorProgram.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440593105" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440603700" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440603721" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIteratorProgram.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440620973" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIteratorProgram.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440620980" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440620989" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440780710" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440780717" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIteratorProgram.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440780728" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIteratorProgram.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583440788330" elementId="org.eclipse.ui.console.ConsoleView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583441037542" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIteratorProgram.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583441037552" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583441037564" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583442229054" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583442229146" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583442266627" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583442266709" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583442441169" elementId="org.eclipse.debug.ui.DebugView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583442441210" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583442441240" elementId="org.eclipse.ui.views.ProblemView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583442441250" elementId="org.eclipse.jdt.debug.ui.DisplayView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583442441258" elementId="no.hal.learning.exercise.views.ExerciseView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583442441307" elementId="org.eclipse.ui.console.ConsoleView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583442441321" elementId="org.eclipse.debug.ui.BreakpointView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583442441337" elementId="org.eclipse.debug.ui.ExpressionView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583442441367" elementId="org.eclipse.debug.ui.VariableView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583442441395" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIteratorProgram.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583442441433" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583442441434" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIterator.java"/>
       </proposals>
     </proposals>
   </exercise:ExerciseProposals>
