@@ -346,6 +346,12 @@
           <successTests>testConstructor</successTests>
           <failureTests>testChangePrice</failureTests>
         </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585173198846" completion="1.0" testRunName="patterns.observable.StockIndexTest" successCount="4">
+          <successTests>testRemoveStock</successTests>
+          <successTests>testAddStock</successTests>
+          <successTests>testChangePrice</successTests>
+          <successTests>testConstructor</successTests>
+        </attempts>
       </proposals>
     </proposals>
     <proposals exercisePart="/0/@parts.2">

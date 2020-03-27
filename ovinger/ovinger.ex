@@ -226,6 +226,204 @@
           <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="Random;&#xA;&#xA;public class CoffeeCupProgram {&#xA;&#xA;&#x9;private CoffeeCup cup;&#xA;&#x9;private Random r;&#xA;&#x9;&#xA;&#x9;public void init(){&#xA;&#x9;&#x9;cup = new CoffeeCup();&#xA;&#x9;&#x9;r = new Random(123456789L);&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void run(){&#xA;&#x9;&#x9;//part1();&#xA;&#x9;&#x9;part2();&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;private void part1(){&#xA;&#x9;&#x9;cup.increaseCupSize(40.0);&#xA;&#x9;&#x9;cup.fillCoffee(20.5);&#xA;&#x9;&#x9;cup.drinkCoffee(Math.floor(r.nextDouble()*20.5));&#xA;&#x9;&#x9;cup.fillCoffee(32.5);&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*38.9));&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*42));&#xA;&#x9;&#x9;cup.increaseCupSize(17);&#xA;&#x9;&#x9;cup.drinkCoffee(40);&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*42));&#xA;&#x9;&#x9;cup.drinkCoffee(Math.floor(r.nextDouble()*20.5));&#xA;&#x9;&#x9;cup.fillCoffee(32.5);&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*38.9));&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*42));&#xA;&#x9;&#x9;cup.increaseCupSize(17);&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;private void part2(){&#xA;&#x9;&#x9;cup = new CoffeeCup(40.0, 20.5);&#xA;&#x9;&#x9;r = new Random(987654321L);&#xA;&#x9;&#x9;cup.drinkCoffee(Math.floor(r.nextDouble()*20.5));&#xA;&#x9;&#x9;cup.fillCoffee(Math.floor(r.nextDouble()*30));&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*38.9));&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*42));&#xA;&#x9;&#x9;cup.increaseCupSize(Math.floor(r.nextDouble()*26)); &#xA;&#x9;&#x9;cup.fillCoffee(Math.ceil(r.nextDouble()*59));&#xA;&#x9;&#x9;cup.drinkCoffee(Math.ceil(r.nextDouble()*42));&#xA;&#x9;&#x9;cup.increaseCupSize(Math.floor(r.nextDouble()*35));&#xA;&#x9;&#x9;cup.fillCoffee(Math.floor(r.nextDouble()*30));&#xA;&#x9;&#x9;cup.increaseCupSize(Math.floor(r.nextDouble()*26));&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;public static void main(String[] args) {&#xA;&#x9;&#x9;CoffeeCupProgram program = new CoffeeCupProgram();&#xA;&#x9;&#x9;program.init();&#xA;&#x9;&#x9;program.run();&#xA;&#x9;}" edit="/1/@proposals.0/@proposals.0/@attempts.57/@edit" start="37" end="-5"/>
           <markers xsi:type="jdt:JdtMarkerInfo" lineNumber="20" charStart="287" charEnd="294" severity="1" problemCategory="120" problemType="603979894"/>
         </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585161208042" resourcePath="/ovinger/src/patterns/delegation/office/Clerk.java" sizeMeasure="33" className="patterns.delegation.office.Clerk">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="patterns.delegation.office;&#xA;&#xA;import java.util.function.BinaryOperator;&#xA;&#xA;public class Clerk implements Employee {&#xA;&#x9;private Printer printer;&#xA;&#x9;private int taskCount = 0;&#xA;&#x9;public Clerk (Printer printer) {&#xA;&#x9;&#x9;this.printer = printer;&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public double doCalculations(BinaryOperator&lt;Double> operation, double value1, double value2) {&#xA;&#x9;&#x9;taskCount++;&#xA;&#x9;&#x9;return operation.apply(value1, value2);&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;@Override&#xA;&#x9;public void printDocument(String document) {&#xA;&#x9;&#x9;taskCount++;&#xA;&#x9;&#x9;printer.printDocument(document, this);&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public int getTaskCount() {&#xA;&#x9;&#x9;return taskCount;&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public int getResourceCount() {&#xA;&#x9;&#x9;return 1;&#xA;&#x9;}" edit="/1/@proposals.0/@proposals.0/@attempts.58/@edit" start="8" end="-4"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585161497389" resourcePath="/ovinger/src/patterns/delegation/office/Printer.java" sizeMeasure="22" className="patterns.delegation.office.Printer">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="ArrayList;&#xA;import java.util.HashMap;&#xA;import java.util.List;&#xA;&#xA;public class Printer {&#xA;&#x9;private HashMap&lt;Employee, List&lt;String>> printHistory;&#xA;&#x9;void printDocument(String document, Employee employee) {&#xA;&#x9;&#x9;System.out.println(document);&#xA;&#x9;&#x9;if (printHistory != null) {&#xA;&#x9;&#x9;&#x9;printHistory.get(employee).add(document);&#xA;&#x9;&#x9;} else {&#xA;&#x9;&#x9;&#x9;printHistory.put(employee, new ArrayList&lt;String>());&#xA;&#x9;&#x9;&#x9;printHistory.get(employee).add(document);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;List&lt;String> getPrintHistory(Employee employee) {&#xA;&#x9;&#x9;return printHistory.get(employee)" edit="/1/@proposals.0/@proposals.0/@attempts.59/@edit" start="54" end="-8"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585161527060" resourcePath="/ovinger/src/patterns/delegation/office/Printer.java" sizeMeasure="22" className="patterns.delegation.office.Printer">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString=" = new HashMap&lt;>();&#xA;&#x9;void printDocument(String document, Employee employee) {&#xA;&#x9;&#x9;System.out.println(document);&#xA;&#x9;&#x9;if (printHistory.get(employee)" edit="/1/@proposals.0/@proposals.0/@attempts.60/@edit" start="191" end="-272"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585161542634" resourcePath="/ovinger/src/patterns/delegation/office/Printer.java" sizeMeasure="22" className="patterns.delegation.office.Printer">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="Employee, List&lt;String>" edit="/1/@proposals.0/@proposals.0/@attempts.61/@edit" start="206" end="-399"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585161761233" resourcePath="/ovinger/src/patterns/delegation/office/Printer.java" sizeMeasure="22" className="patterns.delegation.office.Printer">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString=" != null ? printHistory.get(employee) : new ArrayList&lt;String>()" edit="/1/@proposals.0/@proposals.0/@attempts.62/@edit" start="619" end="-8"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585161837630" resourcePath="/ovinger/src/patterns/delegation/office/Printer.java" sizeMeasure="21" className="patterns.delegation.office.Printer">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="== null) {&#xA;&#x9;&#x9;&#x9;printHistory.put(employee, new ArrayList&lt;String>());&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;printHistory.get(employee).add(document);" edit="/1/@proposals.0/@proposals.0/@attempts.63/@edit" start="356" end="-163"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585161862705" resourcePath="/ovinger/src/patterns/delegation/office/Manager.java" sizeMeasure="5" className="patterns.delegation.office.Manager">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="public class Manager {&#xA;" edit="/1/@proposals.0/@proposals.0/@attempts.64/@edit" start="37" end="-4"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585162623818" resourcePath="/ovinger/src/patterns/delegation/office/Manager.java" sizeMeasure="41" className="patterns.delegation.office.Manager">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="import java.util.Collection;&#xA;import java.util.Optional;&#xA;import java.util.function.BinaryOperator;&#xA;&#xA;public class Manager implements Employee {&#xA;&#x9;private Collection&lt;Employee> employees;&#xA;&#xA;&#x9;public Manager(Collection&lt;Employee> employees) {&#xA;&#x9;&#x9;this.employees = employees;&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public double doCalculations(BinaryOperator&lt;Double> operation, double value1, double value2) {&#xA;&#x9;&#x9;return getRandomEmployee().doCalculations(operation, value1, value2);&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public void printDocument(String document) {&#xA;&#x9;&#x9;// TODO Auto-generated method stub&#xA;&#x9;&#x9;&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public int getTaskCount() {&#xA;&#x9;&#x9;// TODO Auto-generated method stub&#xA;&#x9;&#x9;return 0;&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public int getResourceCount() {&#xA;&#x9;&#x9;return employees.size();&#xA;&#x9;}&#xA;&#xA;&#x9;private Employee getRandomEmployee() {&#xA;&#x9;&#x9;return employees.stream()&#xA;&#x9;            .skip((int) (employees.size() * Math.random()))&#xA;&#x9;            .findFirst().get();&#xA;&#x9;}" edit="/1/@proposals.0/@proposals.0/@attempts.65/@edit" start="37" end="-4"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585162630051" resourcePath="/ovinger/src/patterns/delegation/office/Manager.java" sizeMeasure="40" className="patterns.delegation.office.Manager">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="f" edit="/1/@proposals.0/@proposals.0/@attempts.66/@edit" start="83" end="-814"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585162785251" resourcePath="/ovinger/src/patterns/delegation/office/Manager.java" sizeMeasure="44" className="patterns.delegation.office.Manager">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="&#x9;private int taskCount = 0;&#xA;&#xA;&#x9;public Manager(Collection&lt;Employee> employees) {&#xA;&#x9;&#x9;this.employees = employees;&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public double doCalculations(BinaryOperator&lt;Double> operation, double value1, double value2) {&#xA;&#x9;&#x9;taskCount++;&#xA;&#x9;&#x9;return getRandomEmployee().doCalculations(operation, value1, value2);&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public void printDocument(String document) {&#xA;&#x9;&#x9;taskCount++;&#xA;&#x9;&#x9;getRandomEmployee().printDocument(document);&#xA;&#x9;&#x9;&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public int getTaskCount() {&#xA;&#x9;&#x9;return taskCount;&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public int getResourceCount() {&#xA;&#x9;&#x9;return employees.size();&#xA;&#x9;}&#xA;&#xA;&#x9;//In the spirit of the exercise, this seems the most realistic model of how managers delegate.&#xA;&#x9;//By using the first pseudo-random clerk they see." edit="/1/@proposals.0/@proposals.0/@attempts.67/@edit" start="193" end="-169"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585162816898" resourcePath="/ovinger/src/patterns/delegation/office/Manager.java" sizeMeasure="44" className="patterns.delegation.office.Manager">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="+1" edit="/1/@proposals.0/@proposals.0/@attempts.68/@edit" start="763" end="-322"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585162961754" resourcePath="/ovinger/src/patterns/delegation/office/Manager.java" sizeMeasure="45" className="patterns.delegation.office.Manager">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="if (employees.isEmpty()) {throw new IllegalArgumentException();}&#xA;&#x9;&#x9;" edit="/1/@proposals.0/@proposals.0/@attempts.69/@edit" start="274" end="-813"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585163632357" resourcePath="/ovinger/src/patterns/delegation/office/Manager.java" sizeMeasure="45" className="patterns.delegation.office.Manager">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="tream().map(Employee::getResourceCount).reduce(1, (a, b) -> a+b)" edit="/1/@proposals.0/@proposals.0/@attempts.70/@edit" start="825" end="-322"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585164416401" resourcePath="/ovinger/src/patterns/delegation/office/Manager.java" sizeMeasure="68" className="patterns.delegation.office.Manager">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="static org.junit.Assert.assertArrayEquals;&#xA;&#xA;import java.util.ArrayList;&#xA;import java.util.Collection;&#xA;import java.util.function.BinaryOperator;&#xA;&#xA;import org.graalvm.compiler.core.common.type.ArithmeticOpTable.BinaryOp.Add;&#xA;&#xA;public class Manager implements Employee {&#xA;&#x9;private Collection&lt;Employee> employees;&#xA;&#x9;private int taskCount = 0;&#xA;&#xA;&#x9;public Manager(Collection&lt;Employee> employees) {&#xA;&#x9;&#x9;if (employees.isEmpty()) {throw new IllegalArgumentException();}&#xA;&#x9;&#x9;this.employees = employees;&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public double doCalculations(BinaryOperator&lt;Double> operation, double value1, double value2) {&#xA;&#x9;&#x9;taskCount++;&#xA;&#x9;&#x9;return getRandomEmployee().doCalculations(operation, value1, value2);&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public void printDocument(String document) {&#xA;&#x9;&#x9;taskCount++;&#xA;&#x9;&#x9;getRandomEmployee().printDocument(document);&#xA;&#x9;&#x9;&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public int getTaskCount() {&#xA;&#x9;&#x9;return taskCount;&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public int getResourceCount() {&#xA;&#x9;&#x9;return employees.stream().map(Employee::getResourceCount).reduce(1, (a, b) -> a+b);&#xA;&#x9;}&#xA;&#xA;&#x9;//In the spirit of the exercise, this seems the most realistic model of how managers delegate.&#xA;&#x9;//By using the first pseudo-random clerk they see.&#xA;&#x9;private Employee getRandomEmployee() {&#xA;&#x9;&#x9;return employees.stream()&#xA;&#x9;            .skip((int) (employees.size() * Math.random()))&#xA;&#x9;            .findFirst().get();&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public static void main(String[] args) {&#xA;&#x9;&#x9;Printer printer = new Printer();&#xA;&#x9;&#x9;Collection&lt;Employee> employees = new ArrayList&lt;Employee>();&#xA;&#x9;&#x9;employees.add(new Clerk(printer));&#xA;&#x9;&#x9;employees.add(new Clerk(printer));&#xA;&#x9;&#x9;employees.add(new Clerk(printer));&#xA;&#x9;&#x9;employees.add(new Clerk(printer));&#xA;&#x9;&#x9;employees.add(new Clerk(printer));&#xA;&#x9;&#x9;Manager manager = new Manager(employees);&#xA;&#x9;&#x9;manager.doCalculations(Double::sum, 3, 5);&#xA;&#x9;&#x9;manager.doCalculations(Double::sum, 3, 15);&#xA;&#x9;&#x9;manager.printDocument(&quot;Hello World!&quot;);&#xA;&#x9;&#x9;System.out.print(&quot;Efficiency:&quot;);&#xA;&#x9;&#x9;System.out.println(manager.getTaskCount()/manager.getResourceCount());&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;" edit="/1/@proposals.0/@proposals.0/@attempts.71/@edit" start="44" end="-7"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585164623771" resourcePath="/ovinger/src/patterns/delegation/office/Manager.java" sizeMeasure="84" className="patterns.delegation.office.Manager">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="Collection&lt;Employee> employees1 = new ArrayList&lt;Employee>();&#xA;&#x9;&#x9;employees1.add(new Clerk(printer));&#xA;&#x9;&#x9;employees1.add(new Clerk(printer));&#xA;&#x9;&#x9;Collection&lt;Employee> employees2 = new ArrayList&lt;Employee>();&#xA;&#x9;&#x9;employees2.add(new Clerk(printer));&#xA;&#x9;&#x9;employees2.add(new Clerk(printer));&#xA;&#x9;&#x9;employees2.add(new Clerk(printer));&#xA;&#x9;&#x9;Collection&lt;Employee> middleManagers = new ArrayList&lt;Employee>();&#xA;&#x9;&#x9;middleManagers.add(new Manager(employees1));&#xA;&#x9;&#x9;middleManagers.add(new Manager(employees2));&#xA;&#x9;&#x9;Manager manager1 = new Manager(middleManagers);&#xA;&#x9;&#x9;manager1.doCalculations(Double::sum, 3, 5);&#xA;&#x9;&#x9;manager1.doCalculations(Double::sum, 3, 15);&#xA;&#x9;&#x9;manager1.printDocument(&quot;Hello World!&quot;);&#xA;&#x9;&#x9;System.out.print(&quot;Efficiency:&quot;);&#xA;&#x9;&#x9;System.out.println(manager1.getTaskCount()/manager1.getResourceCount());&#xA;&#x9;&#x9;" edit="/1/@proposals.0/@proposals.0/@attempts.72/@edit" start="1980" end="-7"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585164654408" resourcePath="/ovinger/src/patterns/delegation/office/Manager.java" sizeMeasure="82" className="patterns.delegation.office.Manager">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="p" edit="/1/@proposals.0/@proposals.0/@attempts.73/@edit" start="188" end="-2492"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585164665151" resourcePath="/ovinger/src/patterns/delegation/office/Manager.java" sizeMeasure="82" className="patterns.delegation.office.Manager">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString=" &quot;);&#xA;&#x9;&#x9;System.out.println(manager.getTaskCount()/manager.getResourceCount());&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;Collection&lt;Employee> employees1 = new ArrayList&lt;Employee>();&#xA;&#x9;&#x9;employees1.add(new Clerk(printer));&#xA;&#x9;&#x9;employees1.add(new Clerk(printer));&#xA;&#x9;&#x9;Collection&lt;Employee> employees2 = new ArrayList&lt;Employee>();&#xA;&#x9;&#x9;employees2.add(new Clerk(printer));&#xA;&#x9;&#x9;employees2.add(new Clerk(printer));&#xA;&#x9;&#x9;employees2.add(new Clerk(printer));&#xA;&#x9;&#x9;Collection&lt;Employee> middleManagers = new ArrayList&lt;Employee>();&#xA;&#x9;&#x9;middleManagers.add(new Manager(employees1));&#xA;&#x9;&#x9;middleManagers.add(new Manager(employees2));&#xA;&#x9;&#x9;Manager manager1 = new Manager(middleManagers);&#xA;&#x9;&#x9;manager1.doCalculations(Double::sum, 3, 5);&#xA;&#x9;&#x9;manager1.doCalculations(Double::sum, 3, 15);&#xA;&#x9;&#x9;manager1.printDocument(&quot;Hello World!&quot;);&#xA;&#x9;&#x9;System.out.print(&quot;Efficiency: " edit="/1/@proposals.0/@proposals.0/@attempts.74/@edit" start="1820" end="-88"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585164693608" resourcePath="/ovinger/src/patterns/delegation/office/Manager.java" sizeMeasure="80" className="patterns.delegation.office.Manager">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="j" edit="/1/@proposals.0/@proposals.0/@attempts.75/@edit" start="44" end="-2587"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585164760980" resourcePath="/ovinger/src/patterns/delegation/office/Manager.java" sizeMeasure="80" className="patterns.delegation.office.Manager">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" edit="/1/@proposals.0/@proposals.0/@attempts.76/@edit" start="2631"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585164775072" resourcePath="/ovinger/src/patterns/delegation/office/Manager.java" sizeMeasure="81" className="patterns.delegation.office.Manager">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="ln(manager.getTaskCount());&#xA;&#x9;&#x9;System.out.print" edit="/1/@proposals.0/@proposals.0/@attempts.77/@edit" start="1756" end="-876"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585164802503" resourcePath="/ovinger/src/patterns/delegation/office/Manager.java" sizeMeasure="80" className="patterns.delegation.office.Manager">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="(" edit="/1/@proposals.0/@proposals.0/@attempts.78/@edit" start="1756" end="-875"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585164912132" resourcePath="/ovinger/src/patterns/delegation/office/Manager.java" sizeMeasure="80" className="patterns.delegation.office.Manager">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="Double.valueOf(manager.getTaskCount())/Double.valueOf(manager.getResourceCount()" edit="/1/@proposals.0/@proposals.0/@attempts.79/@edit" start="1795" end="-789"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585164931652" resourcePath="/ovinger/src/patterns/delegation/office/Manager.java" sizeMeasure="80" className="patterns.delegation.office.Manager">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="Double.valueOf(manager1.getTaskCount())/Double.valueOf(manager1.getResourceCount()" edit="/1/@proposals.0/@proposals.0/@attempts.80/@edit" start="2601" end="-13"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585166413977" resourcePath="/ovinger/src/patterns/observable/Stock.java" sizeMeasure="5" className="patterns.observable.Stock">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="observable;&#xA;&#xA;public class Stock {&#xA;" edit="/1/@proposals.0/@proposals.0/@attempts.81/@edit" start="17" end="-4"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585166598147" resourcePath="/ovinger/src/patterns/observable/Stock.java" sizeMeasure="22" className="patterns.observable.Stock">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="&#x9;private String ticker;&#xA;&#x9;private double price;&#xA;&#x9;public Stock(String ticker, double price) {&#xA;&#x9;&#x9;this.ticker = ticker;&#xA;&#x9;&#x9;this.price = price;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void setPrice(double price) {&#xA;&#x9;&#x9;this.price = price;&#xA;&#x9;}&#xA;&#x9;public String getTicker() {&#xA;&#x9;&#x9;return ticker;&#xA;&#x9;}&#xA;&#x9;public double getPrice() {&#xA;&#x9;&#x9;return price;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;" edit="/1/@proposals.0/@proposals.0/@attempts.82/@edit" start="51" end="-4"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585166612878" resourcePath="/ovinger/src/patterns/observable/StockListener.java" sizeMeasure="5" className="patterns.observable.StockListener">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="interface StockListener {&#xA;" edit="/1/@proposals.0/@proposals.0/@attempts.83/@edit" start="37" end="-4"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585166629135" resourcePath="/ovinger/src/patterns/observable/StockListener.java" sizeMeasure="5" className="patterns.observable.StockListener">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="&#x9;void stockPriceChanged(Stock stock, double oldValue, double newValue);" edit="/1/@proposals.0/@proposals.0/@attempts.84/@edit" start="63" end="-4"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585166753588" resourcePath="/ovinger/src/patterns/observable/Stock.java" sizeMeasure="26" className="patterns.observable.Stock">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="class Stock {&#xA;&#x9;private String ticker;&#xA;&#x9;private double price;&#xA;&#x9;private List&lt;StockListener> = new ArrayList&lt;StockListener>();&#xA;&#x9;&#xA;&#x9;public Stock(String ticker, double price) {&#xA;&#x9;&#x9;this.ticker = ticker;&#xA;&#x9;&#x9;this.price = price;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void setPrice(double price) {&#xA;&#x9;&#x9;this.price = price;&#xA;&#x9;}&#xA;&#x9;public String getTicker() {&#xA;&#x9;&#x9;return ticker;&#xA;&#x9;}&#xA;&#x9;public double getPrice() {&#xA;&#x9;&#x9;return price;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void addStockListener(StockListener listener) {&#xA;&#x9;&#x9;&#xA;&#x9;}" edit="/1/@proposals.0/@proposals.0/@attempts.85/@edit" start="37" end="-4"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585166782674" resourcePath="/ovinger/src/patterns/observable/Stock.java" sizeMeasure="29" className="patterns.observable.Stock">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="import java.util.ArrayList;&#xA;import java.util.List;&#xA;&#xA;" edit="/1/@proposals.0/@proposals.0/@attempts.86/@edit" start="30" end="-455"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585166869043" resourcePath="/ovinger/src/patterns/observable/Stock.java" sizeMeasure="33" className="patterns.observable.Stock">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="listeners = new ArrayList&lt;StockListener>();&#xA;&#x9;&#xA;&#x9;public Stock(String ticker, double price) {&#xA;&#x9;&#x9;this.ticker = ticker;&#xA;&#x9;&#x9;this.price = price;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void setPrice(double price) {&#xA;&#x9;&#x9;this.price = price;&#xA;&#x9;}&#xA;&#x9;public String getTicker() {&#xA;&#x9;&#x9;return ticker;&#xA;&#x9;}&#xA;&#x9;public double getPrice() {&#xA;&#x9;&#x9;return price;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void addStockListener(StockListener listener) {&#xA;&#x9;&#x9;listeners.add(listener);&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void removeStockListener(StockListener listener) {&#xA;&#x9;&#x9;listeners.remove(listener);" edit="/1/@proposals.0/@proposals.0/@attempts.87/@edit" start="179" end="-7"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585167171807" resourcePath="/ovinger/src/patterns/observable/Stock.java" sizeMeasure="34" className="patterns.observable.Stock">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="listeners.stream().forEach((listener) -> listener.stockPriceChanged(this, this.price, price));&#xA;&#x9;&#x9;" edit="/1/@proposals.0/@proposals.0/@attempts.88/@edit" start="361" end="-304"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585167230316" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="15" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="public class StockIndex implements StockListener {&#xA;&#xA;&#x9;public StockIndex() {&#xA;&#x9;&#x9;// TODO Auto-generated constructor stub&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public void stockPriceChanged(Stock stock, double oldValue, double newValue) {&#xA;&#x9;&#x9;// TODO Auto-generated method stub&#xA;&#xA;&#x9;}&#xA;" edit="/1/@proposals.0/@proposals.0/@attempts.89/@edit" start="30" end="-4"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585167491125" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="18" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="import java.util.Arrays;&#xA;&#xA;public class StockIndex implements StockListener {&#xA;&#x9;private double index;&#xA;&#xA;&#x9;public StockIndex(String name, Stock...stocks) {&#xA;&#x9;&#x9;index = stocks.length > 0 ? Arrays.stream(stocks).sum() : 0;" edit="/1/@proposals.0/@proposals.0/@attempts.90/@edit" start="30" end="-141"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585167520385" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="18" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" edit="/1/@proposals.0/@proposals.0/@attempts.91/@edit" start="383"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585167869243" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="26" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="import java.util.List;&#xA;&#xA;public class StockIndex implements StockListener {&#xA;&#x9;private double index;&#xA;&#x9;private String name;&#xA;&#x9;private List&lt;Stock> stocks;&#xA;&#xA;&#x9;public StockIndex(String name, Stock...stocks) {&#xA;&#x9;&#x9;this.name = name;&#xA;&#x9;&#x9;this.stocks = Arrays.asList(stocks);&#xA;&#x9;&#x9;index = stocks.length > 0 ? Arrays.stream(stocks).map(Stock::getPrice).reduce((double) 0, (a, b)-> a+b ) : 0;&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public void stockPriceChanged(Stock stock, double oldValue, double newValue) {&#xA;&#x9;&#x9;index = index-oldValue+newValue;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void addStock()&#xA;&#x9;&#xA;&#x9;" edit="/1/@proposals.0/@proposals.0/@attempts.92/@edit" start="55" end="-5"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585167985698" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="34" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="Stock stock) {&#xA;&#x9;&#x9;stocks.add(stock);&#xA;&#x9;&#x9;stock.addStockListener(this);&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void removeStock(Stock stock) {&#xA;&#x9;&#x9;stocks.remove(stock);&#xA;&#x9;&#x9;stock.removeStockListener(this);&#xA;&#x9;}" edit="/1/@proposals.0/@proposals.0/@attempts.93/@edit" start="583" end="-9"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585168004323" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="38" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="public double getIndex() {&#xA;&#x9;&#x9;return index;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;" edit="/1/@proposals.0/@proposals.0/@attempts.94/@edit" start="761" end="-5"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585168048551" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="40" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="index += stock.getPrice();&#xA;&#x9;&#x9;stock.addStockListener(this);&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void removeStock(Stock stock) {&#xA;&#x9;&#x9;stocks.remove(stock);&#xA;&#x9;&#x9;index -= stock.getPrice(" edit="/1/@proposals.0/@proposals.0/@attempts.95/@edit" start="621" end="-98"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585168141866" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="40" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString=" = new ArrayList&lt;Stocks>()" edit="/1/@proposals.0/@proposals.0/@attempts.96/@edit" start="202" end="-671"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585168148891" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="41" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="List;&#xA;import java.util.Arrays;&#xA;import java.util.List;&#xA;&#xA;public class StockIndex implements StockListener {&#xA;&#x9;private double index;&#xA;&#x9;private String name;&#xA;&#x9;private List&lt;Stock> stocks = new ArrayList&lt;Stock" edit="/1/@proposals.0/@proposals.0/@attempts.97/@edit" start="52" end="-674"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585168274944" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="41" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" edit="/1/@proposals.0/@proposals.0/@attempts.98/@edit" start="925"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585168404583" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="41" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString=".addAll(Arrays.asList(stocks)" edit="/1/@proposals.0/@proposals.0/@attempts.99/@edit" start="341" end="-562"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585168780716" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="41" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="d" edit="/1/@proposals.0/@proposals.0/@attempts.100/@edit" start="159" end="-764"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585168793143" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="41" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="private " edit="/1/@proposals.0/@proposals.0/@attempts.101/@edit" start="159" end="-765"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585168903015" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="41" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="(double) " edit="/1/@proposals.0/@proposals.0/@attempts.102/@edit" start="482" end="-450"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585168926261" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="41" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="0" edit="/1/@proposals.0/@proposals.0/@attempts.103/@edit" start="482" end="-449"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585169026827" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="42" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="System.out.println(stocks.length);&#xA;&#x9;&#x9;" edit="/1/@proposals.0/@proposals.0/@attempts.104/@edit" start="375" end="-557"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585169084023" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="41" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="i" edit="/1/@proposals.0/@proposals.0/@attempts.105/@edit" start="375" end="-556"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585169162794" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="43" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="if (!stocks.contains(stock)) {&#xA;&#x9;&#x9;&#x9;stocks.add(stock);&#xA;&#x9;&#x9;&#x9;index += stock.getPrice();&#xA;&#x9;&#x9;&#x9;stock.addStockListener(this);&#xA;&#x9;&#x9;}" edit="/1/@proposals.0/@proposals.0/@attempts.106/@edit" start="659" end="-194"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585169195873" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="45" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="if (stocks.contains(stock)) {&#xA;&#x9;&#x9;&#x9;stocks.add(stock);&#xA;&#x9;&#x9;&#x9;index -= stock.getPrice();&#xA;&#x9;&#x9;&#x9;stock.removeStockListener(this);&#xA;&#x9;&#x9;}" edit="/1/@proposals.0/@proposals.0/@attempts.107/@edit" start="826" end="-61"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585169208928" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="45" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="remove" edit="/1/@proposals.0/@proposals.0/@attempts.108/@edit" start="866" end="-139"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585169310544" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="45" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="+= newValue-old" edit="/1/@proposals.0/@proposals.0/@attempts.109/@edit" start="588" end="-403"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585169374637" resourcePath="/ovinger/src/patterns/observable/Stock.java" sizeMeasure="34" className="patterns.observable.Stock">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="List;&#xA;&#xA;public class Stock {&#xA;&#x9;private String ticker;&#xA;&#x9;private double price;&#xA;&#x9;private List&lt;StockListener> listeners = new ArrayList&lt;StockListener>();&#xA;&#x9;&#xA;&#x9;public Stock(String ticker, double price) {&#xA;&#x9;&#x9;this.ticker = ticker;&#xA;&#x9;&#x9;this.price = price;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void setPrice(double price) {&#xA;&#x9;&#x9;listeners.forEach((listener) -> listener.stockPriceChanged(this, this.price, price));&#xA;&#x9;&#x9;this.price = price;&#xA;&#x9;}&#xA;&#x9;public String getTicker() {&#xA;&#x9;&#x9;return ticker;&#xA;&#x9;}&#xA;&#x9;public double getPrice() {&#xA;&#x9;&#x9;return price;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void addStockListener(StockListener listener) {&#xA;&#x9;&#x9;listeners.add(listener);&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void removeStockListener(StockListener listener) {&#xA;&#x9;&#x9;listeners.remove(listener);&#xA;&#x9;}" edit="/1/@proposals.0/@proposals.0/@attempts.110/@edit" start="75" end="-4"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585169404537" resourcePath="/ovinger/src/patterns/observable/Stock.java" sizeMeasure="34" className="patterns.observable.Stock">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="listener" edit="/1/@proposals.0/@proposals.0/@attempts.111/@edit" start="379" end="-364"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585169592005" resourcePath="/ovinger/src/patterns/observable/Stock.java" sizeMeasure="34" className="patterns.observable.Stock">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString=" (l) -> l" edit="/1/@proposals.0/@proposals.0/@attempts.112/@edit" start="379" end="-352"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585169755936" resourcePath="/ovinger/src/patterns/observable/Stock.java" sizeMeasure="35" className="patterns.observable.Stock">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="newPrice) {&#xA;&#x9;&#x9;Stock stock = this;&#xA;&#x9;&#x9;listeners.forEach( (l) -> l.stockPriceChanged(stock, price, newPrice));&#xA;&#x9;&#x9;price = newP" edit="/1/@proposals.0/@proposals.0/@attempts.113/@edit" start="350" end="-290"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585170431221" resourcePath="/ovinger/src/patterns/observable/Stock.java" sizeMeasure="38" className="patterns.observable.Stock">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="//listeners.forEach( (l) -> l.stockPriceChanged(stock, price, newPrice));&#xA;&#x9;&#x9;for (StockListener l : listeners) {&#xA;&#x9;&#x9;&#x9;l.stockPriceChanged(stock, price, newPrice);&#xA;&#x9;&#x9;}" edit="/1/@proposals.0/@proposals.0/@attempts.114/@edit" start="386" end="-305"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585170811031" resourcePath="/ovinger/src/patterns/observable/Stock.java" sizeMeasure="35" className="patterns.observable.Stock">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="listeners.forEach( (l) -> l.stockPriceChanged(stock, price, newPrice));" edit="/1/@proposals.0/@proposals.0/@attempts.115/@edit" start="386" end="-305"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585170862439" resourcePath="/ovinger/src/patterns/observable/Stock.java" sizeMeasure="38" className="patterns.observable.Stock">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="//listeners.forEach( (l) -> l.stockPriceChanged(stock, price, newPrice));&#xA;&#x9;&#x9;for (StockListener l : listeners) {&#xA;&#x9;&#x9;&#x9;l.stockPriceChanged(stock, price, newPrice);&#xA;&#x9;&#x9;}" edit="/1/@proposals.0/@proposals.0/@attempts.116/@edit" start="386" end="-305"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585171022563" resourcePath="/ovinger/src/patterns/observable/Stock.java" sizeMeasure="38" className="patterns.observable.Stock">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="int i = 0; i&lt;listeners.size(); i++) {&#xA;&#x9;&#x9;&#x9;listeners.get(i)" edit="/1/@proposals.0/@proposals.0/@attempts.117/@edit" start="467" end="-352"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585172693347" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="45" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="Arrays;&#xA;import java.util.List;&#xA;&#xA;public class StockIndex implements StockListener {&#xA;&#x9;private double index;&#xA;&#x9;private String name;&#xA;&#x9;private List&lt;Stock> stocks = new ArrayList&lt;Stock>();&#xA;&#xA;&#x9;public StockIndex(String name, Stock...stocks) {&#xA;&#x9;&#x9;this.name = name;&#xA;&#x9;&#x9;this.stocks.addAll(Arrays.asList(stocks));&#xA;&#x9;&#x9;index = stocks.length > 0 ? Arrays.stream(stocks).map(Stock::getPrice).reduce((double) 0, (a, b)-> a+b ) : 0;&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public void stockPriceChanged(Stock stock, double oldValue, double newValue) {&#xA;&#x9;&#x9;index += newValue-oldValue;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void addStock(Stock stock) {&#xA;&#x9;&#x9;if (!stocks.contains(stock)) {&#xA;&#x9;&#x9;&#x9;stocks.add(stock);&#xA;&#x9;&#x9;&#x9;index += stock.getPrice();&#xA;&#x9;&#x9;&#x9;stock.addStockListener(this);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void removeStock(Stock stock) {&#xA;&#x9;&#x9;if (stocks.contains(stock)) {&#xA;&#x9;&#x9;&#x9;stocks.remove(stock);&#xA;&#x9;&#x9;&#x9;index -= stock.getPrice();&#xA;&#x9;&#x9;&#x9;stock.removeStockListener(this);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public double getIndex() {&#xA;&#x9;&#x9;return index;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;&#xA;" edit="/1/@proposals.0/@proposals.0/@attempts.118/@edit" start="75" end="-4"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585172959243" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="47" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="public static void main(String[] args) {&#xA;&#x9;&#x9;&#xA;&#x9;}" edit="/1/@proposals.0/@proposals.0/@attempts.119/@edit" start="1001" end="-5"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585173143675" resourcePath="/ovinger/src/patterns/observable/Stock.java" sizeMeasure="34" className="patterns.observable.Stock">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="List;&#xA;&#xA;public class Stock {&#xA;&#x9;private String ticker;&#xA;&#x9;private double price;&#xA;&#x9;private List&lt;StockListener> listeners = new ArrayList&lt;StockListener>();&#xA;&#x9;&#xA;&#x9;public Stock(String ticker, double price) {&#xA;&#x9;&#x9;this.ticker = ticker;&#xA;&#x9;&#x9;this.price = price;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void setPrice(double newPrice) {&#xA;&#x9;&#x9;listeners.forEach( (l) -> l.stockPriceChanged(this, price, newPrice));&#xA;&#x9;&#x9;price = newPrice;&#xA;&#x9;}&#xA;&#x9;public String getTicker() {&#xA;&#x9;&#x9;return ticker;&#xA;&#x9;}&#xA;&#x9;public double getPrice() {&#xA;&#x9;&#x9;return price;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void addStockListener(StockListener listener) {&#xA;&#x9;&#x9;listeners.add(listener);&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void removeStockListener(StockListener listener) {&#xA;&#x9;&#x9;listeners.remove(listener);&#xA;&#x9;}" edit="/1/@proposals.0/@proposals.0/@attempts.120/@edit" start="75" end="-4"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585173146769" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="44" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="Arrays;&#xA;import java.util.List;&#xA;&#xA;public class StockIndex implements StockListener {&#xA;&#x9;private double index;&#xA;&#x9;private String name;&#xA;&#x9;private List&lt;Stock> stocks = new ArrayList&lt;Stock>();&#xA;&#xA;&#x9;public StockIndex(String name, Stock...stocks) {&#xA;&#x9;&#x9;this.name = name;&#xA;&#x9;&#x9;this.stocks.addAll(Arrays.asList(stocks));&#xA;&#x9;&#x9;index = stocks.length > 0 ? Arrays.stream(stocks).map(Stock::getPrice).reduce((double) 0, (a, b)-> a+b ) : 0;&#xA;&#x9;}&#xA;&#xA;&#x9;@Override&#xA;&#x9;public void stockPriceChanged(Stock stock, double oldValue, double newValue) {&#xA;&#x9;&#x9;index += newValue-oldValue;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void addStock(Stock stock) {&#xA;&#x9;&#x9;if (!stocks.contains(stock)) {&#xA;&#x9;&#x9;&#x9;stocks.add(stock);&#xA;&#x9;&#x9;&#x9;index += stock.getPrice();&#xA;&#x9;&#x9;&#x9;stock.addStockListener(this);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public void removeStock(Stock stock) {&#xA;&#x9;&#x9;if (stocks.contains(stock)) {&#xA;&#x9;&#x9;&#x9;stocks.remove(stock);&#xA;&#x9;&#x9;&#x9;index -= stock.getPrice();&#xA;&#x9;&#x9;&#x9;stock.removeStockListener(this);&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;public double getIndex() {&#xA;&#x9;&#x9;return index;&#xA;&#x9;}&#xA;&#x9;&#xA;" edit="/1/@proposals.0/@proposals.0/@attempts.121/@edit" start="75" end="-4"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585173184506" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="45" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString="this.stocks.forEach((s) -> s.addStockListener(this););&#xA;&#x9;&#x9;" edit="/1/@proposals.0/@proposals.0/@attempts.122/@edit" start="375" end="-629"/>
+        </attempts>
+        <attempts xsi:type="jdt:JdtSourceEditEvent" timestamp="1585173190221" resourcePath="/ovinger/src/patterns/observable/StockIndex.java" sizeMeasure="45" className="patterns.observable.StockIndex">
+          <edit xsi:type="exercise:ReplaceSubstringEdit" storedString=")" edit="/1/@proposals.0/@proposals.0/@attempts.123/@edit" start="426" end="-633"/>
+        </attempts>
       </proposals>
       <proposals xsi:type="jdt:JdtLaunchProposal" question="/0/@parts.0/@tasks.1/@q" answer="/0/@parts.0/@tasks.1/@a">
         <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1580822302279" mode="run" className="encapsulation.CardDeck">
@@ -1228,6 +1426,911 @@ CardDeck.shufflePerfectly()&#xD;
           <consoleOutput>Success! StringMergingIterator correctly merged the output of the two lists.&#xD;
 </consoleOutput>
         </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585161191690" mode="run" className="patterns.delegation.office.ClerkTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.delegation.office.ClerkTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+          <consoleOutput>dokument1&#xD;
+dokument1&#xD;
+</consoleOutput>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585161210604" mode="run" className="patterns.delegation.office.ClerkTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.delegation.office.ClerkTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+          <consoleOutput>dokument1&#xD;
+dokument1&#xD;
+</consoleOutput>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585161499257" mode="run" className="patterns.delegation.office.ClerkTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.delegation.office.ClerkTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+          <consoleOutput>dokument1&#xD;
+dokument1&#xD;
+</consoleOutput>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585161544741" mode="run" className="patterns.delegation.office.ClerkTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.delegation.office.ClerkTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+          <consoleOutput>dokument1&#xD;
+dokument1&#xD;
+dokument2&#xD;
+</consoleOutput>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585161560936" mode="run" className="patterns.delegation.office.PrinterTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.delegation.office.PrinterTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+          <consoleOutput>dokument1&#xD;
+dokument2&#xD;
+</consoleOutput>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585161765227" mode="run" className="patterns.delegation.office.PrinterTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.delegation.office.PrinterTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+          <consoleOutput>dokument1&#xD;
+dokument2&#xD;
+dokument1&#xD;
+dokument2&#xD;
+dokument1&#xD;
+dokument2&#xD;
+</consoleOutput>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585161839278" mode="run" className="patterns.delegation.office.PrinterTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.delegation.office.PrinterTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+          <consoleOutput>dokument1&#xD;
+dokument2&#xD;
+dokument1&#xD;
+dokument2&#xD;
+dokument1&#xD;
+dokument2&#xD;
+</consoleOutput>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585162795475" mode="run" className="patterns.delegation.office.ManagerTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.delegation.office.ManagerTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+          <consoleOutput>dokument&#xD;
+dokument1&#xD;
+</consoleOutput>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585162818789" mode="run" className="patterns.delegation.office.ManagerTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.delegation.office.ManagerTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+          <consoleOutput>dokument&#xD;
+dokument&#xD;
+dokument1&#xD;
+</consoleOutput>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585163644451" mode="run" className="patterns.delegation.office.ManagerTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.delegation.office.ManagerTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+          <consoleOutput>dokument&#xD;
+dokument&#xD;
+dokument1&#xD;
+</consoleOutput>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585164631199" mode="run" className="patterns.delegation.office.Manager">
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.delegation.office.Manager</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <consoleOutput>Hello World!&#xD;
+Efficiency:0&#xD;
+Hello World!&#xD;
+Efficiency:0&#xD;
+</consoleOutput>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585164656100" mode="run" className="patterns.delegation.office.Manager">
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.delegation.office.Manager</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <consoleOutput>Hello World!&#xD;
+Efficiency:0&#xD;
+Hello World!&#xD;
+Efficiency:0&#xD;
+</consoleOutput>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585164758579" mode="run" className="patterns.delegation.office.Manager">
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.delegation.office.Manager</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <consoleOutput>Hello World!&#xD;
+Efficiency: 0&#xD;
+Hello World!&#xD;
+Efficiency: 0&#xD;
+</consoleOutput>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585164776997" mode="run" className="patterns.delegation.office.Manager">
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.delegation.office.Manager</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <consoleOutput>Hello World!&#xD;
+3&#xD;
+Efficiency: 0&#xD;
+Hello World!&#xD;
+Efficiency: 0&#xD;
+</consoleOutput>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585164915163" mode="run" className="patterns.delegation.office.Manager">
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.delegation.office.Manager</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <consoleOutput>Hello World!&#xD;
+Efficiency: 0.5&#xD;
+Hello World!&#xD;
+Efficiency: 0&#xD;
+</consoleOutput>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585164933095" mode="run" className="patterns.delegation.office.Manager">
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.delegation.office.Manager</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <consoleOutput>Hello World!&#xD;
+Efficiency: 0.5&#xD;
+Hello World!&#xD;
+Efficiency: 0.375&#xD;
+</consoleOutput>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585168100084" mode="run" className="patterns.observable.StockTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585168108543" mode="run" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585168153291" mode="run" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585168407328" mode="run" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585168462971" mode="run" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585168478514" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TESTNAME</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>testRemoveStock</launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585168497210" mode="run" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585168501985" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585168528616" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585168786505" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585168907555" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585169029174" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+          <consoleOutput>0&#xD;
+1&#xD;
+2&#xD;
+0&#xD;
+1&#xD;
+2&#xD;
+0&#xD;
+1&#xD;
+2&#xD;
+0&#xD;
+1&#xD;
+2&#xD;
+</consoleOutput>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585169197631" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585169210551" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585169317149" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585169376094" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585169402567" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585169604215" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TESTNAME</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>testChangePrice</launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585169766231" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TESTNAME</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>testChangePrice</launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585169785512" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TESTNAME</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>testChangePrice</launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585169830975" mode="run" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585169869520" mode="run" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585169875970" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585169952357" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585170097228" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585170238745" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585170293216" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585170439082" mode="run" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585170504782" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585170530707" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585170551770" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585170614788" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585170861057" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585170921951" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585171033175" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585172690868" mode="debug" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
+        <attempts xsi:type="jdt:JdtLaunchEvent" timestamp="1585173196691" mode="run" className="patterns.observable.StockIndexTest">
+          <launchAttrNames>org.eclipse.jdt.junit.CONTAINER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.junit.TEST_KIND</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.CLASSPATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.MAIN_TYPE</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.PROJECT_ATTR</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER</launchAttrNames>
+          <launchAttrNames>org.eclipse.jdt.launching.VM_ARGUMENTS</launchAttrNames>
+          <launchAttrValues></launchAttrValues>
+          <launchAttrValues>org.eclipse.jdt.junit.loader.junit4</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.classpathProvider</launchAttrValues>
+          <launchAttrValues>patterns.observable.StockIndexTest</launchAttrValues>
+          <launchAttrValues>ovinger</launchAttrValues>
+          <launchAttrValues>org.eclipse.m2e.launchconfig.sourcepathProvider</launchAttrValues>
+          <launchAttrValues>-ea</launchAttrValues>
+        </attempts>
       </proposals>
       <proposals xsi:type="junit:JunitTestProposal" question="/0/@parts.0/@tasks.2/@q" answer="/0/@parts.0/@tasks.2/@a">
         <attempts xsi:type="junit:JunitTestEvent" timestamp="1580822336305" completion="0.5" testRunName="encapsulation.CardDeckTest" successCount="1" failureCount="1">
@@ -1358,6 +2461,214 @@ CardDeck.shufflePerfectly()&#xD;
           <successTests>testComputeResultsWithShortIterator</successTests>
           <successTests>testComputeResultsWithShortIteratorAndDefault</successTests>
           <successTests>testComputeResultsWithEmptyIterator</successTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585161193518" completion="0.5" testRunName="patterns.delegation.office.ClerkTest" successCount="2" errorCount="2">
+          <successTests>testDoCalculations</successTests>
+          <successTests>testResourceCount</successTests>
+          <errorTests>testTaskCount</errorTests>
+          <errorTests>testPrintDocuments</errorTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585161212636" completion="0.5" testRunName="patterns.delegation.office.ClerkTest" successCount="2" errorCount="2">
+          <successTests>testDoCalculations</successTests>
+          <successTests>testResourceCount</successTests>
+          <errorTests>testTaskCount</errorTests>
+          <errorTests>testPrintDocuments</errorTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585161501493" completion="0.5" testRunName="patterns.delegation.office.ClerkTest" successCount="2" errorCount="2">
+          <successTests>testDoCalculations</successTests>
+          <successTests>testResourceCount</successTests>
+          <errorTests>testTaskCount</errorTests>
+          <errorTests>testPrintDocuments</errorTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585161546901" completion="1.0" testRunName="patterns.delegation.office.ClerkTest" successCount="4">
+          <successTests>testDoCalculations</successTests>
+          <successTests>testResourceCount</successTests>
+          <successTests>testTaskCount</successTests>
+          <successTests>testPrintDocuments</successTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585161562932" completion="0.3333333333333333" testRunName="patterns.delegation.office.PrinterTest" successCount="1" errorCount="2">
+          <successTests>testPrintHistoryModification</successTests>
+          <errorTests>testPrintSingleClerk</errorTests>
+          <errorTests>testPrintMulipleClerks</errorTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585161767292" completion="1.0" testRunName="patterns.delegation.office.PrinterTest" successCount="3">
+          <successTests>testPrintHistoryModification</successTests>
+          <successTests>testPrintSingleClerk</successTests>
+          <successTests>testPrintMulipleClerks</successTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585161840641" completion="1.0" testRunName="patterns.delegation.office.PrinterTest" successCount="3">
+          <successTests>testPrintHistoryModification</successTests>
+          <successTests>testPrintSingleClerk</successTests>
+          <successTests>testPrintMulipleClerks</successTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585162797567" completion="0.42857142857142855" testRunName="patterns.delegation.office.ManagerTest" successCount="3" failureCount="4">
+          <successTests>testDoCalculations</successTests>
+          <successTests>testTaskCount</successTests>
+          <successTests>testPrintDocuments</successTests>
+          <failureTests>testResourceCount</failureTests>
+          <failureTests>testSeveralClerks</failureTests>
+          <failureTests>testMiddleManagementResourceCounts</failureTests>
+          <failureTests>testNoEmployeesConstructor</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585162821170" completion="0.7142857142857143" testRunName="patterns.delegation.office.ManagerTest" successCount="5" failureCount="2">
+          <successTests>testDoCalculations</successTests>
+          <successTests>testResourceCount</successTests>
+          <successTests>testSeveralClerks</successTests>
+          <successTests>testTaskCount</successTests>
+          <successTests>testPrintDocuments</successTests>
+          <failureTests>testMiddleManagementResourceCounts</failureTests>
+          <failureTests>testNoEmployeesConstructor</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585163646919" completion="1.0" testRunName="patterns.delegation.office.ManagerTest" successCount="7">
+          <successTests>testDoCalculations</successTests>
+          <successTests>testResourceCount</successTests>
+          <successTests>testSeveralClerks</successTests>
+          <successTests>testMiddleManagementResourceCounts</successTests>
+          <successTests>testTaskCount</successTests>
+          <successTests>testPrintDocuments</successTests>
+          <successTests>testNoEmployeesConstructor</successTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585168102400" completion="1.0" testRunName="patterns.observable.StockTest" successCount="2">
+          <successTests>testStockListener</successTests>
+          <successTests>testConstructor</successTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585168110542" completion="0.25" testRunName="patterns.observable.StockIndexTest" successCount="1" failureCount="1" errorCount="2">
+          <successTests>testConstructor</successTests>
+          <failureTests>testChangePrice</failureTests>
+          <errorTests>testRemoveStock</errorTests>
+          <errorTests>testAddStock</errorTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585168155521" completion="0.25" testRunName="patterns.observable.StockIndexTest" successCount="1" failureCount="1" errorCount="2">
+          <successTests>testConstructor</successTests>
+          <failureTests>testChangePrice</failureTests>
+          <errorTests>testRemoveStock</errorTests>
+          <errorTests>testAddStock</errorTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585168409096" completion="0.25" testRunName="patterns.observable.StockIndexTest" successCount="1" failureCount="3">
+          <successTests>testConstructor</successTests>
+          <failureTests>testRemoveStock</failureTests>
+          <failureTests>testAddStock</failureTests>
+          <failureTests>testChangePrice</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585168465135" completion="0.25" testRunName="patterns.observable.StockIndexTest" successCount="1" failureCount="3">
+          <successTests>testConstructor</successTests>
+          <failureTests>testRemoveStock</failureTests>
+          <failureTests>testAddStock</failureTests>
+          <failureTests>testChangePrice</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585168480917" completion="0.0" testRunName="patterns.observable.StockIndexTest" failureCount="1">
+          <failureTests>testRemoveStock</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585168499737" completion="0.25" testRunName="patterns.observable.StockIndexTest" successCount="1" failureCount="3">
+          <successTests>testConstructor</successTests>
+          <failureTests>testRemoveStock</failureTests>
+          <failureTests>testAddStock</failureTests>
+          <failureTests>testChangePrice</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585168504277" completion="0.25" testRunName="patterns.observable.StockIndexTest" successCount="1" failureCount="3">
+          <successTests>testConstructor</successTests>
+          <failureTests>testRemoveStock</failureTests>
+          <failureTests>testAddStock</failureTests>
+          <failureTests>testChangePrice</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585168530922" completion="0.25" testRunName="patterns.observable.StockIndexTest" successCount="1" failureCount="3">
+          <successTests>testConstructor</successTests>
+          <failureTests>testRemoveStock</failureTests>
+          <failureTests>testAddStock</failureTests>
+          <failureTests>testChangePrice</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585168788682" completion="0.25" testRunName="patterns.observable.StockIndexTest" successCount="1" failureCount="3">
+          <successTests>testConstructor</successTests>
+          <failureTests>testRemoveStock</failureTests>
+          <failureTests>testAddStock</failureTests>
+          <failureTests>testChangePrice</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585168910009" completion="0.25" testRunName="patterns.observable.StockIndexTest" successCount="1" failureCount="3">
+          <successTests>testConstructor</successTests>
+          <failureTests>testRemoveStock</failureTests>
+          <failureTests>testAddStock</failureTests>
+          <failureTests>testChangePrice</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585169031757" completion="0.25" testRunName="patterns.observable.StockIndexTest" successCount="1" failureCount="3">
+          <successTests>testConstructor</successTests>
+          <failureTests>testRemoveStock</failureTests>
+          <failureTests>testAddStock</failureTests>
+          <failureTests>testChangePrice</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585169200162" completion="0.5" testRunName="patterns.observable.StockIndexTest" successCount="2" failureCount="2">
+          <successTests>testAddStock</successTests>
+          <successTests>testConstructor</successTests>
+          <failureTests>testRemoveStock</failureTests>
+          <failureTests>testChangePrice</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585169212446" completion="0.75" testRunName="patterns.observable.StockIndexTest" successCount="3" failureCount="1">
+          <successTests>testRemoveStock</successTests>
+          <successTests>testAddStock</successTests>
+          <successTests>testConstructor</successTests>
+          <failureTests>testChangePrice</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585169319543" completion="0.75" testRunName="patterns.observable.StockIndexTest" successCount="3" failureCount="1">
+          <successTests>testRemoveStock</successTests>
+          <successTests>testAddStock</successTests>
+          <successTests>testConstructor</successTests>
+          <failureTests>testChangePrice</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585169378129" completion="0.75" testRunName="patterns.observable.StockIndexTest" successCount="3" failureCount="1">
+          <successTests>testRemoveStock</successTests>
+          <successTests>testAddStock</successTests>
+          <successTests>testConstructor</successTests>
+          <failureTests>testChangePrice</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585169406896" completion="0.75" testRunName="patterns.observable.StockIndexTest" successCount="3" failureCount="1">
+          <successTests>testRemoveStock</successTests>
+          <successTests>testAddStock</successTests>
+          <successTests>testConstructor</successTests>
+          <failureTests>testChangePrice</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585169787522" completion="0.0" testRunName="patterns.observable.StockIndexTest" failureCount="1">
+          <failureTests>testChangePrice</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585169833088" completion="0.75" testRunName="patterns.observable.StockIndexTest" successCount="3" failureCount="1">
+          <successTests>testRemoveStock</successTests>
+          <successTests>testAddStock</successTests>
+          <successTests>testConstructor</successTests>
+          <failureTests>testChangePrice</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585169871844" completion="0.75" testRunName="patterns.observable.StockIndexTest" successCount="3" failureCount="1">
+          <successTests>testRemoveStock</successTests>
+          <successTests>testAddStock</successTests>
+          <successTests>testConstructor</successTests>
+          <failureTests>testChangePrice</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585170229436" completion="0.75" testRunName="patterns.observable.StockIndexTest" successCount="3" failureCount="1">
+          <successTests>testRemoveStock</successTests>
+          <successTests>testAddStock</successTests>
+          <successTests>testConstructor</successTests>
+          <failureTests>testChangePrice</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585170440811" completion="0.75" testRunName="patterns.observable.StockIndexTest" successCount="3" failureCount="1">
+          <successTests>testRemoveStock</successTests>
+          <successTests>testAddStock</successTests>
+          <successTests>testConstructor</successTests>
+          <failureTests>testChangePrice</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585170872976" completion="0.75" testRunName="patterns.observable.StockIndexTest" successCount="3" failureCount="1">
+          <successTests>testRemoveStock</successTests>
+          <successTests>testAddStock</successTests>
+          <successTests>testConstructor</successTests>
+          <failureTests>testChangePrice</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585172767389" completion="0.75" testRunName="patterns.observable.StockIndexTest" successCount="3" failureCount="1">
+          <successTests>testRemoveStock</successTests>
+          <successTests>testAddStock</successTests>
+          <successTests>testConstructor</successTests>
+          <failureTests>testChangePrice</failureTests>
+        </attempts>
+        <attempts xsi:type="junit:JunitTestEvent" timestamp="1585173198846" completion="1.0" testRunName="patterns.observable.StockIndexTest" successCount="4">
+          <successTests>testRemoveStock</successTests>
+          <successTests>testAddStock</successTests>
+          <successTests>testChangePrice</successTests>
+          <successTests>testConstructor</successTests>
         </attempts>
       </proposals>
     </proposals>
@@ -1727,6 +3038,172 @@ CardDeck.shufflePerfectly()&#xD;
         <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440414924" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
         <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440419199" elementId="interfaces.BinaryComputingIterator" action="suspend.stepEnd"/>
         <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583440432307" elementId="interfaces.BinaryComputingIteratorTest" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169606628" elementId="patterns.observable.Stock" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169639367" elementId="java.lang.invoke.DirectMethodHandle" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169650490" elementId="java.lang.invoke.LambdaForm$DMH.1882554559" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169653001" elementId="java.lang.invoke.LambdaForm$MH.23211803" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169655287" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169661266" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169671540" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169672118" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169672446" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169672781" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169673117" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169673773" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169675267" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169768178" elementId="patterns.observable.Stock" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169877747" elementId="patterns.observable.StockIndexTest" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169954745" elementId="patterns.observable.StockIndexTest" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169975559" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170050536" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170051708" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170056799" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170099222" elementId="patterns.observable.StockIndexTest" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170107688" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170117952" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170125344" elementId="java.lang.invoke.DirectMethodHandle" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170126859" elementId="java.lang.invoke.LambdaForm$DMH.76432244" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170127946" elementId="java.lang.invoke.LambdaForm$DMH.76432244" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170128478" elementId="java.lang.invoke.LambdaForm$MH.1264413185" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170129707" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170147230" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170149099" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170163669" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170171313" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170191460" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170192379" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170207825" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170214638" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170215190" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170215949" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170216278" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170216643" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170217462" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170219670" elementId="junit.framework.TestResult" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170220509" elementId="junit.framework.TestResult" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170220983" elementId="junit.framework.TestResult" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170221374" elementId="junit.framework.TestResult" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170221721" elementId="junit.framework.TestResult" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170222265" elementId="junit.framework.TestResult" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170222649" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170223249" elementId="junit.framework.TestSuite" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170223821" elementId="junit.framework.TestSuite" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170224290" elementId="junit.framework.TestSuite" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170224834" elementId="junit.framework.TestSuite" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170225202" elementId="junit.framework.TestSuite" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170225459" elementId="junit.framework.TestSuite" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170225762" elementId="junit.framework.TestSuite" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170225969" elementId="org.junit.internal.runners.JUnit38ClassRunner" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170226187" elementId="org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170227054" elementId="org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170227685" elementId="org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170227942" elementId="org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170228216" elementId="org.eclipse.jdt.internal.junit.runner.TestExecution" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170228848" elementId="org.eclipse.jdt.internal.junit.runner.RemoteTestRunner" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170229438" elementId="org.eclipse.jdt.internal.junit.runner.RemoteTestRunner" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170229796" elementId="org.eclipse.jdt.internal.junit.runner.RemoteTestRunner" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170230276" elementId="org.eclipse.jdt.internal.junit.runner.RemoteTestRunner" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170240926" elementId="patterns.observable.StockIndexTest" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170248660" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170254845" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170256284" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170262043" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170283376" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170295356" elementId="patterns.observable.StockIndexTest" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170301203" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170302074" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170302645" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170304576" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170305824" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170328575" elementId="patterns.observable.StockIndex" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170330494" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170332331" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170506968" elementId="patterns.observable.StockIndexTest" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170512301" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170514561" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170516049" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170517653" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170521117" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170522480" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170522832" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170532591" elementId="patterns.observable.StockIndexTest" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170534360" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170535997" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170537663" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170538678" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170539519" elementId="java.util.ArrayList$Itr" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170553739" elementId="patterns.observable.StockIndexTest" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170555483" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170616971" elementId="patterns.observable.StockIndex" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170630994" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170652893" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170658999" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170659704" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170660859" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170661643" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170662048" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170662484" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170663324" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170664068" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170674103" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170676699" elementId="patterns.observable.StockIndex" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170678931" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170681526" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170682155" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170683037" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170683341" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170683625" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170684000" elementId="jdk.internal.reflect.NativeMethodAccessorImpl" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170684287" elementId="jdk.internal.reflect.DelegatingMethodAccessorImpl" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170684987" elementId="java.lang.reflect.Method" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170685523" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170687131" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170687463" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170687875" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170688392" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170688747" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170689071" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170689423" elementId="junit.framework.TestResult$1" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170689943" elementId="junit.framework.TestResult" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170690279" elementId="junit.framework.TestResult" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170690595" elementId="junit.framework.TestResult" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170690839" elementId="junit.framework.TestResult" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170691051" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170691222" elementId="junit.framework.TestSuite" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170691424" elementId="junit.framework.TestSuite" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170691527" elementId="junit.framework.TestSuite" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170691625" elementId="java.util.Vector$Itr" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170691937" elementId="junit.framework.TestSuite" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170692238" elementId="patterns.observable.StockIndexTest" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170864545" elementId="patterns.observable.StockIndex" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170870138" elementId="patterns.observable.StockIndexTest" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170923782" elementId="patterns.observable.Stock" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170927747" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170929241" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170937508" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170939291" elementId="java.util.ArrayList$Itr" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170947903" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170950082" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585171022853" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585171022853" elementId="patterns.observable.Stock" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585171035369" elementId="patterns.observable.Stock" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585171038802" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585171040003" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585171042550" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585171159839" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585171160657" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585171161299" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585171177334" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585171178374" elementId="patterns.observable.StockIndexTest" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172695663" elementId="patterns.observable.StockIndex" action="suspend.breakpoint"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172708653" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172728432" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172731559" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172741873" elementId="java.util.ArrayList&lt;E>" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172742396" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172757038" elementId="patterns.observable.Stock" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172757523" elementId="patterns.observable.StockIndex" action="suspend.stepEnd"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172761967" elementId="patterns.observable.Stock" action="suspend.breakpoint"/>
       </proposals>
       <proposals xsi:type="workbench:CommandExecutionProposal" question="/0/@parts.1/@tasks.1/@q" answer="/0/@parts.1/@tasks.1/@a">
         <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1580822269205" elementId="no.hal.learning.exercise.ui.commands.OpenExerciseView" action="executeSuccess"/>
@@ -2351,6 +3828,359 @@ CardDeck.shufflePerfectly()&#xD;
         <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583442235234" elementId="org.eclipse.ui.file.refresh" action="executeSuccess"/>
         <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583442236726" elementId="org.eclipse.ui.file.refresh" action="executeSuccess"/>
         <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1583442238866" elementId="org.eclipse.ui.file.refresh" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585161171593" elementId="no.hal.learning.exercise.ui.commands.OpenExerciseView" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585161191674" elementId="org.eclipse.jdt.junit.junitShortcut.run" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585161208064" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585161210602" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585161497412" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585161499256" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585161511919" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585161512601" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585161527083" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585161536360" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585161538157" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585161542657" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585161544741" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585161560935" elementId="org.eclipse.jdt.junit.junitShortcut.run" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585161761256" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585161765226" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585161812301" elementId="org.eclipse.ui.edit.cut" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585161814392" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585161818033" elementId="org.eclipse.ui.edit.cut" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585161819704" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585161837651" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585161839278" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585162326876" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585162466927" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585162467460" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585162623854" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585162630086" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585162785289" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585162795474" elementId="org.eclipse.jdt.junit.junitShortcut.run" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585162816936" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585162818789" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585162961796" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585163046333" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585163632396" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585163644450" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164002089" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164004992" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164005676" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164252779" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164264332" elementId="org.eclipse.ui.edit.delete" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164315239" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164316427" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164413351" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164415251" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164415828" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164416454" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164449346" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164450840" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164502712" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164504729" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164533328" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164535142" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164607495" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164609922" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164623826" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164654453" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164665217" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164693656" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164769368" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164771488" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164775131" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164802559" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164907395" elementId="org.eclipse.ui.edit.delete" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164908073" elementId="org.eclipse.ui.edit.delete" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164912187" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164922947" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164925717" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164931709" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585164947665" elementId="org.eclipse.ui.edit.findNext" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585166532542" elementId="org.eclipse.ui.file.properties" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585166548951" elementId="org.eclipse.ui.edit.text.smartEnter" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585166575655" elementId="org.eclipse.jdt.ui.edit.text.java.create.getter.setter" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585166598178" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585166626501" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585166629151" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585166753620" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585166774385" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585166778949" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585166782704" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585166809142" elementId="AUTOGEN:::org.eclipse.jdt.internal.ui.CompilationUnitEditor.ruler.actions/org.eclipse.jdt.internal.ui.javaeditor.JavaSelectRulerAction" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585166869078" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585167061307" elementId="org.eclipse.ui.edit.delete" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585167061995" elementId="org.eclipse.ui.edit.delete" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585167062705" elementId="org.eclipse.ui.edit.delete" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585167063262" elementId="org.eclipse.ui.edit.delete" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585167171843" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585167483435" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585167491152" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585167500064" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585167520413" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585167677954" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585167700487" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585167708845" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585167865423" elementId="org.eclipse.ui.edit.delete" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585167865758" elementId="org.eclipse.ui.edit.delete" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585167869275" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585167985733" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168004364" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168048593" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168071586" elementId="no.hal.learning.exercise.ui.commands.OpenExerciseView" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168100083" elementId="org.eclipse.jdt.junit.junitShortcut.run" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168108542" elementId="org.eclipse.jdt.junit.junitShortcut.run" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168141908" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168148931" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168153291" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168275004" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168399780" elementId="org.eclipse.ui.edit.delete" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168400304" elementId="org.eclipse.ui.edit.delete" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168404622" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168407327" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168445219" elementId="AUTOGEN:::org.eclipse.jdt.internal.ui.CompilationUnitEditor.ruler.actions/org.eclipse.jdt.internal.ui.javaeditor.JavaSelectRulerAction" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168456868" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168462970" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168497209" elementId="org.eclipse.jdt.junit.junitShortcut.run" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168525259" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168780758" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168786503" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168791114" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168793185" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168903057" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168907554" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168924632" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585168926300" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169026867" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169029173" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169084064" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169162838" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169180237" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169185460" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169195929" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169197631" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169208972" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169210550" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169310586" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169317148" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169374674" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169376093" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169402567" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169571312" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169573057" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169592041" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169599794" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169639282" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169650485" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169652999" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169655283" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169661263" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169671531" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169672114" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169672442" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169672778" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169673113" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169673769" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169675262" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169716435" elementId="org.eclipse.ui.edit.delete" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169736150" elementId="org.eclipse.ui.edit.delete" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169755964" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169766230" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169779252" elementId="org.eclipse.debug.ui.commands.Terminate" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169782889" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169785511" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169830975" elementId="org.eclipse.jdt.junit.junitShortcut.run" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169866447" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169869519" elementId="org.eclipse.jdt.junit.junitShortcut.rerunLast" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169914286" elementId="org.eclipse.debug.ui.commands.Terminate" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169916460" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169943091" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169945415" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169947969" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585169975513" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170050533" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170051705" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170056792" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170061584" elementId="org.eclipse.debug.ui.commands.Terminate" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170107685" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170117949" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170125279" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170126856" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170127944" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170128476" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170129704" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170147227" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170149095" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170163666" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170171310" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170191457" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170192376" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170207820" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170214631" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170215183" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170215947" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170216275" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170216639" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170217459" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170219667" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170220507" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170220875" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170221371" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170221719" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170222259" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170222647" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170223247" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170223819" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170224287" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170224823" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170225195" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170225447" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170225755" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170225967" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170226183" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170227038" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170227682" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170227938" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170228214" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170228846" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170229434" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170229794" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170230270" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170234031" elementId="org.eclipse.debug.ui.commands.Terminate" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170248613" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170254841" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170256281" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170262040" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170283371" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170288577" elementId="org.eclipse.debug.ui.commands.Terminate" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170301158" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170302070" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170302642" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170304574" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170305822" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170328573" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170330492" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170332328" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170400430" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170425704" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170428087" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170431248" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170512298" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170514558" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170516046" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170517650" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170521109" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170522477" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170522829" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170526590" elementId="org.eclipse.debug.ui.commands.Terminate" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170534357" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170535993" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170537660" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170538676" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170539516" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170545462" elementId="org.eclipse.debug.ui.commands.Terminate" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170555479" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170609973" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170612165" elementId="org.eclipse.debug.ui.commands.Terminate" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170630991" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170652890" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170658997" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170659701" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170660857" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170661637" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170662045" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170662481" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170663321" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170664065" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170674101" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170676696" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170678928" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170681524" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170682152" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170683032" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170683336" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170683620" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170683997" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170684285" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170684984" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170685520" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170687128" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170687460" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170687872" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170688388" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170688744" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170689068" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170689420" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170689940" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170690276" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170690592" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170690832" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170691048" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170691219" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170691421" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170691524" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170691622" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170691935" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170692004" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170692007" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170692232" elementId="org.eclipse.debug.ui.commands.StepReturn" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170692233" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170692234" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170695341" elementId="org.eclipse.debug.ui.commands.Terminate" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170740693" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170741698" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170811055" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170838993" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170839424" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170840499" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170845335" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170870137" elementId="org.eclipse.debug.ui.commands.Resume" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170872971" elementId="org.eclipse.debug.ui.commands.Resume" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170880989" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170889688" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170891512" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170892453" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170906244" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170927743" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170929238" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170937501" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170939289" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170947900" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585170950080" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585171022589" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585171028571" elementId="org.eclipse.debug.ui.commands.Terminate" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585171038800" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585171039999" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585171042547" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585171159837" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585171160653" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585171161296" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585171177332" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585171178372" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172685544" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172688416" elementId="org.eclipse.debug.ui.commands.Terminate" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172708651" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172728430" elementId="org.eclipse.debug.ui.commands.StepInto" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172731557" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172741869" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172742393" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172757036" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172757520" elementId="org.eclipse.debug.ui.commands.StepOver" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172761966" elementId="org.eclipse.debug.ui.commands.Resume" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172767384" elementId="org.eclipse.debug.ui.commands.Resume" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172806419" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172808267" elementId="org.eclipse.debug.ui.commands.ToggleBreakpoint" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172920927" elementId="org.eclipse.ui.edit.copy" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172927590" elementId="org.eclipse.ui.edit.paste" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172945429" elementId="org.eclipse.ui.edit.delete" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172959275" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172977733" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585172978124" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585173000727" elementId="org.eclipse.ui.edit.undo" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585173143699" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585173146801" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585173184537" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
+        <attempts xsi:type="workbench:WorkbenchTaskEvent" timestamp="1585173190253" elementId="org.eclipse.ui.file.save" action="executeSuccess"/>
       </proposals>
       <proposals xsi:type="workbench:PartTaskProposal" question="/0/@parts.1/@tasks.2/@q" answer="/0/@parts.1/@tasks.2/@a">
         <attempts xsi:type="workbench:PartTaskEvent" timestamp="1580822269048" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
@@ -3715,6 +5545,894 @@ CardDeck.shufflePerfectly()&#xD;
         <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583442441395" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIteratorProgram.java"/>
         <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583442441433" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIterator.java"/>
         <attempts xsi:type="workbench:PartTaskEvent" timestamp="1583442441434" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161171253" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161171368" elementId="no.hal.learning.exercise.views.ExerciseView" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161171369" elementId="no.hal.learning.exercise.views.ExerciseView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161171458" elementId="no.hal.learning.exercise.views.ExerciseView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161188325" elementId="no.hal.learning.exercise.views.ExerciseView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161188329" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161193195" elementId="org.eclipse.jdt.junit.ResultView" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161193429" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161193430" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161193511" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161193639" elementId="org.eclipse.ui.console.ConsoleView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161195810" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/ClerkTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161195811" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/ClerkTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161195821" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161195867" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/ClerkTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161199244" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Clerk.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161199246" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/ClerkTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161199255" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Clerk.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161199305" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/ClerkTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161210510" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Clerk.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161210542" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161236976" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Printer.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161236981" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161237026" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Printer.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161365493" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Printer.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161365494" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Clerk.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161365506" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Clerk.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161380712" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161380748" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Clerk.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161380778" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161385788" elementId="org.eclipse.ui.DefaultTextEditor" action="opened" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/Clerk.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161385800" elementId="org.eclipse.ui.DefaultTextEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/Clerk.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161385806" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161385866" elementId="org.eclipse.ui.DefaultTextEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/Clerk.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161426549" elementId="org.eclipse.ui.DefaultTextEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/Clerk.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161426569" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Printer.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161426583" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Printer.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161435395" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161435426" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Printer.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161435462" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161447371" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161447392" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Printer.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161461785" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Printer.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161461794" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161465146" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161465165" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Printer.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161499156" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Printer.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161499190" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161511066" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161511087" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Printer.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161544651" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Printer.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161544685" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161548557" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161548578" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Printer.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161554861" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161554889" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Printer.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161554918" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161562883" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161562884" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161562925" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161592189" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161592210" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Printer.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161765131" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Printer.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161765165" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161790488" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161790506" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Printer.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161839186" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Printer.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161839222" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161842515" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Clerk.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161842521" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161842564" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Clerk.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161846219" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161846246" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Clerk.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161846274" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161862747" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161862748" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161862756" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585161862819" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162792514" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162792527" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162797498" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162797499" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162797556" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162804577" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162804610" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162818679" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162818732" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162844937" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/ManagerTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162844939" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/ManagerTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162844954" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162845011" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/ManagerTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162855479" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162855495" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/ManagerTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162855506" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162855593" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/ManagerTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162874178" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162874192" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162876603" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/ManagerTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162876605" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/ManagerTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162876620" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162876677" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/ManagerTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162904934" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162904937" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/ManagerTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162904948" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162905043" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/ManagerTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162905918" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162905963" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162906011" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162909086" elementId="org.eclipse.ui.DefaultTextEditor" action="opened" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/Manager.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162909105" elementId="org.eclipse.ui.DefaultTextEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/Manager.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162909117" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162909202" elementId="org.eclipse.ui.DefaultTextEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/Manager.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162917714" elementId="org.eclipse.ui.DefaultTextEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/Manager.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162917744" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585162917765" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585163643129" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585163643173" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585163643231" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585163649932" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585163649964" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585163662218" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585163662284" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585163662345" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585163674723" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585163674748" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585163696007" elementId="no.hal.learning.exercise.views.ExerciseView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585163696046" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585163696126" elementId="no.hal.learning.exercise.views.ExerciseView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585163701412" elementId="no.hal.learning.exercise.views.ExerciseView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585163701413" elementId="org.eclipse.ui.console.ConsoleView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585163701444" elementId="org.eclipse.ui.console.ConsoleView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585163702104" elementId="org.eclipse.ui.console.ConsoleView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585163702125" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166392635" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166392760" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166414044" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166414046" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166414068" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166414154" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166598760" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166598772" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166612932" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166612934" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166612952" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166613041" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166631461" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166631473" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166643861" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166643874" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166643926" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166761653" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166761667" elementId="org.eclipse.ui.DefaultTextEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/Manager.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166761689" elementId="org.eclipse.ui.DefaultTextEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/Manager.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166762966" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166762971" elementId="org.eclipse.ui.DefaultTextEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/Manager.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166762997" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166763072" elementId="org.eclipse.ui.DefaultTextEditor" action="closed" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/Manager.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166766240" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166766243" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Clerk.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166766265" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Clerk.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166767433" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Clerk.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166767436" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Printer.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166767458" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Printer.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166775225" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Printer.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166775227" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166775249" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166776516" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166776519" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166776541" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166789871" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166789873" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Clerk.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166789894" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Clerk.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166792428" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Clerk.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166792430" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166792451" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166794527" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166794531" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166794549" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166803566" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166803569" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166803591" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166928135" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166928139" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166928159" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166933596" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166933599" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166933620" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166938352" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166938355" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166938376" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166939830" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166939833" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166939855" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166952173" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166952175" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166952196" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166953694" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166953698" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585166953720" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167175506" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167175520" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167230370" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167230371" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167230388" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167230474" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167522493" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167522497" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167522519" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167542927" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167542929" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167542948" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167543647" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167543650" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167543668" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167568792" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167568794" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167568815" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167572386" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167572389" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167572410" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167621521" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167621526" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167621547" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167622744" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167622746" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167622768" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167958673" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167958676" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167958697" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167961574" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167961577" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585167961598" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168067801" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168067903" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168071273" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168071274" elementId="no.hal.learning.exercise.views.ExerciseView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168071353" elementId="no.hal.learning.exercise.views.ExerciseView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168086351" elementId="no.hal.learning.exercise.views.ExerciseView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168086374" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168097663" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168097675" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168102335" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168102336" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168102392" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168104252" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168104253" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168104309" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168110478" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168110478" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168110533" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168128579" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168128613" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168153193" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168153249" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168160239" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168160272" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168343882" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168343993" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168390701" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168390809" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168407206" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168407266" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168423606" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168423641" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168425102" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168425116" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168432516" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168432547" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168445131" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168445136" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168445148" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168448381" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168448383" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168448404" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168462884" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168462942" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168490644" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168490644" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168490699" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168499665" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168499665" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168499729" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168509286" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168509319" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168511768" elementId="org.eclipse.ui.console.ConsoleView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168511800" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168511854" elementId="org.eclipse.ui.console.ConsoleView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168512727" elementId="org.eclipse.ui.console.ConsoleView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168512751" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168527327" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168527342" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168551535" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168551566" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168631396" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168631408" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168641976" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168642006" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168650497" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168650508" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168659337" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168659364" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168673598" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168673645" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168673698" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168678029" elementId="org.eclipse.ui.DefaultTextEditor" action="opened" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168678047" elementId="org.eclipse.ui.DefaultTextEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168678065" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168678149" elementId="org.eclipse.ui.DefaultTextEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168681520" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168681573" elementId="org.eclipse.ui.DefaultTextEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168681610" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168683472" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168683501" elementId="org.eclipse.ui.DefaultTextEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168752371" elementId="org.eclipse.ui.DefaultTextEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168752401" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168752419" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168763414" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168763428" elementId="org.eclipse.ui.DefaultTextEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168763445" elementId="org.eclipse.ui.DefaultTextEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168771022" elementId="org.eclipse.ui.DefaultTextEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168771053" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168771078" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168786381" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168786434" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168789966" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168789998" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168798357" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168798368" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168804663" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168804697" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168823630" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168823633" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168823651" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168828008" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168828011" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168828031" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168907438" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168907508" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168915818" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168915828" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168915899" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168917705" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168917707" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168917728" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168918820" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168918824" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168918845" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168921467" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168921469" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168921492" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168945269" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168945289" elementId="org.eclipse.ui.DefaultTextEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168945312" elementId="org.eclipse.ui.DefaultTextEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168997050" elementId="org.eclipse.ui.DefaultTextEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168997091" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585168997116" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169000506" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169000509" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169000531" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169029060" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169029118" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169040352" elementId="org.eclipse.ui.DefaultTextEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169040366" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169040422" elementId="org.eclipse.ui.DefaultTextEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169070899" elementId="org.eclipse.ui.DefaultTextEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169070929" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169070952" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169071944" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169071946" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169071967" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169080532" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169080534" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169080554" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169095235" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169095246" elementId="org.eclipse.ui.DefaultTextEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169095268" elementId="org.eclipse.ui.DefaultTextEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169104540" elementId="org.eclipse.ui.DefaultTextEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169104575" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169104600" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169197539" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169197600" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169202854" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169202888" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169210452" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169210519" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169222732" elementId="org.eclipse.ui.DefaultTextEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169222743" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169222794" elementId="org.eclipse.ui.DefaultTextEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169246372" elementId="org.eclipse.ui.DefaultTextEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169246401" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169246425" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169317065" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169317120" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169325590" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169325602" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169325652" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169327042" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169327048" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169327069" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169339835" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169339837" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169339854" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169341854" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169341859" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169341877" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169375983" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169376034" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169380658" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169380692" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169402443" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169402495" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169428962" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169428994" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169602418" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169602429" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169606765" elementId="org.eclipse.debug.ui.DebugView" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169606769" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169606771" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169606889" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169607811" elementId="org.eclipse.debug.ui.ExpressionView" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169607902" elementId="org.eclipse.debug.ui.BreakpointView" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169608010" elementId="org.eclipse.jdt.debug.ui.DisplayView" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169616382" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169616440" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169621647" elementId="org.eclipse.debug.ui.VariableView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169621739" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169633537" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169633583" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169639759" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="opened" inputUri="file:C:/Users/kehof/AppData/Local/Temp/DirectMethodHandle.class10666261705945766793.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169639766" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/DirectMethodHandle.class10666261705945766793.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169650619" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169650632" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169650661" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="closed" inputUri="file:C:/Users/kehof/AppData/Local/Temp/DirectMethodHandle.class10666261705945766793.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169655371" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169661605" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="opened" inputUri="file:C:/Users/kehof/AppData/Local/Temp/ArrayList.class9647471760539256796.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169661616" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/ArrayList.class9647471760539256796.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169661641" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169675313" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169692051" elementId="org.eclipse.debug.ui.VariableView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169692117" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169762423" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169762456" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169762493" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169768184" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169768185" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169768228" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169780130" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169780147" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169784263" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169784300" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169784336" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169797014" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169797037" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169809363" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169809372" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169820005" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169820005" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169820041" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169833032" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169833033" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169833082" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169846064" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169846083" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169847229" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169847239" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169849263" elementId="org.eclipse.ui.DefaultTextEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169849270" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169849300" elementId="org.eclipse.ui.DefaultTextEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169851231" elementId="org.eclipse.ui.DefaultTextEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169851251" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169851268" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169853248" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169853258" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169860067" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169860067" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169860081" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169860113" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169869376" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169869430" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169877754" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169877755" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169877803" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169894821" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169894864" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169915308" elementId="org.eclipse.debug.ui.VariableView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169915365" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169950097" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169950136" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169950189" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169954749" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169954751" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169954792" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169959388" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585169959427" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170015862" elementId="org.eclipse.ui.DefaultTextEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170015870" elementId="org.eclipse.debug.ui.VariableView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170015942" elementId="org.eclipse.ui.DefaultTextEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170017427" elementId="org.eclipse.ui.DefaultTextEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170017447" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170017466" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170021679" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170021681" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170021696" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170048182" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170048184" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170048199" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170057510" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestCase.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170057512" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestCase.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170057516" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170057533" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestCase.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170057563" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="closed" inputUri="file:C:/Users/kehof/AppData/Local/Temp/ArrayList.class9647471760539256796.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170065977" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170065980" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestCase.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170065989" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170066080" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestCase.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170095007" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170095042" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170095095" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170099228" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170099230" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170099288" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170102155" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170102172" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170106010" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170106042" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170107773" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170125564" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="opened" inputUri="file:C:/Users/kehof/AppData/Local/Temp/DirectMethodHandle.class1505634788435705638.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170125569" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/DirectMethodHandle.class1505634788435705638.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170126948" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170126955" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170126970" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="closed" inputUri="file:C:/Users/kehof/AppData/Local/Temp/DirectMethodHandle.class1505634788435705638.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170129768" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170147438" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="opened" inputUri="file:C:/Users/kehof/AppData/Local/Temp/ArrayList.class2535000894363732241.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170147442" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/ArrayList.class2535000894363732241.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170147459" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170149136" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170171346" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170189540" elementId="org.eclipse.debug.ui.VariableView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170189608" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170198907" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170198939" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170204636" elementId="org.eclipse.debug.ui.VariableView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170204699" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170208313" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestCase.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170208315" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestCase.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170208318" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170208327" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestCase.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170208356" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="closed" inputUri="file:C:/Users/kehof/AppData/Local/Temp/ArrayList.class2535000894363732241.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170226320" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="opened"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170226330" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170226334" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/org/junit/internal/runners/JUnit38ClassRunner.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170226338" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170226367" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/org/junit/internal/runners/JUnit38ClassRunner.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170232326" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170232360" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170232372" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170234132" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170234141" elementId="org.eclipse.debug.ui.sourcelookup.CommonSourceNotFoundEditor" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170240930" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170240932" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170240976" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170270767" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170270784" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170273780" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170273817" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170284004" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestCase.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170284005" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestCase.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170290118" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170290150" elementId="org.eclipse.debug.ui.VariableView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170290214" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170295361" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170295362" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170295403" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170295697" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170314965" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170315005" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170328666" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170330525" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170335250" elementId="org.eclipse.debug.ui.VariableView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170335312" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170354687" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170354689" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170354704" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170355722" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170355723" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170355737" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170436105" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170436140" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170436183" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170448166" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170448175" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170448234" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170449540" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170449549" elementId="org.eclipse.ui.DefaultTextEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170449564" elementId="org.eclipse.ui.DefaultTextEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170450303" elementId="org.eclipse.ui.DefaultTextEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170450327" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170450344" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170486313" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170486315" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170486330" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170490008" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170490010" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170490025" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170492928" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170492930" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170492945" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170503671" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170503680" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170506973" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170506974" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170507020" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170507304" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170512382" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170516188" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="opened" inputUri="file:C:/Users/kehof/AppData/Local/Temp/ArrayList.class15657721013453443404.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170516192" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/ArrayList.class15657721013453443404.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170516214" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestCase.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170517687" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170522863" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170528488" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170528488" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170528526" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170532596" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170532597" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170532642" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170534438" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170537749" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/ArrayList.class15657721013453443404.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170538713" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170539601" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/ArrayList.class15657721013453443404.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170548766" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170548766" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170548804" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170553743" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170553745" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170553788" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170554082" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170555564" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170557656" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170557705" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170576908" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170576915" elementId="org.eclipse.debug.ui.VariableView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170576994" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170580215" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170580217" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170580232" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170612792" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170612829" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170612875" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170616976" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170616978" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170617024" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170622668" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170622707" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170630162" elementId="org.eclipse.debug.ui.VariableView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170630224" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170631065" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170631069" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170631111" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170635508" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170635544" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170651957" elementId="org.eclipse.debug.ui.VariableView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170652020" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170652970" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170652976" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/ArrayList.class15657721013453443404.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170653017" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="activated" inputUri="file:C:/Users/kehof/AppData/Local/Temp/ArrayList.class15657721013453443404.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170664091" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="deactivated" inputUri="file:C:/Users/kehof/AppData/Local/Temp/ArrayList.class15657721013453443404.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170664097" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170664140" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170666744" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170666775" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170676732" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170678998" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170684126" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/NativeMethodAccessorImpl.class8267547207703508465.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170686193" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestCase.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170686197" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestCase.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170686215" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="closed" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Method.class18169443153916869081.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170691850" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="opened" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Vector.class15794339415568064827.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170691855" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Vector.class15794339415568064827.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170691884" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestSuite.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170692167" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestSuite.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170692171" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestSuite.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170692190" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="closed" inputUri="file:C:/Users/kehof/AppData/Local/Temp/Vector.class15794339415568064827.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170692533" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170693301" elementId="org.eclipse.debug.ui.VariableView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170693368" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170697125" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170697127" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170697141" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170723692" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170723694" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170723713" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170725325" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170725326" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170725343" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170750766" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170750767" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170750781" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170815644" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170815645" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170815660" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170818638" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170818639" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170818654" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170822082" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170822083" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170822099" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170831972" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170831974" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170831986" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170848759" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170848761" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170848776" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170851755" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170851759" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170851774" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170858270" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170858306" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170858359" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170864552" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170864553" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170864622" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170864892" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170870231" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170877382" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170877398" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170882384" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170882393" elementId="org.eclipse.ui.DefaultTextEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170882405" elementId="org.eclipse.ui.DefaultTextEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170883492" elementId="org.eclipse.ui.DefaultTextEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170883512" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170883527" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170887429" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170887430" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170887449" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170893786" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170893789" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170893803" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170912256" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170912290" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170912326" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170914317" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170914339" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170920950" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170920960" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170923789" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170923790" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170923838" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170929376" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="opened" inputUri="file:C:/Users/kehof/AppData/Local/Temp/ArrayList.class3452675873612558613.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170929380" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/ArrayList.class3452675873612558613.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170929398" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="C:/Users/kehof/.m2/repository/junit/junit/4.12/junit-4.12-sources.jar/junit/framework/TestSuite.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170934553" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170934600" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170937533" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170939368" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/ArrayList.class3452675873612558613.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170947930" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170979677" elementId="org.eclipse.debug.ui.VariableView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585170979770" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585171031138" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585171031172" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585171031213" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585171035374" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585171035375" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585171035421" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585171040083" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/ArrayList.class3452675873612558613.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585171042577" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585171050932" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585171050980" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585171161370" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585171175693" elementId="org.eclipse.debug.ui.VariableView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585171175761" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585171181181" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585171181214" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172510709" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172510718" elementId="org.eclipse.debug.ui.VariableView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172510808" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172527049" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172527051" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172527066" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172687268" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172687310" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172687357" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172695668" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172695669" elementId="org.eclipse.debug.ui.DebugView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172695713" elementId="org.eclipse.debug.ui.DebugView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172702484" elementId="org.eclipse.debug.ui.DebugView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172702528" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172707707" elementId="org.eclipse.debug.ui.VariableView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172707772" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172708731" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172708734" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172708774" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172712034" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172712071" elementId="org.eclipse.debug.ui.VariableView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172728515" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="broughtToTop" inputUri="file:C:/Users/kehof/AppData/Local/Temp/ArrayList.class3452675873612558613.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172742425" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172757554" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172762045" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172787796" elementId="org.eclipse.debug.ui.VariableView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172787869" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172811932" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172811934" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172811949" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172812992" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172813002" elementId="org.eclipse.ui.DefaultTextEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172813016" elementId="org.eclipse.ui.DefaultTextEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172815665" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172815702" elementId="org.eclipse.ui.DefaultTextEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172815727" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172817102" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172817123" elementId="org.eclipse.ui.DefaultTextEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172855163" elementId="org.eclipse.ui.DefaultTextEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172855183" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172855201" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172857096" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172857106" elementId="org.eclipse.ui.DefaultTextEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172857120" elementId="org.eclipse.ui.DefaultTextEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172861833" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172861867" elementId="org.eclipse.ui.DefaultTextEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172861889" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172896941" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="opened" inputUri="platform:/resource/ovinger/tests/patterns/observable/ActualFuckingStockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172896962" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/ActualFuckingStockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172896977" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172897054" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/ActualFuckingStockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172899025" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/ActualFuckingStockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172899034" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172901336" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172901346" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172901401" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172921461" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172921469" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172923268" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/ActualFuckingStockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172923277" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172923304" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/ActualFuckingStockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172938334" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/ActualFuckingStockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172938342" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172945433" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172945449" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/tests/patterns/observable/ActualFuckingStockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172948460" elementId="org.eclipse.ui.DefaultTextEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172948469" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172948497" elementId="org.eclipse.ui.DefaultTextEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172949506" elementId="org.eclipse.ui.DefaultTextEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172949526" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172949545" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172956989" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172956998" elementId="org.eclipse.ui.DefaultTextEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172957011" elementId="org.eclipse.ui.DefaultTextEditor" action="activated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172958321" elementId="org.eclipse.ui.DefaultTextEditor" action="deactivated" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172958342" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585172958360" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173128722" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173128724" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173128740" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173130399" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173130401" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173130415" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173145820" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173145822" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="broughtToTop" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173145837" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173192751" elementId="org.eclipse.jdt.junit.ResultView" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173192786" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173192830" elementId="org.eclipse.jdt.junit.ResultView" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173200985" elementId="org.eclipse.jdt.junit.ResultView" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173201004" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="activated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173291136" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="broughtToTop"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173291175" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="deactivated" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173291219" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="activated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173381478" elementId="org.eclipse.jdt.debug.ui.DisplayView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173381487" elementId="no.hal.learning.exercise.views.ExerciseView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173381528" elementId="org.eclipse.ui.console.ConsoleView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173381545" elementId="org.eclipse.debug.ui.BreakpointView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173381555" elementId="org.eclipse.debug.ui.ExpressionView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173381571" elementId="org.eclipse.debug.ui.VariableView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173381588" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/debugging/StringMergingIterator.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173381599" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Employee.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173381611" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Clerk.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173381641" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Printer.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173381653" elementId="org.eclipse.ui.DefaultTextEditor" action="closed" inputUri="platform:/resource/ovinger/tests/patterns/delegation/office/Clerk.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173381665" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/patterns/delegation/office/Manager.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173381700" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/patterns/observable/Stock.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173381765" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/patterns/observable/StockListener.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173381779" elementId="org.eclipse.ui.DefaultTextEditor" action="closed" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndex.jextest"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173381791" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/tests/patterns/observable/StockIndexTest.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173381822" elementId="org.eclipse.jdt.ui.ClassFileEditor" action="closed" inputUri="file:C:/Users/kehof/AppData/Local/Temp/ArrayList.class3452675873612558613.class"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173381854" elementId="org.eclipse.jdt.ui.CompilationUnitEditor" action="closed" inputUri="platform:/resource/ovinger/src/patterns/observable/StockIndex.java"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173381926" elementId="org.eclipse.debug.ui.DebugView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173381940" elementId="org.eclipse.jdt.junit.ResultView" action="closed"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173381957" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="deactivated"/>
+        <attempts xsi:type="workbench:PartTaskEvent" timestamp="1585173381958" elementId="org.eclipse.ui.navigator.ProjectExplorer" action="closed"/>
       </proposals>
     </proposals>
   </exercise:ExerciseProposals>

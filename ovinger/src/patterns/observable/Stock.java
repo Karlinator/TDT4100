@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Stock {
-	private String ticker;
+	private final String ticker;
 	private double price;
-	private List<StockListener> listeners = new ArrayList<StockListener>();
+	private final List<StockListener> listeners = new ArrayList<StockListener>();
 	
 	public Stock(String ticker, double price) {
 		this.ticker = ticker;

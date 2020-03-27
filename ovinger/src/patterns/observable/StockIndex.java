@@ -6,8 +6,8 @@ import java.util.List;
 
 public class StockIndex implements StockListener {
 	private double index;
-	private String name;
-	private List<Stock> stocks = new ArrayList<Stock>();
+	private final String name;
+	private final List<Stock> stocks = new ArrayList<Stock>();
 
 	public StockIndex(String name, Stock...stocks) {
 		this.name = name;
